@@ -1,0 +1,40 @@
+<dom-module id="int-content-card">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #333333;
+        width: 100%;
+        padding: 10px;
+      }
+
+      #image {
+        height: 40vh;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+
+    <div id="image"></div>
+    <h3>[[data.title]]</h3>
+    <p>[[data.description]]</p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-content-card',
+      ready: function() {
+        this.$.image.style.backgroundImage = "url(" + this.data.imageUrl + ")";
+        if(this.data.imagePosition === "logo") {
+          this.$.image.style.backgroundSize = "contain";
+          this.$.image.style.backgroundRepeat = "no-repeat";
+        } else this.$.image.style.backgroundPosition = this.data.imagePosition;
+      },
+    });
+
+  </script>
+</dom-module>

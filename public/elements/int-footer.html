@@ -1,0 +1,27 @@
+<dom-module id="int-footer">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px 0;
+        color: #aaaaaa;
+      }
+    </style>
+
+    <p>© [[date]] Brandon Blatter.  All rights reserved.</p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-footer',
+      ready: function() {
+        // this.set(date,new Date().getFullYear());
+        this.date = new Date().getFullYear();
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,40 @@
+<dom-module id="int-navigation">
+  <template>
+    <style>
+      :host {
+        display: flex;
+      }
+
+      a {
+        padding: 10px 30px;
+        color: white;
+      }
+
+      a:hover {
+
+      }
+
+      @media (max-width: 768px) {
+        :host {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+    </style>
+
+    <a href="../data/brandonblatter.pdf">Yo</a>
+    <p><a href="/">Home</a></p>
+    <p><a href="/">Home</a></p>
+    <p><a href="/about">About</a></p>
+    <p><a href="/portfolio">Portfolio</a></p>
+    <p><a href="../data/brandonblatter.pdf">Résumé</a></p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-navigation',
+    });
+  </script>
+</dom-module>

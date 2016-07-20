@@ -1,0 +1,71 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../data/main.html">
+<link rel="import" href="int-navigation.html">
+<link rel="import" href="int-header.html">
+<link rel="import" href="int-section.html">
+<link rel="import" href="int-footer.html">
+
+<dom-module id="intcreator-app">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        justify-content: center;
+        padding: 0 30px;
+      }
+
+      #container {
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+    </style>
+
+    <div id="container">
+      <int-navigation></int-navigation>
+      <int-header></int-header>
+      <p>If you're here, it's probably by accident.  While we figure things out, head over to the <a href="http://intcreator.com">main site</a>.</p>
+      <template is="dom-repeat" items="[[blocks]]">
+        <int-section id="[[item.slug]]" data="[[item]]"></int-section>
+      </template>
+      <int-footer></int-footer>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'intcreator-app',
+      behaviors: [MainData],
+      properties: {
+        scroll: {
+          type: Number,
+          value: 0
+        }
+      },
+      ready: function() {
+        this.blocks = MainData.properties.home.value.blocks;
+        var toShow;
+        window.onscroll = function(e) {
+          // throttle - only run every 50px
+          if(window.pageYOffset - this.scroll < 50 && this.scroll - window.pageYOffset < 50) return;
+          // only load DOM elements once
+          toShow = toShow ? toShow : document.querySelectorAll('.showOnScroll');
+          this.scroll = window.pageYOffset;
+          for(var i = 0; i < toShow.length; i++) {
+            if(window.innerHeight - toShow[i].getBoundingClientRect().top - 50 > 0) {
+              toShow[i].classList.remove('fadeOutDown');
+              toShow[i].classList.add('fadeInUp');
+            } else {
+              toShow[i].classList.remove('fadeInUp');
+              toShow[i].classList.add('fadeOutDown');
+            }
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

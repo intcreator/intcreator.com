@@ -1,0 +1,31 @@
+<link rel="import" href="int-headline.html">
+<link rel="import" href="int-content-card.html">
+
+<dom-module id="int-section">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      int-content-card + int-content-card {
+        margin-top: 10px;
+      }
+    </style>
+
+    <int-headline data="[[data]]"></int-headline>
+    <template is="dom-repeat" items="[[data.items]]">
+      <int-content-card class="animated showOnScroll" data="[[item]]"></int-content-card>
+    </template>
+    <p><small>[[data.note]]</small><p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-section',
+    });
+  </script>
+</dom-module>

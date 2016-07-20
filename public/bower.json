@@ -1,0 +1,9 @@
+{
+  "name": "intcreator",
+  "description": "A Polymer based site to demonstrate Brandon&#39;s web dev skills",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {}
+}
