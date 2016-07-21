@@ -2,33 +2,53 @@
   <template>
     <style>
       :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
         display: flex;
+        justify-content: center;
+        z-index: 10;
+        background: rgba(0, 0, 0, .7);
+        border-bottom: 1px solid #BBB;
+      }
+
+      ul {
+        min-width: 50%;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 100;
+        list-style: none;
+        margin: 0;
+
+      }
+
+      li {
+        display: flex;
+        align-items: center;
       }
 
       a {
-        padding: 10px 30px;
+        padding: 0 30px;
         color: white;
       }
 
-      a:hover {
-
+      a:visited {
+        color: inherit;
       }
 
       @media (max-width: 768px) {
-        :host {
-          flex-direction: column;
-          align-items: center;
-        }
+
       }
 
     </style>
 
-    <a href="../data/brandonblatter.pdf">Yo</a>
-    <p><a href="/">Home</a></p>
-    <p><a href="/">Home</a></p>
-    <p><a href="/about">About</a></p>
-    <p><a href="/portfolio">Portfolio</a></p>
-    <p><a href="../data/brandonblatter.pdf">Résumé</a></p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="httli://brandaemon.com/">Portfolio</a></li>
+      <li><a href="../data/brandonblatter.pdf">Résumé</a></p>
+    </ul>
 
   </template>
 
