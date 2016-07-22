@@ -3,7 +3,8 @@
   "description": "A Polymer based site to demonstrate Brandon&#39;s web dev skills",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.1.3"
   },
   "devDependencies": {}
 }

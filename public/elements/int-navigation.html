@@ -1,3 +1,5 @@
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
 <dom-module id="int-navigation">
   <template>
     <style>
@@ -5,11 +7,11 @@
         position: fixed;
         left: 0;
         right: 0;
-        width: 100%;
+        min-width: 100%;
         display: flex;
         justify-content: center;
         z-index: 10;
-        background: rgba(0, 0, 0, .7);
+        background: rgba(0, 0, 0, .8);
         border-bottom: 1px solid #BBB;
       }
 
@@ -17,7 +19,7 @@
         min-width: 50%;
         display: flex;
         justify-content: space-between;
-        font-weight: 100;
+        font-weight: 200;
         list-style: none;
         margin: 0;
 
@@ -29,7 +31,7 @@
       }
 
       a {
-        padding: 0 30px;
+        padding: 10px 30px;
         color: white;
       }
 
@@ -37,17 +39,53 @@
         color: inherit;
       }
 
-      @media (max-width: 768px) {
+      iron-icon {
+        display: none;
+      }
 
+      @media (max-width: 768px) {
+        :host {
+          justify-content: flex-end;
+          min-width: 0;
+          left: initial;
+          border-bottom: none;
+          font-size: 2em;
+        }
+
+        :host > * {
+          flex-shrink: 0;
+        }
+
+        ul {
+          display: none;
+          padding: 0;
+        }
+
+        .open {
+          display: block !important;
+          height: 100vh;
+        }
+
+        a {
+          padding: 10px 30px 10px 10px;
+        }
+
+        iron-icon {
+          display: block;
+          height: 40px;
+          width: 40px;
+          padding: 5px;
+        }
       }
 
     </style>
 
-    <ul>
+    <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
+    <ul id="menu-list">
       <li><a href="/">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="httli://brandaemon.com/">Portfolio</a></li>
-      <li><a href="../data/brandonblatter.pdf">Résumé</a></p>
+      <li><a href="http://brandaemon.com/">Portfolio</a></li>
+      <li><a href="../data/brandonblatter.pdf">Résumé</a></li>
     </ul>
 
   </template>
@@ -55,6 +93,20 @@
   <script>
     Polymer({
       is: 'int-navigation',
+      properties: {
+        menuOpen: {
+          type: Boolean,
+          value: false
+        }
+      },
+      toggleMenu: function() {
+        this.set('menuOpen', !this.menuOpen);
+        if(this.menuOpen) this.$['menu-list'].classList.add("open");
+        else this.$['menu-list'].classList.remove("open");
+        console.log(this.classList);
+        console.log(this.style.display);
+        this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
+      }
     });
   </script>
 </dom-module>
