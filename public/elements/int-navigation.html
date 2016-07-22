@@ -8,9 +8,12 @@
         left: 0;
         right: 0;
         min-width: 100%;
+      }
+
+      #menu-container {
+        position: relative;
         display: flex;
         justify-content: center;
-        z-index: 10;
         background: rgba(0, 0, 0, .8);
         border-bottom: 1px solid #BBB;
       }
@@ -44,26 +47,59 @@
       }
 
       @media (max-width: 768px) {
-        :host {
-          justify-content: flex-end;
-          min-width: 0;
-          left: initial;
+        #menu-container {
+          flex-direction: column;
+          align-items: flex-end;
+          width: 0;
+          margin-left: auto;
           border-bottom: none;
           font-size: 2em;
+          background: none;
         }
 
-        :host > * {
+        #menu-container > * {
           flex-shrink: 0;
         }
 
         ul {
-          display: none;
+          display: block;
+          position: absolute;
+          left: 0;
           padding: 0;
+          height: 100vh;
+          background: rgba(0, 0, 0, .8);
         }
 
         .open {
-          display: block !important;
-          height: 100vh;
+          animation-duration: .4s;
+          animation-fill-mode: both;
+          animation-name: slideInRight;
+        }
+
+        @keyframes slideInRight {
+          from {
+            transform: translate(0, 0);
+          }
+
+          to {
+            transform: translate(-130px, 0);
+          }
+        }
+
+        .close {
+          animation-duration: .4s;
+          animation-fill-mode: both;
+          animation-name: slideOutRight;
+        }
+
+        @keyframes slideOutRight {
+          from {
+            transform: translate(-130px, 0);
+          }
+
+          to {
+            transform: translate(0, 0);
+          }
         }
 
         a {
@@ -72,21 +108,26 @@
 
         iron-icon {
           display: block;
+          position: absolute;
+          right: 0;
           height: 40px;
           width: 40px;
           padding: 5px;
+          background: rgba(0, 0, 0, .8);
         }
       }
 
     </style>
 
-    <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
-    <ul id="menu-list">
-      <li><a href="/">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="http://brandaemon.com/">Portfolio</a></li>
-      <li><a href="../data/brandonblatter.pdf">Résumé</a></li>
-    </ul>
+    <div id="menu-container">
+      <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
+      <ul id="menu-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="http://brandaemon.com/">Portfolio</a></li>
+        <li><a href="../data/brandonblatter.pdf">Résumé</a></li>
+      </ul>
+    </div>
 
   </template>
 
@@ -101,8 +142,14 @@
       },
       toggleMenu: function() {
         this.set('menuOpen', !this.menuOpen);
-        if(this.menuOpen) this.$['menu-list'].classList.add("open");
-        else this.$['menu-list'].classList.remove("open");
+        if(this.menuOpen) {
+          this.$['menu-container'].classList.add("open");
+          this.$['menu-container'].classList.remove("close");
+        }
+        else {
+          this.$['menu-container'].classList.remove("open");
+          this.$['menu-container'].classList.add("close");
+        }
         console.log(this.classList);
         console.log(this.style.display);
         this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
