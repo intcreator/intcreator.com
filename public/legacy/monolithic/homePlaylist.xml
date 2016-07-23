@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<track>
+		<path>./music/home/house-of-joy.mp3</path>
+		<title>House of Joy</title>
+	</track>
+	<track>
+		<path>./music/home/in-light-of-the-dark.mp3</path>
+		<title>In Light of the Dark</title>
+	</track>
+	<track>
+		<path>./music/home/ionic.mp3</path>
+		<title>Ionic</title>
+	</track>
+	<track>
+		<path>./music/home/lulling-us-to-sleep.mp3</path>
+		<title>Lulling Us To Sleep</title>
+	</track>
+	<track>
+		<path>./music/home/maxim.mp3</path>
+		<title>Maxim</title>
+	</track>
+	<track>
+		<path>./music/home/redemption.mp3</path>
+		<title>Redemption</title>
+	</track>
+	<track>
+		<path>./music/home/the-reason.mp3</path>
+		<title>The Reason</title>
+	</track>
+	<track>
+		<path>./music/home/the-sound-of-tears.mp3</path>
+		<title>The Sound of Tears</title>
+	</track>
+	<track>
+		<path>./music/home/window-of-faith.mp3</path>
+		<title>Window of Faith</title>
+	</track>
+	<track>
+		<path>./music/home/wraith.mp3</path>
+		<title>Wraith</title>
+	</track>
+</xml>

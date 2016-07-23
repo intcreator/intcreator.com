@@ -1,0 +1,49 @@
+body
+	{
+	background-color:#000;
+	color: #FFF;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+h1
+	{
+	font-family: "Arial Narrow";
+	color: #FFF;
+	font-size: 36px;
+}
+h2
+	{
+	font-family: "Agency FB";
+	color: #FFF;
+}
+h3
+	{}
+h4
+	{}
+p
+	{}
+A:link
+	{
+	color: #8AA5FF;
+	text-decoration: none;
+}
+A:visited
+	{
+	color: #5585B9;
+	text-decoration: none;
+}
+A:active
+	{
+	color: #82ADFF;
+	text-decoration: underline;
+}
+A:hover
+	{
+	color: #FFF;
+	text-decoration: none;
+}
+2darkblue {
+	color: #03C;
+}
+img {
+	border-color: #000;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<track>
+		<path>./music/omaha.mp3</path>
+		<title>Omaha Beach</title>
+	</track>
+	<track>
+		<path>./music/fallen.mp3</path>
+		<title>Hymn to the Fallen</title>
+	</track>
+	<track>
+		<path>./music/battle.mp3</path>
+		<title>The Last Battle</title>
+	</track>
+	<track>
+		<path>./music/defense.mp3</path>
+		<title>Defense Preparations</title>
+	</track>
+	<track>
+		<path>./music/ryan.mp3</path>
+		<title>Saving Private Ryan</title>
+	</track>
+	<track>
+		<path>./music/heroes.mp3</path>
+		<title>Summon the Heroes</title>
+	</track>
+</xml>

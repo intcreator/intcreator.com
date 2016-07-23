@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel=stylesheet type="text/css" href="style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pixar - Films</title>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script></head>
+
+<body onload="MM_preloadImages('images/buttons/home-over.jpg','images/buttons/about-over.jpg','images/buttons/history-over.jpg','images/buttons/films-over.jpg','images/buttons/sound-over.jpg','images/buttons/awards-over.jpg','images/buttons/team-over.jpg','images/buttons/style-over.jpg','images/buttons/links-over.jpg','images/buttons/feedback-over.jpg')">
+<table width="941" border="0" cellpadding="0" cellspacing="0" align="center">
+  <!--DWLayoutTable-->
+  <tr>
+  	<td></td>
+    <td height="166"valign="bottom">
+        <div align="center"><img src="images/logos/Pixar-Logo-Cropped.jpg" width="296" height="199" align="middle" />        </div></td>
+    <td></td>
+    <td colspan="2" valign="bottom">    <h1>films</h1>    </td>
+  </tr>
+  <tr>
+  	<td height="64" colspan="5" valign="top" class="button_row"><table border="0" align="center" cellpadding="0" cellspacing="0">
+  	  <tr>
+  	    <td><a href="index.html" target="_top" onclick="MM_nbGroup('down','group1','homeup','',1)" onmouseover="MM_nbGroup('over','homeup','images/buttons/home-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/home-up.jpg" alt="" name="homeup" width="90" height="27" border="0" id="homeup" onload="" /></a></td>
+  	    <td><a href="about.html" target="_top" onclick="MM_nbGroup('down','group1','aboutup','',1)" onmouseover="MM_nbGroup('over','aboutup','images/buttons/about-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/about-up.jpg" alt="" name="aboutup" width="90" height="27" border="0" id="aboutup" onload="" /></a></td>
+  	    <td><a href="history.html" target="_top" onclick="MM_nbGroup('down','group1','historyup','',1)" onmouseover="MM_nbGroup('over','historyup','images/buttons/history-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/history-up.jpg" alt="" name="historyup" width="90" height="27" border="0" id="historyup" onload="" /></a></td>
+  	    <td><a href="films.html" target="_top" onclick="MM_nbGroup('down','group1','filmsup','',1)" onmouseover="MM_nbGroup('over','filmsup','images/buttons/films-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/films-up.jpg" alt="" name="filmsup" width="90" height="27" border="0" id="filmsup" onload="" /></a></td>
+  	    <td><a href="sound.html" target="_top" onclick="MM_nbGroup('down','group1','soundup','',1)" onmouseover="MM_nbGroup('over','soundup','images/buttons/sound-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/sound-up.jpg" alt="" name="soundup" width="90" height="27" border="0" id="soundup" onload="" /></a></td>
+  	    <td><a href="awards.html" target="_top" onclick="MM_nbGroup('down','group1','awardsup','',1)" onmouseover="MM_nbGroup('over','awardsup','images/buttons/awards-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/awards-up.jpg" alt="" name="awardsup" width="90" height="27" border="0" id="awardsup" onload="" /></a></td>
+  	    <td><a href="team.html" target="_top" onclick="MM_nbGroup('down','group1','teamup','',1)" onmouseover="MM_nbGroup('over','teamup','images/buttons/team-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/team-up.jpg" alt="" name="teamup" width="90" height="27" border="0" id="teamup" onload="" /></a></td>
+  	    <td><a href="style.html" target="_top" onclick="MM_nbGroup('down','group1','styleup','',1)" onmouseover="MM_nbGroup('over','styleup','images/buttons/style-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/style-up.jpg" alt="" name="styleup" width="90" height="27" border="0" id="styleup" onload="" /></a></td>
+  	    <td><a href="links.html" target="_top" onclick="MM_nbGroup('down','group1','linksup','',1)" onmouseover="MM_nbGroup('over','linksup','images/buttons/links-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/links-up.jpg" alt="" name="linksup" width="90" height="27" border="0" id="linksup" onload="" /></a></td>
+  	    <td><a href="feedback.html" target="_top" onclick="MM_nbGroup('down','group1','feedbackup','',1)" onmouseover="MM_nbGroup('over','feedbackup','images/buttons/feedback-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/feedback-up.jpg" alt="" name="feedbackup" width="90" height="27" border="0" id="feedbackup" onload="" /></a></td>
+	    </tr>
+	  </table>  	</td>
+  </tr>
+  <tr>
+  	<td width="2%"></td>
+    <td width="28%" height="3782" valign="top" bgcolor="e0edff">
+   	  <div style="border: 10px solid #e0edff;">
+		<h3 align="center">Pixar on IMDB</h3>
+		<p><a href="http://www.imdb.com/title/tt0114709/" target="_blank">Toy Story</a></p>
+		<p><a href="http://www.imdb.com/title/tt0120623/" target="_blank">A Bug's Life</a></p>
+		<p><a href="http://www.imdb.com/title/tt0120363/" target="_blank">Toy Story 2</a></p>
+		<p><a href="http://www.imdb.com/title/tt0198781/" target="_blank">Monsters, Inc.</a></p>
+		<p><a href="http://www.imdb.com/title/tt0266543/" target="_blank">Finding Nemo</a></p>
+		<p><a href="http://www.imdb.com/title/tt0317705/" target="_blank">The Incredibles</a></p>
+		<p><a href="http://www.imdb.com/title/tt0317219/" target="_blank">Cars</a></p>
+		<p><a href="http://www.imdb.com/title/tt0382932/" target="_blank">Ratatouille</a></p>
+		<p><a href="http://www.imdb.com/title/tt0910970/" target="_blank">WALL-E</a></p>
+		<p><a href="http://www.imdb.com/title/tt1049413/" target="_blank">Up</a></p>
+		<p><a href="http://www.imdb.com/title/tt0435761/" target="_blank">Toy Story 3</a> (Awaiting Release)</p>
+		<p><a href="http://www.imdb.com/title/tt1216475/">Cars 2</a> (In Production)</p>
+   	  </div>	</td>
+    <td width="2%"></td>
+<td width="65%" valign="top" class="body"><br />
+        <h2>feature films</h2>
+        <p>Films listed in order of release.</p>
+        <h3><img src="images/films/toy-story.jpg" width="145" height="200" border="8" align="left" /><a name="toy" id="toy"></a>Toy Story (1995)</h3>
+        <p><em>Toy Story</em> marked the beginning of a new era of moviemaking. Pixar's first animated movie was also the first ever completely computer generated feature length film. Toy Story follows toys who come to life when Andy, their owner, is away. Andy's favorite toy, Woody, is jealous of Buzz, a new toy competing for attention. Throughout the movie Woody tries to keep his position as favorite toy, resulting in an adventure with the mean neighbor Sid, mutant toys, and a race to get home before Andy moves to a new house. The animated short <em><a href="#tin">Tin Toy</a></em> was released with <em>Toy Story</em>.</p>
+      <h3 align="right"><img src="images/films/bugs-life.jpg" width="136" height="201" border="8" align="right" /><a name="bug" id="bug"></a>A Bug's Life (1998)</h3>
+    <p>Following Pixar's success with Toy Story, <em>A Bug's Life</em> was released shortly after <em>Antz</em> as the third CGI movie ever made. <em>A Bug's Life</em> is the story of an ant inventor named Flick who hires circus bugs to defend his colony from grasshoppers, mistaking them for warriors. The film puts in perspective the size of plants and animals as well as the catastrophic effect of the elements from the view of ants. <em>A Bug's Life</em> also marked Pixar's first film with a full non-human cast. As an additional feature, <em>A Bug's Life</em> included animated bloopers in the credits, creating irony as the film was animated and would not normally have mistakes made by actors captured on camera. <em>A Bug's Life</em> was released with <em><a href="#geri">Geri's Game</a></em>.</p>
+    <h3><img src="images/films/toy-story-2.jpg" width="136" height="200" border="8" align="left" /><a name="toy2" id="toy2"></a>Toy Story 2 (1999)</h3>
+    <p>Because of the first <em>Toy Story</em>'s success, Pixar released its first sequel to even greater reception. While Woody and Buzz are able to get along, Woody is taken by the greedy toy collector Al to be put on display in a museum. Buzz and some of Andy's other toys put together a team and organize a rescue mission to bring Woody home. Along the way, the toys meet new friends and infiltrate Al's office in order to find their friend. <em>Toy Story 2</em> kept Pixar's tradition of releasing trailers with content not in the film. This movie was also released on VHS with Pixar's first short film, <a href="#luxo"><em>Luxo Jr.</em></a><img src="images/films/monsters-inc.jpg" width="140" height="200" border="8" align="right" /></p>
+    <h3 align="right"><a name="monsters" id="monsters"></a>Monsters, Inc. (2001)</h3>
+    <p>With a budget surpassing all previous and the next three films that Pixar would make, <em>Monsters, Inc.</em> was nevertheless still very profitable. This film is the second that Pixar has made with a planned sequel. <em>Monsters, Inc.</em> tells the story of Sully, a valuable employee to a monster company that produces energy from scaring children by utilizing a system of door portals. Humans are considered toxic, with a single touch able to kill a monster. Panic ensues after Sully and his assistant Mike let a little girl escape into the monster world. Both must quickly smuggle the human back to her own bedroom before they are caught. <em>Monsters, Inc.</em> was released with <em><a href="#birds">For the Birds</a></em> and <em><a href="#car">Mike's New Car</a></em>.<img src="images/films/finding-nemo.jpg" width="148" height="200" border="8" align="left" /></p>
+    <h3><a name="nemo" id="nemo"></a>Finding Nemo (2003)</h3>
+    <p>Pixar's second film on the American Film Institute's Animated 10 Top 10 list is also the latest.<em> Finding Nemo</em> is the highest grossing G-rated movie of all time. This film's story tells of a overprotective clownfish named Marlin who has lost his only son Nemo to human divers in the reef. He travels across the ocean to find his son with Dory, a <a href="http://en.wikipedia.org/wiki/Paracanthurus_hepatus" target="_blank">regal tang</a> he meets on the way. Marlin's adventures bring him to confront sharks, angler fish, jellyfish, and a whale, while his son tries to escape from a fish tank in his captor's dental office. <em><a href="#knack">Knick Knack</a></em> was released with <em>Finding Nemo</em>.<img src="images/films/incredibles.jpg" width="134" height="200" border="8" align="right" /></p>
+    <h3 align="right"><a name="incredibles" id="incredibles"></a>The Incredibles (2004)</h3>
+    <p>Pixar released its first superhero action movie <em>The Incredibles</em> as the first to star a human as well. Originally drafted as a cel animation feature for Warner Bros., the film was transferred to Pixar after the former studio shut down. Mr. Incredible and his family fight against a vengeful former fan who tries to convince the world that he is a &quot;super&quot; and belittle the natural powers given to real superheros. Mr. Incredible must use the talents of his friends and family to combat a threat large enough to devastate an entire city. <em>The Incredibles</em> was released with <em><a href="#boundin">Boundin'</a></em> and <em><a href="#attack">Jack-Jack Attack</a></em>.<img src="images/films/cars.jpg" width="135" height="200" border="8" align="left" /></p>
+    <h3><a name="cars" id="cars"></a>Cars (2006)</h3>
+    <p>As the final film Pixar made before it's aquisition by Disney, <em>Cars</em> is also one of the longest. <em>Cars</em> broke the previous records for merchandising set by previous movies as well. This film is Pixar's second to have a sequel, planned for release in 2011. <em>Cars</em> is the story of an overconfident racing car Lightning McQueen ready to take on two other champions in a tie breaker race on the other side of the country. On the way there, he loses his transport truck and gets stuck in Radiator Springs, a small, humble town. Lightning must repair the road he ruined and get to the race track as soon as possible. <em>Cars</em>  was released with <em><a href="#band">One Man Band</a></em> and<em> <a href="#ghostlight">Mater and the Ghostlight</a></em>.<img src="images/films/ratatouille.jpg" width="136" height="200" border="8" align="right" /></p>
+    <h3 align="right"><a name="ratatouille" id="ratatouille"></a>Ratatouille (2007)</h3>
+    <p>As Pixar's first movie under Disney, <em>Ratatouille</em> kept the high standards of previous films. Remy, a rat who gets separated from his clan in an escape from their previously discovered home, finds he can accomplish his dream of becoming a chef when he finds a gourmet restaurant in the middle of Paris. Featuring a suble element of magic, <em>Ratatouille</em> used several effects to make food appealing such as lighting, texture, and color. <em><a href="#lifted">Lifted</a></em> and Pixar's first semi-2D film <em><a href="#rat">Your Friend the Rat</a></em> both accompanied <em>Ratatouille</em>.<img src="images/films/wall-e.jpg" width="136" height="200" border="8" align="left" /></p>
+    <h3><a name="walle" id="walle"></a>WALL-E (2008)</h3>
+    <p><em>WALL-E</em> broke a Pixar tradition of depending on only CGI animation by including several instances of live footage, the first of their films ever to do so. <em>WALL-E</em> takes a humorous perspective of environmentalism by showing a future Earth filled with trash and a distant ship with the human population all grossly obese. WALL-E is a cleanup robot who has worked on Earth for several hundred years before meeting EVE, a scout robot from the current human ship, the Axiom. After the humans have left for so long, Earth may be ready for repopulation, and WALL-E needs to help EVE to spread the word before they are overpowered by the Axiom's computer, Auto. <em>WALL-E</em> was released with <em><a href="#burn-e">BURN-E</a></em> and <em><a href="#presto">Presto</a></em>.<img src="images/films/up.jpg" width="135" height="200" border="8" align="right" /></p>
+    <h3 align="right"><a name="up" id="up"></a>Up (2009)</h3>
+    <p>Possibly Pixar's most realistic film, <em>Up</em> nevertheless contains humorous creatures, technology, and transportation. Using thousands of inflatable party balloons, Carl Frederickson finally travels to the location of his lifelong dream, Paradise Falls. However, he brings along and meets unexpected guests that require time, patience, and protection possibly more than Carl can provide in his old age. <em>Up</em> was released with <em><a href="#cloudy">Partly Cloudy</a></em> and <em><a href="#mission">Dug's Special Mission</a></em>.<img src="images/films/toy-story-3.jpg" width="141" height="200" border="8" align="left" /></p>
+    <h3><a name="toy3" id="toy3"></a>Toy Story 3 (2010 - not yet released)</h3>
+    <p>Hitting theaters on June 18, Pixar's latest film is the second to be presented in 3D and the only 3rd installment of a series. <em>Toy Story 3</em> follows the problems that arise for Woody, Buzz, and the rest of the toys after Andy goes to college.<em> Toy Story 3</em> is likely to be the most dynamic movie in the series yet, as new toys are introduced and Woody travels to find Andy. <em>Toy Story 3</em> is being released with <em><a href="#day">Day &amp; Night</a></em>, Pixar's first all 2D film.<img src="images/films/cars-2.JPG" width="200" height="200" border="8" align="right" /></p>
+    <h3><a name="cars2" id="cars2"></a>Cars 2 (2011 - in production)</h3>
+    <p>Pixar's next installment will be <em>Cars 2</em>. In this sequel, Lightning McQueen, Mater, and his pit crew will travel around the world to compete in a multi-country five part race. However, Mater becomes involved in British espionage after saving the life of agent Finn Mc Missile.</p>
+    <h2>short films</h2>
+    <p align="left">Films listed in order of release.</p>
+    <h3><a name="andre"></a>The Adventures of André and Wally B. (1984)</h3>
+    <p>Pixar's first ever short film was technically made under Lucasfilm. John Lasseter authored the film for his son. The short was groundbreaking in the animating world because it was the first to use motion blur and advanced lighting effects. In the film, André tries to escape a Wally B., an annoying bee. This short was one of only two never to be released with a Pixar feature film.</p>
+    <h3><a name="luxo"></a>Luxo Jr. (1986)</h3>
+    <p>Quite possibly Pixar's most famous short, <em>Luxo Jr.</em> demonstrated to the moviemaking world what Pixar was capable of in animation. This film inspired Pixar's animated logo, featuring the same troublemaking lamp as in the short. <em>Luxo Jr.</em> was re-released with <em><a href="#toy2">Toy Story 2</a></em>.</p>
+    <h3><a name="red"></a>Red's Dream (1987)</h3>
+    <p>The second of only two shorts never to be released with a film, <em>Red's Dream</em> was the only film ever rendered on the <a href="http://en.wikipedia.org/wiki/Pixar_Image_Computer">Pixar Imaging Computer</a>. The short told the story of a discounted unicycle in Eben's Bikes dreaming of perfoming in a circus, but is awakened to reality when it realizes it still has not sold. The film plot was formed from combined ideas of the design team.</p>
+    <h3><a name="tin"></a>Tin Toy (1988)</h3>
+    <p>Largely reminscient of <em><a href="#toy">Toy Story</a></em> (the feature film it was later released with), <em>Tin Toy</em> was the inspiration and precursor for Pixar's fully animated features. In the film, Tinny, a one mand band toy, comes to life. He escapes a baby trying to play with him and hides with other toys fearing misuse. <em>Tin Toy</em> initially had a sequel planned to prove Pixar's ability to create full length feature films, but Disney urged Pixar to go straight into <em>Toy Story</em>'s development.</p>
+    <h3><a name="knack"></a>Knick Knack (1989)</h3>
+    <p><em>Knick Knack</em>, the last of Pixar's initial short films, was directed by John Lasseter and won the Best Short Film award at the Seattle National Film Festival in 1990. In the film, a snowman trapped in a snowglobe tries to escape to &quot;Sunny Miami&quot; paradise using any means possible, including a jackhammer and explosives. Despite his continued failure, the snowman never gives up and moves on to the next humorous attempt to get out. <em>Knick Knack</em> was released with <em><a href="#nemo">Finding Nemo</a></em>.</p>
+    <h3><a name="geri"></a>Geri's Game (1997)</h3>
+    <p><em>Geri's Game</em> is the first Pixar short to feature a character who appears in a full length film. Geri, the main character in the short, appears in <em><a href="#toy2">Toy Story 2</a></em> as Woody's repairman. In the short, Geri sets up a chess board, but plays against himself when he realizes no one is with him. <em>Geri's Game</em> accompanies <em><a href="#bug">A Bug's Life</a></em>.</p>
+    <h3><a name="birds"></a>For the Birds (2000)</h3>
+    <p>Winning over six awards, <em>For the Birds</em> continues to show Pixar's moviemaking talent. In the film, a bunch of smaller birds bicker over a spot on a telephone wire when a much larger, funny looking bird honks at them. The smaller birds try to get away from the large bird who follows them around. Eventually the rivalry ends in a humorous situation caused by the smaller birds dislike. <em>For the Birds</em> was released with <em><a href="#monsters">Monsters, Inc.</a></em></p>
+    <h3><a name="car"></a>Mike's New Car (2002)</h3>
+    <p>Mike Wazowski from <em><a href="#monsters">Monsters, Inc.</a></em> returns in this short, the second Pixar ever made with characters from a feature film and the first that correlates with the feature. In this film, Mike tries to ride his new 6 wheel drive car to work with Sulley. However, the car malfunctions and Sulley convinces Mike to walk to work.</p>
+    <h3><a name="boundin"></a>Boundin' (2003)</h3>
+    <p>Written, directed, narrated, and scored by one person, <em>Boundin'</em> is considered by Pixar to be <a href="team.html#bud">Bud Luckey's</a> film. This short tells the story of a sheep saddened by the loss of his coat, but upon meeting a Jackalope regains his confidence. This is the only short film by Pixar to feature voiced characters not starring in a feature film. <em>Boundin'</em> was released with <em><a href="#incredibles">The Incredibles</a></em>.</p>
+    <h3><a name="attack"></a>Jack-Jack Attack (2005)</h3>
+    <p>Continuing a new Pixar tradition of releasing shorts that follow with a feature, <em>Jack-Jack Attack</em> is an expanded and finished deleted scene that was originally meant to be implemented in the feature. This short shows how Jack-Jack from <em><a href="#incredibles">The Incredibles</a></em> discovers his powers. Kari, the his babysitter, plays classical music for him, causing Jack-Jack to float, travel through walls, burst into flames, and shoot lasers from his eyes, much to her horrer. </p>
+    <h3><a name="band"></a>One Man Band (2005)</h3>
+    <p><em>One Man Band</em> shows how two competing street performers outdo each other to win the single gold coin a small girl has to offer for their music. This film features an elaborate display of talent and inventiveness of the two musicians as they replicate the sounds of an entire orchestra. <em>One Man Band</em> was released with <em><a href="#cars">Cars</a></em>.</p>
+    <h3><a name="ghostlight"></a>Mater and the Ghostlight (2006)</h3>
+    <p>In this film, Mater from <em><a href="#cars">Cars</a></em> pulls several pranks on his friends in Radiator Springs. As retribution, Lightning McQueen and Guido pull their own prank on Mater as he goes to his garage for the night.</p>
+    <h3><a name="lifted"></a>Lifted (2006)</h3>
+    <p><em>Lifted</em>, the story of a failing alien student learning how to abduct humans, was inspired in part by Pixar's audio department. The controls on the space ship for beaming up victims had no labels or markings, parodying the complex controls on audio equipment. <em>Lifted</em> shows what really goes on before fully fledged abductions can take place. <em>Lifted</em> was released with <em><a href="#ratatouille">Ratatouille</a></em>.</p>
+    <h3><a name="rat"></a>Your Friend the Rat (2007)</h3>
+    <p>Pixar's first semi-2D animation was a mock history of rats given by Remy from <em><a href="#ratatouille">Ratatouille</a></em>. He and his brother talk and sing to an animated cover with details from a rat's perspective of the Black Plague and rat population. The closing song features a cameo of WALL-E driving a spaceship.</p>
+    <h3><a name="presto"></a>Presto (2008)</h3>
+    <p><em>Presto</em> is the story of a magician who owns a set of hats that are linked by a portal. His act involves a rabbit who is more interested in eating dinner than cooperating by wearing the hat so the magician can pull him out. A hilarious sequence follows as the rabbit constantly outwits the magician using the portal between the hats. <em>Presto</em> was released with <em><a href="#walle">WALL-E</a></em>.</p>
+    <h3><a name="burn-e"></a>BURN-E (2008)</h3>
+    <p>BURN-E is a welder robot working on the Axiom from <em><a href="#walle">WALL-E</a></em>. Due to a malfunction of a light post, he is sent to fix it and continually fixes it as it breaks over and over. <em>BURN-E</em> correlates with the movie as WALL-E, EVE, or other characters are responsible for BURN-E's endless mission.</p>
+    <h3><a name="cloudy"></a>Partly Cloudy (2009)</h3>
+    <p><em>Partly Cloudy</em> elaborates on how storks deliver babies to their families. Clouds have the power to create animals that storks can deliver. However, while some clouds create kittens, puppies, and chicks, one cloud makes baby alligators, electric eels, rams, and other dangerous creatures, much to the chagrin of his weathered stork. <em>Partly Cloudy</em> was released with<em> <a href="#up">Up</a></em>.</p>
+    <h3><a name="mission"></a>Dug's Special Mission (2009)</h3>
+    <p>This short follows what happens to Dug from <em><a href="#up">Up</a></em> before he meets Russel and Carl. He is assigned &quot;missions&quot; by the Alpha dog so he will not ruin the pack's plans to capture wild birds. However, through unfortunate circumstances, Dug always seems to ruin the real mission led by Alpha.</p>
+    <h3><a name="day"></a>Day &amp; Night (2010)</h3>
+    <p>Pixar's second 2D film is planned for release with <em><a href="#toy3">Toy Story 3</a></em> on June 18, 2010. This film shows how cartoon personalities of both Day and Night interact, as when they first meet they do not trust each other.</p></td>
+    <td width="3%">    </td>
+  </tr>
+  <tr><td colspan="4"><div align="center"><br />Copyright © 2010</div></td></tr>
+</table>
+</body>
+</html>

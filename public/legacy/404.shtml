@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ice="http://ns.adobe.com/incontextediting">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Metalectric Creations - 404 Not Found</title>
+<link rel="stylesheet" type="text/css" href="http://www.metalectricity.com/homestyle.css" />
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+</head>
+
+<body onload="MM_preloadImages('http://www.metalectricity.com/images/buttons/home-over.jpg','http://www.metalectricity.com/images/buttons/logos-over.jpg','http://www.metalectricity.com/images/buttons/web-over.jpg','http://www.metalectricity.com/images/buttons/print-over.jpg','http://www.metalectricity.com/images/buttons/dvd-over.jpg','http://www.metalectricity.com/images/buttons/tech-over.jpg')">
+<center>
+<div id="bgimg"><img src="http://www.metalectricity.com/images/logos/homelogo.jpg" width="1025" height="242" /></div>
+<table align="center" width="80%">
+	<tr>
+    	<td align="center" colspan="2"><table border="0" cellpadding="0" cellspacing="0">
+    	  <tr>
+    	    <td><a href="http://www.metalectricity.com/" target="_top" onclick="MM_nbGroup('down','group1','home','',1)" onmouseover="MM_nbGroup('over','home','http://www.metalectricity.com/images/buttons/home-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/home-up.jpg" alt="" name="home" border="0" id="home" onload="" /></a></td>
+    	    <td><a href="lhttp://www.metalectricity.com/logos.html" target="_top" onclick="MM_nbGroup('down','group1','logos','',1)" onmouseover="MM_nbGroup('over','logos','http://www.metalectricity.com/images/buttons/logos-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/logos-up.jpg" alt="" name="logos" border="0" id="logos" onload="" /></a></td>
+    	    <td><a href="http://www.metalectricity.com/web.html" target="_top" onclick="MM_nbGroup('down','group1','web','',1)" onmouseover="MM_nbGroup('over','web','http://www.metalectricity.com/images/buttons/web-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/web-up.jpg" alt="" name="web" border="0" id="web" onload="" /></a></td>
+    	    <td><a href="http://www.metalectricity.com/print.html" target="_top" onclick="MM_nbGroup('down','group1','print','',1)" onmouseover="MM_nbGroup('over','print','http://www.metalectricity.com/images/buttons/print-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/print-up.jpg" alt="" name="print" border="0" id="print" onload="" /></a></td>
+    	    <td><a href="http://www.metalectricity.com/dvd.html" target="_top" onclick="MM_nbGroup('down','group1','dvd','',1)" onmouseover="MM_nbGroup('over','dvd','http://www.metalectricity.com/images/buttons/dvd-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/dvd-up.jpg" alt="" name="dvd" border="0" id="dvd" onload="" /></a></td>
+    	    <td><a href="http://www.metalectricity.com/tech.html" target="_top" onclick="MM_nbGroup('down','group1','tech','',1)" onmouseover="MM_nbGroup('over','tech','http://www.metalectricity.com/images/buttons/tech-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="http://www.metalectricity.com/images/buttons/tech-up.jpg" alt="" name="tech" border="0" id="tech" onload="" /></a></td>
+  	    </tr>
+  	  </table></td>
+    </tr>
+  <tr>
+  		<td align="left" valign="bottom">
+          <h1>404 error o.0</h1></td>
+  </tr>
+  <tr>
+    <td height="258" valign="top">
+<p align="left">The page you are looking for has been moved, deleted, or never existed in the first place.  Return home <a href="http://www.metalectricity.com/">here</a>.</p>
+<p align="left">If you wish to recover this page from cyberspace, input the following code here: <a href="http://www.metalectricity.com/recovery.html">Page Recovery</a></p>
+<p align="left">JHgjh86554yTFhgfYTr653s54W68698UoiJkBHjgfgh554YcCDF464E6DEY876HGvjHGUTrsE231ESfdXHVMNbvKMNBooiJkBHjgfghCDFs54WE6DYcH GvjHiU087766GvjHGUY87655464ETrsE2MNB8698UoiJkB31ESfdXHHjgfgVMNbvKhCDFs54WEUY87655464ETrsE23E231ESfdXHVMNbvKMNB8698U oiJkLKJk3j48y33,j3KJ34983498u34KJNHLlKJHBh2gj2039283Jhkj23547dhsd23iu2y3uds78D7SD643sd213SDgkhjsdpijslkjhsd90823jkl2lkBHjgfghC lihkjsdkj768652HJg2k3jh0S8D9087sd987978EAhiIUHYI2708371MNBZJHABIUOAEIAEKJYIUkjhkjUJoiu987YOUIAHJEOouih23ouiOI28392ukhjzx762 KLJnljhKJ3J23987SKJNnvNCBWEPOIAUYWEKJNBskjh8723khj2U398726ykjHWOSUHowueyh98SKJHWEKJH29876YDSIKJHDAKJSDHW9283yoiuh KLjhsd398lkjDLSKJETrsE23HkjshDIUY9278y23usjGvjHiU0hKSJKJsdui87766GvjHGUY81ESfdSDLKJ7655464XHVMNbvKMNB8698UoiJkBHjgfgwso2 KJHisuY9879872uh2k3hjgGCBFVCsiuydouysd9poiu2o3982uOjhkljnhkJHSKIUYDoiuysde982yo3ihKJWSHDOIUSDYISD7987iuYKJHSKJDHHSJDHKAJ</p></td>
+  </tr>
+	<tr>
+    	<td><p><center>
+    	  Copyright © <script src="year.js"></script> Metalectric Creations
+    	</center></p></td>
+	</tr>
+</table>
+</body>
+</html>

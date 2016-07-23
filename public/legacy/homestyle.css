@@ -1,0 +1,90 @@
+@font-face {
+	font-family: MyriadPro-Light;
+	src: url('fonts/MyriadPro-Light');
+	font-family: Agency FB;
+	src: url('fonts/AGENCYR');
+}
+
+body
+	{
+	background-color:#000;
+	color: #FFF;
+	font-family: "Trebuchet MS", Arial Narrow, Helvetica, sans-serif;
+}
+img.bg
+	{
+	position:absolute;
+	top:0;
+	right:10%;
+}
+img.dark
+	{
+	border-color: #FFF;
+}
+.panel
+	{
+	border:1px solid #FFF;
+	height: 175px;
+	margin-top: 0px;
+}
+.header
+	{
+	font-family: "Agency FB", Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	color: #FFF;
+	background-color: #003;
+	padding-left: 5%;
+}
+.body
+	{
+	padding-right: 40%;
+}
+.field{
+	font-family: "Trebuchet MS", Arial Narrow, Helvetica, sans-serif;
+	color: #FFF;
+	background-color: #000;
+}
+h1
+	{
+	font-family: "MyriadPro-Light",sans-serif;
+	color: #FFF;
+	font-size: 50px;
+	font-weight: .2;
+}
+h2
+	{
+	font-family: "Agency FB",sans-serif;
+	color: #FFF;
+}
+h3
+	{}
+h4
+	{}
+p
+	{}
+A:link
+	{
+	color: #93c6ff;
+	text-decoration: none;
+}
+A:visited
+	{
+	color: #59A4FF;
+	text-decoration: none;
+}
+A:active
+	{
+	color: #FFF;
+	text-decoration: underline;
+}
+A:hover
+	{
+	color: #b9d7fd;
+	text-decoration: none;
+}
+2darkblue {
+	color: #03C;
+}
+img {
+	border-color: #000;
+}

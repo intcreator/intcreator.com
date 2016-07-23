@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<track>
+		<path>./music/style/arms-style.mp3</path>
+		<title>Arms</title>
+	</track>
+	<track>
+		<path>./music/style/ionic-style.mp3</path>
+		<title>Ionic</title>
+	</track>
+	<track>
+		<path>./music/style/0406-style.mp3</path>
+		<title>0406</title>
+	</track>
+	<track>
+		<path>./music/style/flame-style.mp3</path>
+		<title>Flame</title>
+	</track>
+	<track>
+		<path>./music/style/speed-demon-style.mp3</path>
+		<title>Speed Demon</title>
+	</track>
+	<track>
+		<path>./music/style/dark-am-style.mp3</path>
+		<title>Dark AM</title>
+	</track>
+</xml>

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+body {
+	color: #000000;
+	font-family:Arial, sans-serif
+}
+h1 {
+	color: #000000;
+	font-family:Agency FB, sans-serif;
+	font-weight: 400;
+	font-size: 60px;
+}
+h2 {
+	color: #000000;
+	font-family:Agency FB, sans-serif;
+	font-weight: 200;
+	font-size: 30px;
+}
+h3 {
+	color: #000000;
+	font-family:Agency FB, sans-serif
+}
+h4 {
+	color: #000000;
+	font-family:Arial, sans-serif
+}
+p {
+	color: #000000;
+	font-family:Arial, sans-serif
+}
+A:link{
+	color: #0000FF;
+	text-decoration: none;
+}
+A:visited{
+	color: #5300B9;
+	text-decoration: none;
+}
+A:active{
+	color: #FFCC00;
+	text-decoration: none;
+}
+A:hover{
+	color: #00CCFF;
+	text-decoration: none;
+}
+img {
+	border-color: #FFFFFF;
+}

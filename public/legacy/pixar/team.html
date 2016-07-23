@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel=stylesheet type="text/css" href="style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pixar - Team</title>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+.style1 {color: #000000}
+-->
+</style>
+</head>
+
+<body onload="MM_preloadImages('images/buttons/home-over.jpg','images/buttons/about-over.jpg','images/buttons/history-over.jpg','images/buttons/films-over.jpg','images/buttons/sound-over.jpg','images/buttons/awards-over.jpg','images/buttons/team-over.jpg','images/buttons/style-over.jpg','images/buttons/links-over.jpg','images/buttons/feedback-over.jpg')">
+<table width="941" border="0" cellpadding="0" cellspacing="0" align="center">
+  <!--DWLayoutTable-->
+  <tr>
+  	<td></td>
+    <td height="166"valign="bottom">
+        <div align="center"><img src="images/logos/Pixar-Logo-Cropped.jpg" width="296" height="199" align="middle" />        </div></td>
+    <td></td>
+    <td colspan="2" valign="bottom">    <h1>team</h1>    </td>
+  </tr>
+  <tr>
+  	<td height="64" colspan="5" valign="top" class="button_row"><table border="0" align="center" cellpadding="0" cellspacing="0">
+  	  <tr>
+  	    <td><a href="index.html" target="_top" onclick="MM_nbGroup('down','group1','homeup','',1)" onmouseover="MM_nbGroup('over','homeup','images/buttons/home-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/home-up.jpg" alt="" name="homeup" width="90" height="27" border="0" id="homeup" onload="" /></a></td>
+  	    <td><a href="about.html" target="_top" onclick="MM_nbGroup('down','group1','aboutup','',1)" onmouseover="MM_nbGroup('over','aboutup','images/buttons/about-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/about-up.jpg" alt="" name="aboutup" width="90" height="27" border="0" id="aboutup" onload="" /></a></td>
+  	    <td><a href="history.html" target="_top" onclick="MM_nbGroup('down','group1','historyup','',1)" onmouseover="MM_nbGroup('over','historyup','images/buttons/history-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/history-up.jpg" alt="" name="historyup" width="90" height="27" border="0" id="historyup" onload="" /></a></td>
+  	    <td><a href="films.html" target="_top" onclick="MM_nbGroup('down','group1','filmsup','',1)" onmouseover="MM_nbGroup('over','filmsup','images/buttons/films-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/films-up.jpg" alt="" name="filmsup" width="90" height="27" border="0" id="filmsup" onload="" /></a></td>
+  	    <td><a href="sound.html" target="_top" onclick="MM_nbGroup('down','group1','soundup','',1)" onmouseover="MM_nbGroup('over','soundup','images/buttons/sound-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/sound-up.jpg" alt="" name="soundup" width="90" height="27" border="0" id="soundup" onload="" /></a></td>
+  	    <td><a href="awards.html" target="_top" onclick="MM_nbGroup('down','group1','awardsup','',1)" onmouseover="MM_nbGroup('over','awardsup','images/buttons/awards-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/awards-up.jpg" alt="" name="awardsup" width="90" height="27" border="0" id="awardsup" onload="" /></a></td>
+  	    <td><a href="team.html" target="_top" onclick="MM_nbGroup('down','group1','teamup','',1)" onmouseover="MM_nbGroup('over','teamup','images/buttons/team-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/team-up.jpg" alt="" name="teamup" width="90" height="27" border="0" id="teamup" onload="" /></a></td>
+  	    <td><a href="style.html" target="_top" onclick="MM_nbGroup('down','group1','styleup','',1)" onmouseover="MM_nbGroup('over','styleup','images/buttons/style-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/style-up.jpg" alt="" name="styleup" width="90" height="27" border="0" id="styleup" onload="" /></a></td>
+  	    <td><a href="links.html" target="_top" onclick="MM_nbGroup('down','group1','linksup','',1)" onmouseover="MM_nbGroup('over','linksup','images/buttons/links-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/links-up.jpg" alt="" name="linksup" width="90" height="27" border="0" id="linksup" onload="" /></a></td>
+  	    <td><a href="feedback.html" target="_top" onclick="MM_nbGroup('down','group1','feedbackup','',1)" onmouseover="MM_nbGroup('over','feedbackup','images/buttons/feedback-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/feedback-up.jpg" alt="" name="feedbackup" width="90" height="27" border="0" id="feedbackup" onload="" /></a></td>
+	    </tr>
+	  </table>  	</td>
+  </tr>
+  <tr>
+  	<td width="2%"></td>
+    <td width="28%" height="1509" valign="top" bgcolor="e0edff">
+   	  <div style="border: 10px solid #e0edff;">
+		<h3 align="center">Find out more about Pixar's Team</h3>
+		<a href="http://www.pixar.com/companyinfo/about_us/execs.htm">Official Info on Executives </a></div>	</td>
+    <td width="2%"></td>
+<td width="65%" valign="top" class="body"><br />
+        <h2>important people at pixar        </h2>
+        <h3><img src="images/team/ed-catmull.jpg" width="150" height="150" border="8" align="left" /><a name="catmull" id="catmull"></a>Edwin Catmull</h3>
+    <p>Ed Catmull is the current president of Pixar. Inspired by early cel-animated Disney movies, Catmull developed an interest in animation. However, he first devoted his talent in math and physics to study of computer sciences at the University of Utah. Realizing that working with computer animation allowed him to combine his interests, Catmull contributed to the CGI revolution by discovering <a href="http://en.wikipedia.org/wiki/Texture_mapping" target="_blank">texture mapping</a> and <a href="http://en.wikipedia.org/wiki/B-spline#Cubic_B-Spline" target="_blank">bicubic patches</a>. He developed anti-aliasing and rediscovered <a href="http://en.wikipedia.org/wiki/Z-buffering" target="_blank">z-buffering</a>. He was hired first by the New York Institute of Technology to be a computer graphics lab director, but later moved to Lucasfilm's graphics division before it was purchased by <a href="#steve">Steve Jobs</a> and became Pixar.</p>
+    <h3 align="right"><img src="images/team/john-lasseter.jpg" width="140" height="150" border="8" align="right" /><a name="lasseter" id="lasseter"></a>John Lasseter</h3>
+    <p align="left">John Lasseter is the Chief Creative Officer at Pixar and Walt Disney Animation Studios, as well as the Principle Creative Advisor for Walt Disney Imagineering. Lasseter had dreamed of becoming an animator at a very young age. He enrolled in the California Institute of the Arts and was taught by Eric Larson, Frank Thomas, and Ollie Johnston, three of Disney's <a href="http://en.wikipedia.org/wiki/Disney's_Nine_Old_Men">Nine Old Men</a>. He studied with Brad Bird, John Musker, Henry Selick, and Tim Burton at the Institute.</p>
+    <p align="left">Later working for Disney first as a Jungle Cruise skipper at Disneyland Anaheim and eventually an animator at Walt Disney Feature Animation, Lasseter felt something was missing from Disney. Without permission, he extensively planned a 3D film that would use computers to add depth. Unfortunately, this led to his work at Disney being terminated.</p>
+    <p align="left">Lasseter had contacted Alvy Ray Smith and <a href="#catmull">Edwin Catmull</a> from Lucasfilm Computer Graphics Group while planning his 3D film, and was able to be employed as a layout manager for Catmull while creating their first short, <em><a href="films.html#andre" title="The Adventures of André and Wally B.">The Adventures of André and Wally B.</a></em></p>
+    <p align="left">After <a href="#steve">Steve Jobs</a> acquired and formed Pixar, Lasseter was involved in all of Pixar's films as a producer, director, or story writer. He later became chief creative officer and theme park Imagineer in Disney as well.</p>
+    <h3 align="left"><img src="images/team/jim-morris.jpg" width="127" height="150" border="8" align="left" /><a name="morris" id="morris"></a>Jim Morris</h3>
+    <p align="left">Jim Morris is the General Manager and Executive Vice President of Pixar. He runs every day activities in the studio and manages the team while in production of a film. Morris represents Pixar in keynotes or other presentations where he announces upcoming projects.</p>
+    <p align="left">Morris holds a B.S. degree in film and an M.S. in film and radio from Syracuse University. He founded the Visual Effects Society and is a member of both the Academy of Motion Picture Arts and Sciences and the Producers Guild. He had previously worked as a special effects superviser for Industrial Light and Magic before joining Pixar in 2005.</p>
+    <h3 align="right"><img src="images/team/steve-jobs.jpg" width="177" height="150" border="8" align="right" /><a name="steve" class="style1" id="steve"></a>Steve Jobs</h3>
+    <p align="left">Steve Jobs provided the finincial resources for Pixar to be successful. He initially purchased the company as the Graphics Group from Lucasfilm in 1986 for $10 million, giving $5 million to the company as capital. Jobs contracted several agreements with Disney allowing Pixar to publish their films. In 2006 Jobs and Bob Iger from Disney agreed that Pixar would be transferred to Disney in an all stock transaction worth $7.4 billion. Jobs later joined the Disney board of directors.</p>
+    <h3 align="left"><img src="images/team/bob-peterson.jpg" width="138" height="150" border="8" align="left" /><a name="peterson" id="peterson"></a>Bob Peterson</h3>
+    <p align="left">Bob Peterson has worked for Pixar since 1994 starting with <em><a href="films.html#toy">Toy Story</a></em>. Peterson is an animator, layout artist, screenplay writer, co-director, and story supervisor. He also voices minor characters for many Pixar films.</p>
+    <h3 align="right"><img src="images/team/bud-luckey.jpg" width="201" height="150" border="8" align="right" /><a name="bud" id="bud"></a>Bud Luckey</h3>
+    <p align="left">Bud Luckey is a charater designer, story board artist, and animator for Pixar. He has worked on almost all of Pixar's feature films. Luckey's most famous work is likely <a href="films.html#boundin"><em>Boundin'</em></a>, which he wrote, directed, scored, and produced.</p>
+    <p align="left">Luckey served in the United States Air Force in the Korean war. He was a Disney scholar, and worked as an animator for <em>The Chipmunks</em> and several television commercials. Luckey has also animated several shorts for <em>Sesame Street</em>.</p>
+    <p align="left">Luckey joined Pixar in 1990. He worked extensively on the characters for <em>Toy Story</em> such as Woody. Andy is actually named after Luckey's son. In 2003, Luckey worked on <em>Boundin'</em>. Luckey does occasional voices for Pixar films, and will be featured in <a href="films.html#toy3"><em>Toy Story 3</em></a>.</p></td>
+    <td width="3%">    </td>
+  </tr>
+  <tr><td colspan="4"><div align="center"><br />Copyright © 2010</div></td></tr>
+</table>
+</body>
+</html>

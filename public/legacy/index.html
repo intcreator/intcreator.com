@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Metalectric Creations - Web and Print Design</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="images/logos/MetaliPhone.jpg" />
+<link rel="stylesheet" type="text/css" href="homestyle.css" />
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/buttons/home-over.jpg','images/buttons/logos-over.jpg','images/buttons/web-over.jpg','images/buttons/print-over.jpg','images/buttons/dvd-over.jpg','images/buttons/tech-over.jpg')">
+
+<!-- FOR HOME LOGO: class="bg" -->
+<center><img src="images/logos/homelogo.jpg" width="1025" height="242" />
+<!-- TABLE PLACEHOLDER HERE: <table align="center" height="250"><tr><td>&nbsp;</td></tr></table> -->
+<table width="70%" align="center">
+	<tr>
+    	<td align="center" colspan="2"><table border="0" cellpadding="0" cellspacing="0">
+    	  <tr>
+    	    <td><a href="index.html" target="_top" onclick="MM_nbGroup('down','group1','home','',1)" onmouseover="MM_nbGroup('over','home','images/buttons/home-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/home-up.jpg" alt="" name="home" width="172" height="150" border="0" id="home" onload="" /></a></td>
+    	    <td><a href="logos.html" target="_top" onclick="MM_nbGroup('down','group1','logos','',1)" onmouseover="MM_nbGroup('over','logos','images/buttons/logos-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/logos-up.jpg" alt="" name="logos" width="162" height="150" border="0" id="logos" onload="" /></a></td>
+    	    <td><a href="web.html" target="_top" onclick="MM_nbGroup('down','group1','web','',1)" onmouseover="MM_nbGroup('over','web','images/buttons/web-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/web-up.jpg" alt="" name="web" width="171" height="150" border="0" id="web" onload="" /></a></td>
+    	    <td><a href="print.html" target="_top" onclick="MM_nbGroup('down','group1','print','',1)" onmouseover="MM_nbGroup('over','print','images/buttons/print-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/print-up.jpg" alt="" name="print" width="163" height="150" border="0" id="print" onload="" /></a></td>
+    	    <td><a href="dvd.html" target="_top" onclick="MM_nbGroup('down','group1','dvd','',1)" onmouseover="MM_nbGroup('over','dvd','images/buttons/dvd-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/dvd-up.jpg" alt="" name="dvd" width="163" height="150" border="0" id="dvd" onload="" /></a></td>
+    	    <td><a href="tech.html" target="_top" onclick="MM_nbGroup('down','group1','tech','',1)" onmouseover="MM_nbGroup('over','tech','images/buttons/tech-over.jpg','',1)" onmouseout="MM_nbGroup('out')"><img src="images/buttons/tech-up.jpg" alt="" name="tech" width="172" height="150" border="0" id="tech" onload="" /></a></td>
+  	    </tr>
+  	  </table></td>
+    </tr>
+    <tr>
+    <td colspan="2"><p>Metalectricity.com is the home of Metalectric Creations, a multimedia design company. Click on a link above or explore various areas of design below.</p></td>
+    </tr>
+    <tr>
+      <td><table width="100%">
+        <tr>
+            <td width="50%" style="padding-left:0px; padding-top:0px"><div class="panel" id="panel" onclick="location.href='logos.html'" style="cursor:pointer; cursor:hand;"> 
+		<div class="header" >
+			<span>logo creation</span></div> 
+		<div class="body" align="left"> 
+			<ul>
+            	<li>Hand drawn concepts</li>
+            	<li>Full length or icon size</li>
+                <li>Starting at $ 49.95</li>
+            </ul> 
+		</div> 
+		</div></td>
+            <td width="50%"><div class="panel" id="panel" onclick="location.href='web.html'" style="cursor:pointer; cursor:hand;"> 
+		<div class="header" >
+			<span>web</span>
+        design</div> 
+		<div class="body" align="left"> 
+			<ul>
+            	<li>Tested across 4 browsers and mobile devices</li>
+            	<li>Javascript/CSS integration</li>
+            	<li>Dynamic buttons and banners</li>
+            	<li>Starting at $ 99.95</li>
+            </ul> 
+		</div> 
+		</div></td>
+        </tr>
+        <tr>
+          <td width="50%"><div class="panel" id="panel" onclick="location.href='print.html'" style="cursor:pointer; cursor:hand;"> 
+		<div class="header" >
+			<span>print</span>
+        design</div> 
+		<div class="body" align="left"> 
+			<ul>
+            	<li>Business cards, letterheads, envelopes, postcards</li>
+            	<li>Digital rough concepts</li>
+            	<li>Starting at $ 24.95</li>
+            </ul> 
+		</div> 
+		</div></td>
+          <td width="50%"><div class="panel" id="panel" onclick="location.href='dvd.html'" style="cursor:pointer; cursor:hand;"> 
+		<div class="header" >
+			<span>dvd</span>
+        authoring</div> 
+		<div class="body" align="left"> 
+			<ul>
+            	<li>Software/menus and disc/case cover art</li>
+            	<li>Copy protected</li>
+                <li>Starting at $ 24.95</li>
+            </ul> 
+		</div> 
+		</div></td>
+        </tr>
+        <tr>
+          <td width="50%"><div class="panel" id="panel"> 
+		<div class="header" >
+			<span>custom</span>
+        work</div> 
+		<div class="body" align="left"> 
+			<ul>
+			  If you need a custom project done, email me with details at <a style="cursor:pointer; cursor:hand;" mailto="custom@metalectricity.com">custom@metalectricity.com</a>.
+			</ul> 
+		</div> 
+		</div></td>
+          <td width="50%"><div class="panel" id="panel" onclick="location.href='tech.html'" style="cursor:pointer; cursor:hand;"> 
+		<div class="header" >
+			<span>pc setup and tech</span> support</div> 
+		<div class="body" align="left"> 
+			<ul>Tech support may be available by appointment in the Thousand Oaks, CA area.  All other tech support is available by email.</ul> 
+		</div> 
+		</div></td>
+        </tr>
+	</table>
+        <p>Details on the <a href="process.html">order process</a> can be found <a href="process.html">here</a>.</p></td></tr>
+<tr>
+    	<td height="233" colspan="2" bgcolor="#000000">
+<p>&nbsp;</p>
+<!--TWITTER POSTS METALECTRIC CREATIONS-->
+          <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+          <script>
+            new TWTR.Widget({
+              version: 2,
+              type: 'profile',
+              rpp: 10,
+              interval: 6000,
+              width: 'auto',
+              height: 300,
+              theme: {
+                shell: {
+                  background: '#474747',
+                  color: '#ffffff'
+                },
+                tweets: {
+                  background: '#000000',
+                  color: '#ffffff',
+                  links: '#99cbff'
+                }
+              },
+              features: {
+                scrollbar: true,
+                loop: false,
+                live: true,
+                hashtags: true,
+                timestamp: true,
+                avatars: true,
+                behavior: 'all'
+              }
+            }).render().setUser('Metalectricity').start();
+            </script>
+            <center>
+              <p align="center"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FNewbury-Park-CA%2FMetalectric-Creations%2F155274147817604&amp;width=292&amp;colorscheme=dark&amp;connections=0&amp;stream=false&amp;header=false&amp;height=427" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:100px;" allowTransparency="true"></iframe></p>
+              <g:plusone></g:plusone>
+              <!--Copyright-->
+              <center>
+              <p>Copyright © <script src="year.js"></script> Metalectric Creations</p>
+        </center></td>
+  </tr>
+</table>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+</body>
+</html>

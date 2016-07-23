@@ -1,0 +1,108 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="int-slider">
+  <template>
+    <style>
+      :host {
+        color: #DDD;
+        position: relative;
+      }
+
+      .show {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeIn;
+      }
+
+      .hide {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: fadeOut;
+      }
+
+      .slide {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+    </style>
+
+    <template is="dom-repeat" items="[[images]]">
+      <div class$="slide [[init(index)]]" style$="background-image: url('[[item.url]]')"></div>
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-slider',
+      properties: {
+        images: {
+          type: Array,
+          value: [
+            {
+              url: "../images/home/lego.jpeg"
+            },
+            {
+              url: "../images/home/peak.jpg"
+            },
+            {
+              url: "../images/home/snow.jpg"
+            },
+            {
+              url: "../images/home/irrigation.jpg"
+            },
+            {
+              url: "../images/home/sunset.jpg"
+            },
+          ]
+        },
+      },
+      ready: function() {
+        window.setInterval(function() {
+          var slides = slides ? slides : document.querySelectorAll('.slide');
+          // find the active slide
+          for(var i = 0; i < slides.length; i++) {
+            if(slides[i].classList.contains('show')) {
+              // hide it
+              slides[i].classList.remove('show');
+              slides[i].classList.add('hide');
+              // show the next slide in sequence
+              var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
+              toShow.classList.remove('hide');
+              toShow.classList.add('show');
+              return;
+            }
+          }
+        }, 4000);
+      },
+      init: function(index) {
+        if(index) return "";
+        else return "show";
+      }
+    });
+  </script>
+</dom-module>
