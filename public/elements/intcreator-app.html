@@ -43,25 +43,40 @@
         scroll: {
           type: Number,
           value: 0
+        },
+        height: {
+          type: Number,
+          value: 0
+        },
+        toShow: {
+          type: Array
         }
       },
       ready: function() {
         this.blocks = MainData.properties.home.value.blocks;
-        var toShow;
-        window.onscroll = function(e) {
-          // throttle - only run every 50px
+        _this = this;
+        window.onscroll = function() {
+          // throttle - only fun if user scrolls more than 50px
           if(window.pageYOffset - this.scroll < 50 && this.scroll - window.pageYOffset < 50) return;
-          // only load DOM elements once
-          toShow = toShow ? toShow : document.querySelectorAll('.showOnScroll');
-          this.scroll = window.pageYOffset;
-          for(var i = 0; i < toShow.length; i++) {
-            if(window.innerHeight - toShow[i].getBoundingClientRect().top - 50 > 0) {
-              toShow[i].classList.remove('fadeOutDown');
-              toShow[i].classList.add('fadeInUp');
-            } else {
-              toShow[i].classList.remove('fadeInUp');
-              toShow[i].classList.add('fadeOutDown');
-            }
+          _this.fadeElements();
+        };
+        window.onresize = function() {
+          // throttle - only fun if user resizes more than 50px
+          if(window.innerHeight - this.height < 50 && this.height - window.innerHeight < 50) return;
+          _this.fadeElements();
+        }
+      },
+      fadeElements: function(e) {
+        // only load DOM elements once
+        this.toShow = this.toShow ? this.toShow : document.querySelectorAll('.showOnScroll');
+        this.scroll = window.pageYOffset;
+        for(var i = 0; i < this.toShow.length; i++) {
+          if(window.innerHeight - this.toShow[i].getBoundingClientRect().top - 50 > 0) {
+            this.toShow[i].classList.remove('fadeOutDown');
+            this.toShow[i].classList.add('fadeInUp');
+          } else {
+            this.toShow[i].classList.remove('fadeInUp');
+            this.toShow[i].classList.add('fadeOutDown');
           }
         }
       }
