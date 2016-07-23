@@ -8,6 +8,7 @@
         left: 0;
         right: 0;
         min-width: 100%;
+        z-index: 10;
       }
 
       #menu-container {
@@ -115,6 +116,53 @@
           padding: 5px;
           background: rgba(0, 0, 0, .8);
         }
+
+        #menu-screen {
+          background: rgba(0, 0, 0, .5);
+          width: 100vw;
+          height: 100vh;
+          position: relative;
+          z-index: -1;
+        }
+
+        .cover {
+          animation-duration: .4s;
+          animation-fill-mode: both;
+          animation-name: coverFade;
+          display: block;
+        }
+
+        @keyframes coverFade {
+          from {
+            display: none;
+            opacity: 0;
+          }
+
+          to {
+            display: block;
+            opacity: .5;
+          }
+        }
+
+        .uncover {
+          animation-duration: .4s;
+          animation-fill-mode: both;
+          animation-name: uncoverFade;
+          display: none;
+        }
+
+        @keyframes uncoverFade {
+          from {
+            display: block;
+            opacity: .5;
+          }
+
+          to {
+            display: none;
+            opacity: 0;
+          }
+        }
+
       }
 
     </style>
@@ -128,6 +176,7 @@
         <li><a href="../data/brandonblatter.pdf">Résumé</a></li>
       </ul>
     </div>
+    <div id="menu-screen" class="uncover" on-tap="toggleMenu"></div>
 
   </template>
 
@@ -145,13 +194,15 @@
         if(this.menuOpen) {
           this.$['menu-container'].classList.add("open");
           this.$['menu-container'].classList.remove("close");
+          this.$['menu-screen'].classList.remove("uncover");
+          this.$['menu-screen'].classList.add("cover");
         }
         else {
           this.$['menu-container'].classList.remove("open");
           this.$['menu-container'].classList.add("close");
+          this.$['menu-screen'].classList.remove("cover");
+          this.$['menu-screen'].classList.add("uncover");
         }
-        console.log(this.classList);
-        console.log(this.style.display);
         this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
       }
     });
