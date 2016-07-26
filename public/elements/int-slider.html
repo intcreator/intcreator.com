@@ -1,10 +1,12 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/image-icons.html">
 <dom-module id="int-slider">
   <template>
     <style>
-      :host {
+      #container {
         color: #DDD;
         position: relative;
+        width: 100%;
       }
 
       .show {
@@ -48,11 +50,73 @@
         }
       }
 
+      button:focus {
+        outline: none;
+      }
+
+      .nav-button {
+        position: absolute;
+        background: none;
+        border: none;
+        height: 100vh;
+        width: 150px;
+      }
+
+      .nav-button::before {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+        transition: all ease-in-out .2s;
+        color: white;
+        content: "";
+        opacity: 0;
+      }
+
+      .nav-button:hover::before {
+        opacity: .6;
+      }
+
+      iron-icon {
+        color: rgba(255, 255, 255, 0.5);
+        transition: all ease-in-out .2s;
+      }
+
+      .nav-button:hover iron-icon {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #previous-button {
+        left: 0;
+      }
+
+      #previous-button::before {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+      }
+
+      #next-button {
+        right: 0;
+      }
+
+      #next-button::before {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+      }
+
     </style>
 
-    <template is="dom-repeat" items="[[images]]">
-      <div class$="slide [[init(index)]]" style$="background-image: url('[[item.url]]')"></div>
-    </template>
+    <div id="container">
+      <template is="dom-repeat" items="[[images]]">
+        <div class$="slide [[init(index)]]" style$="background-image: url('[[item.url]]')"></div>
+      </template>
+      <button id="previous-button" class="nav-button" on-tap="showPreviousSlide">
+        <iron-icon icon="image:navigate-before"></iron-icon>
+      </button>
+      <button id="next-button" class="nav-button" on-tap="changeSlide">
+        <iron-icon icon="image:navigate-next"></iron-icon>
+      </button>
+    </div>
 
   </template>
 
@@ -80,28 +144,45 @@
             },
           ]
         },
+        slides: {
+          type: Array,
+        }
       },
       ready: function() {
+        _this = this;
         window.setInterval(function() {
-          var slides = slides ? slides : document.querySelectorAll('.slide');
-          // find the active slide
-          for(var i = 0; i < slides.length; i++) {
-            if(slides[i].classList.contains('show')) {
-              // hide it
-              slides[i].classList.remove('show');
-              slides[i].classList.add('hide');
-              // show the next slide in sequence
-              var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
-              toShow.classList.remove('hide');
-              toShow.classList.add('show');
-              return;
-            }
-          }
-        }, 4000);
+          _this.changeSlide();
+        }, 7000);
       },
       init: function(index) {
         if(index) return "";
         else return "show";
+      },
+      changeSlide: function(direction) {
+        this.slides = this.slides ? this.slides : document.querySelectorAll('.slide');
+        var slides = this.slides;
+        // find the active slide
+        for(var i = 0; i < slides.length; i++) {
+          if(slides[i].classList.contains('show')) {
+            // hide it
+            slides[i].classList.remove('show');
+            slides[i].classList.add('hide');
+            if(direction === "previous") {
+              // show the previous slide in sequence
+              var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
+            } else {
+              // show the next slide in sequence
+              var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
+            }
+
+            toShow.classList.remove('hide');
+            toShow.classList.add('show');
+            return;
+          }
+        }
+      },
+      showPreviousSlide: function() {
+        this.changeSlide("previous");
       }
     });
   </script>
