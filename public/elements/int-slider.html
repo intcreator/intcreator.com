@@ -60,6 +60,7 @@
         border: none;
         height: 100vh;
         width: 150px;
+        cursor: pointer;
       }
 
       .nav-button::before {
@@ -80,7 +81,7 @@
       }
 
       iron-icon {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.4);
         transition: all ease-in-out .2s;
       }
 
@@ -104,9 +105,15 @@
         background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
       }
 
+      @media(max-width: 768px) {
+        iron-icon {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
     </style>
 
-    <div id="container">
+    <div id="container" on-mouseover="pause" on-mouseout="unpause">
       <template is="dom-repeat" items="[[images]]">
         <div class$="slide [[init(index)]]" style$="background-image: url('[[item.url]]')"></div>
       </template>
@@ -146,12 +153,16 @@
         },
         slides: {
           type: Array,
+        },
+        paused: {
+          type: Boolean,
+          value: false
         }
       },
       ready: function() {
         _this = this;
         window.setInterval(function() {
-          _this.changeSlide();
+          if(!_this.paused) _this.changeSlide();
         }, 7000);
       },
       init: function(index) {
@@ -183,6 +194,12 @@
       },
       showPreviousSlide: function() {
         this.changeSlide("previous");
+      },
+      pause: function() {
+        this.set('paused', true);
+      },
+      unpause: function() {
+        this.set('paused', false);
       }
     });
   </script>
