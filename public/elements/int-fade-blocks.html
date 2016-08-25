@@ -1,12 +1,13 @@
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/no-ie/no-ie.html">
 <link rel="import" href="../data/main.html">
 <link rel="import" href="int-navigation.html">
 <link rel="import" href="int-header.html">
 <link rel="import" href="int-section.html">
 <link rel="import" href="int-footer.html">
 
-<dom-module id="intcreator-app">
+<dom-module id="int-fade-blocks">
   <template>
     <style>
       :host {
@@ -25,6 +26,7 @@
     </style>
 
     <div id="container">
+      <no-ie></no-ie>
       <int-navigation></int-navigation>
       <int-header></int-header>
       <template is="dom-repeat" items="[[blocks]]">
@@ -37,7 +39,7 @@
 
   <script>
     Polymer({
-      is: 'intcreator-app',
+      is: 'int-fade-blocks',
       behaviors: [MainData],
       properties: {
         scroll: {

@@ -43,6 +43,22 @@ p {
   font-size: 1.3em;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+p + * {
+  margin-top: 1em;
+}
+
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -86,13 +102,5 @@ p {
 
   p {
     font-size: 13 0%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    margin: .3em 0;
   }
 }

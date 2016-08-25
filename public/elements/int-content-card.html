@@ -3,14 +3,9 @@
     <style>
       :host {
         width: 100%;
-        padding: 10px;
-        background-color: #333333;
       }
 
       a, a:visited {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         color: inherit;
       }
 
@@ -22,8 +17,13 @@
         text-decoration: underline;
       }
 
+      .text-background {
+        background-color: #333333;
+        padding: 50px;
+      }
+
       .image {
-        height: 40vh;
+        height: 30vw;
         width: 100%;
         background-position: center;
         background-size: cover;
@@ -32,8 +32,10 @@
 
     <a href$="[[data.url]]">
       <div class="image" style$="[[getStyles(data)]]"></div>
-      <h3>[[data.title]]</h3>
-      <p>[[data.description]]</p>
+      <div class="text-background">
+        <h3>[[data.title]]</h3>
+        <p>[[data.description]]</p>
+      </div>
     </a>
 
   </template>
