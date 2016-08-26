@@ -5,7 +5,9 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-icons": "PolymerElements/iron-icons#^1.1.3",
-    "no-ie": "intcreator/no-ie#^0.4.0-beta"
+    "no-ie": "intcreator/no-ie#^0.4.0-beta",
+    "marked-element": "PolymerElements/marked-element#^1.2.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
   },
   "devDependencies": {}
 }

@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/no-ie/no-ie.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/marked-element/marked-element.html">
+<link rel="import" href="int-navigation.html">
+<link rel="import" href="int-header.html">
+<link rel="import" href="int-footer.html">
+<link rel="import" href="../data/timl/test.md">
+
+<dom-module id="int-blog">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        justify-content: center;
+        padding: 0 30px;
+      }
+
+      #container {
+        max-width: 800px;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+      }
+
+    </style>
+
+    <iron-ajax
+      auto
+      url="../data/timl/test.md"
+      handle-as="text"
+      on-response="setMarkdown"
+      debounce-duration="300">
+    </iron-ajax>
+
+    <int-navigation></int-navigation>
+    <div id="container">
+      <no-ie></no-ie>
+      <marked-element markdown="[[markdownText]]">
+        <div class="markdown-html"></div>
+      </marked-element>
+      <int-footer></int-footer>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-blog',
+      properties: {
+        markdownText: {
+          type: String
+        }
+      },
+      ready: function() {
+        console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.github.io for your viewing pleasure.");
+      },
+      setMarkdown: function(e, resp) {
+        this.set('markdownText', resp.response);
+      }
+    });
+  </script>
+</dom-module>
