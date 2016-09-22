@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/no-ie/no-ie.html">
+<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="/bower_components/app-route/app-route.html">
+<link rel="import" href="/bower_components/app-route/app-location.html">
+<link rel="import" href="int-navigation.html">
+<link rel="import" href="int-fade-blocks.html">
+<link rel="import" href="int-blog.html">
+<link rel="import" href="int-header.html">
+<link rel="import" href="int-footer.html">
+<link href="/dependencies/prism.css" rel="stylesheet" />
+
+<dom-module id="int-app">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        justify-content: center;
+      }
+
+      #container {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+      }
+
+      marked-element {
+        max-width: 100%;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+    </style>
+
+    <app-location route="{{route}}" url-space-regex="^\/{0,1}$|^\/blog"></app-location>
+    <app-location route="{{route}}" url-space-regex="^/blog/"></app-location>
+
+    <app-route route="{{route}}" pattern="/:page" active="{{active}}" data="{{data}}" tail="{{tail}}"></app-route>
+
+    <int-navigation></int-navigation>
+    <div id="container">
+      <iron-pages selected="[[data.page]]" attr-for-selected="page">
+        <int-fade-blocks page=""></int-fade-blocks>
+        <int-blog page="blog" route="{{tail}}" blog="int"></int-blog>
+        <div page="404">404</div>
+      </iron-pages>
+      <int-footer>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-app',
+      properties: {
+        route: {
+          type: Object
+        }
+      },
+      ready: function() {
+        console.log(this.route);
+        console.log(this.tail);
+        // console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.com for your viewing pleasure.");
+      }
+    });
+
+  </script>
+</dom-module>

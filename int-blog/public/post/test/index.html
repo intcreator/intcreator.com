@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>intcreator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <link href="/dependencies/prism.css" rel="stylesheet" />
+    <link rel="import" href="/elements/int-navigation.html">
+    <link rel="import" href="/elements/int-footer.html">
+    <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="/dependencies/prism.js"></script>
+  </head>
+  <body>
+    <int-navigation></int-navigation>
+    <h1>The Markdown Blog Project</h1>
+    
+
+<p>This post exists to test the viability of using Markdown to write blog posts.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>I&rsquo;m tired of using blogging platforms like <a href="https://www.blogger.com/">Blogger</a> and <a href="https://wordpress.org/">WordPress</a> which keep my content only online in a messy database which I can maybe back up but not easily edit.  If I want to change the look and feel of my site I have to use plugins or edit the PHP myself (ack).  I have to always make sure my WordPress installation is up to date, as well as my themes and plugins.</p>
+
+<p>With a site written in <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>, I can easily edit the content and structure of the site.  I can do it at home while offline without messy databases.  I don&rsquo;t have to worry about using HTML tags and messy HTML stuff.  Just easy, readable syntax.</p>
+
+<h2 id="possible-solutions">Possible Solutions</h2>
+
+<p>I thought about using something like <a href="https://ghost.org/">Ghost</a> but I didn&rsquo;t want to pay additional hosting fees or be subject to yet another platform.  It&rsquo;s bad enough that I have to use <a href="https://www.polymer-project.org/1.0/">Polymer</a>, but luckily if Polymer ever kicks the bucket I&rsquo;ll have a nice stock of organized Markdown files that I can use to get a new blog started.</p>
+
+<p>We&rsquo;ll see how it goes.  I&rsquo;ll ramble on a bit about the process as I go on.  Writing every now and then is therapeutic, especially when I get hung up on bugs and stuff.  And being a <a href="https://xkcd.com/705/">sysadmin</a>.</p>
+
+<h2 id="insights-how-to">Insights/How To</h2>
+
+<p>So I got this page up and running.  Editing is a snap.  It&rsquo;s beautiful.  Anyway here&rsquo;s how I did it:</p>
+
+<ol>
+<li>I added <a href="https://elements.polymer-project.org/elements/marked-element"><code>&lt;marked-element&gt;</code></a> and <a href="https://elements.polymer-project.org/elements/iron-ajax"><code>&lt;iron-ajax&gt;</code></a> to my app</li>
+<li>I imported my <code>markdown.md</code> file (the one that I edit to change this text) with <code>&lt;iron-ajax&gt;</code></li>
+<li>I set the <code>markdown</code> attribute of the <code>&lt;marked-element&gt;</code> to the <code>resp.response</code> argument in the <code>&lt;iron-ajax&gt;</code> success callback</li>
+</ol>
+
+<p>Basically it&rsquo;s like importing a text file, except <code>&lt;marked-element&gt;</code> styles it all pretty like.  Plus it adds contextual IDs &lt;3</p>
+
+<p>And it&rsquo;s so easy!  And fast!  I&rsquo;m typing super fast, with no lag, no weird browser saving, no worries if I lose my internet connection&hellip;it&rsquo;s great.  I&rsquo;m happy already.</p>
+
+<p>And this page loads like lightning.</p>
+
+    <int-footer></int-footer>
+  </body>
+</html>

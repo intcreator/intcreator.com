@@ -5,8 +5,6 @@
     <style>
       :host {
         position: fixed;
-        left: 0;
-        right: 0;
         min-width: 100%;
         z-index: 10;
       }
@@ -15,6 +13,7 @@
         position: relative;
         display: flex;
         justify-content: center;
+        align-items: center;
         background: rgba(0, 0, 0, .8);
         border-bottom: 1px solid #BBB;
       }
@@ -26,7 +25,6 @@
         font-weight: 200;
         list-style: none;
         margin: 0;
-
       }
 
       li {
@@ -34,9 +32,13 @@
         align-items: center;
       }
 
-      a {
-        padding: 10px 30px;
+      li a {
+        padding: 0 30px;
         color: white;
+      }
+
+      .menu-logo {
+        align-self: flex-start;
       }
 
       a:visited {
@@ -45,6 +47,10 @@
 
       iron-icon {
         display: none;
+      }
+
+      img {
+        height: 2em;
       }
 
       @media (max-width: 768px) {
@@ -66,9 +72,14 @@
           display: block;
           position: absolute;
           left: 0;
+          top: 0;
           padding: 0;
           height: 100vh;
           background: rgba(0, 0, 0, .8);
+        }
+
+        li a {
+          padding: 5px 20px;
         }
 
         .open {
@@ -83,7 +94,7 @@
           }
 
           to {
-            transform: translate(-130px, 0);
+            transform: translate(-160px, 0);
           }
         }
 
@@ -95,7 +106,7 @@
 
         @keyframes slideOutRight {
           from {
-            transform: translate(-130px, 0);
+            transform: translate(-160px, 0);
           }
 
           to {
@@ -119,10 +130,12 @@
         }
 
         #menu-screen {
-          background: rgba(0, 0, 0, .5);
+          background: rgba(0, 0, 0, 1);
           width: 100vw;
           height: 100vh;
-          position: relative;
+          position: fixed;
+          top: 0;
+          left: 0;
           z-index: -1;
         }
 
@@ -141,7 +154,7 @@
 
           to {
             display: block;
-            opacity: .5;
+            opacity: .6;
           }
         }
 
@@ -155,7 +168,7 @@
         @keyframes uncoverFade {
           from {
             display: block;
-            opacity: .5;
+            opacity: .6;
           }
 
           to {
@@ -171,9 +184,10 @@
     <div id="menu-container">
       <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
       <ul id="menu-list">
+        <li class="menu-logo"><a href="/"><img src="/images/home/inverted-symbol.png" /></a></li>
         <li><a href="/">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="/timl.html">Blog</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="../data/brandon-blatter-resume.pdf">Résumé</a></li>
       </ul>
     </div>

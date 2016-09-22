@@ -1,5 +1,13 @@
 {
   "hosting": {
-    "public": "public"
+    "public": "public",
+    "rewrites": [ {
+        "source": "/blog/**",
+        "destination": "/index.html"
+      }, {
+        "source": "/blog",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

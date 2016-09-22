@@ -2,11 +2,11 @@ body {
   font-family: "Helvetica Neue", "Helvetica", "Source Sans Pro", sans-serif;
   margin: 0;
   background-color: #222;
-  color: #eee;
+  color: #fff;
 }
 
 a {
-  color: #366AE8;
+  color: #5cbef1;
   text-decoration: none;
 }
 
@@ -16,6 +16,37 @@ a:hover {
 
 a:visited {
   color: #aa80ff;
+}
+
+button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: #eee;
+  background-color: #000;
+  border-radius: 5px;
+  border: solid #eee 1px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:active {
+  background-color: #eee;
+  color: #000;
+}
+
+/* add some space to IDs to offset header */
+
+:target:before {
+  display: block;
+  content: " ";
+  padding-top: 50px;
+}
+
+:target {
+  margin-top: -20px;
 }
 
 h1 {
@@ -40,15 +71,18 @@ h4 {
 }
 
 p,
-li {
+li,
+code {
   font-size: 1.3em;
   font-weight: 200;
 }
 
-code {
+pre {
   background-color: rgba(255, 255, 255, 0.15);
   padding: 1px 3px;
   font-family: 'Inconsolata';
+  white-space: pre;
+  overflow: auto;
 }
 
 h1,
@@ -68,7 +102,6 @@ p + * {
 }
 
 .animated {
-  animation-duration: 1s;
   animation-fill-mode: both;
 }
 
@@ -85,6 +118,7 @@ p + * {
 }
 
 .fadeInUp {
+  animation-duration: 1s;
   animation-name: fadeInUp;
 }
 
@@ -100,6 +134,7 @@ p + * {
 }
 
 .fadeOutDown {
+  animation-duration: .3s;
   animation-name: fadeOutDown;
 }
 

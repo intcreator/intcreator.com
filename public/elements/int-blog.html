@@ -1,12 +1,9 @@
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/no-ie/no-ie.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/marked-element/marked-element.html">
-<link rel="import" href="int-navigation.html">
-<link rel="import" href="int-header.html">
-<link rel="import" href="int-footer.html">
-<link rel="import" href="../data/timl/test.md">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/app-route/app-route.html">
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/marked-element/marked-element.html">
+<link href="/dependencies/prism.css" rel="stylesheet" />
 
 <dom-module id="int-blog">
   <template>
@@ -14,7 +11,6 @@
       :host {
         display: flex;
         justify-content: center;
-        padding: 0 30px;
       }
 
       #container {
@@ -22,27 +18,42 @@
         min-height: 50vh;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 50px;
+        padding: 40px;
+      }
+
+      #breadcrumbs {
+        padding: 20px 0;
+      }
+
+      marked-element {
+        max-width: 100%;
+      }
+
+      img {
+        max-width: 100%;
       }
 
     </style>
 
+    <script src="/dependencies/prism.js"></script>
+
+    <app-route route="{{route}}" pattern="/:year" active="{{yearActive}}" data="{{yearData}}" tail="{{yearTail}}"></app-route>
+    <app-route route="{{yearTail}}" pattern="/:month" active="{{monthActive}}" data="{{monthData}}" tail="{{monthTail}}"></app-route>
+    <app-route route="{{monthTail}}" pattern="/:slug" active="{{slugActive}}" data="{{slugData}}" tail="{{slugTail}}"></app-route>
+
     <iron-ajax
       auto
-      url="../data/timl/test.md"
+      url="[[requestUrl]]"
       handle-as="text"
       on-response="setMarkdown"
+      on-error="reportNotFound"
       debounce-duration="300">
     </iron-ajax>
 
-    <int-navigation></int-navigation>
     <div id="container">
-      <no-ie></no-ie>
-      <marked-element markdown="[[markdownText]]">
-        <div class="markdown-html"></div>
-      </marked-element>
-      <int-footer></int-footer>
+      <div id="breadcrumbs">[[yearData.year]] [[monthData.month]]</div>
+      <marked-element markdown=[[content]]></marked-element>
+      <prism-highlighter></prism-highlighter>
     </div>
 
   </template>
@@ -51,16 +62,30 @@
     Polymer({
       is: 'int-blog',
       properties: {
-        markdownText: {
+        requestUrl: {
+          type: String,
+          computed: 'computeRequestUrl(blog, route.path)'
+        },
+        content: {
           type: String
         }
       },
-      ready: function() {
-        console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.github.io for your viewing pleasure.");
+      computeRequestUrl: function(blog, path) {
+        if(path === "") path = "/dir";
+        // if(!this.yearData.year || this.yearData.year === '') path += "/dir";
+        // else if(!this.monthData.month || this.monthData.month === '') path += "/dir";
+        // else if(!this.slugData.slug || this.slugData.slug === '') path += "/dir";
+        console.log(path);
+        return "/blogs/" + blog + path + ".md";
       },
       setMarkdown: function(e, resp) {
-        this.set('markdownText', resp.response);
+        if(resp.response.includes('<html>')) return;
+        this.set('content', resp.response);
+      },
+      reportNotFound: function(e, resp) {
+        this.set('content', "Post not found.")
       }
     });
+
   </script>
 </dom-module>

@@ -11,7 +11,7 @@ You can run this site on your own machine by following the following instruction
 Clone this repository on your own machine by running this command in the directory of your choosing:
 
 ```
-$ git clone https://github.com/intcreator/intcreator.github.io
+$ git clone https://github.com/intcreator/intcreator.com
 ```
 
 ## Install the Polymer-CLI

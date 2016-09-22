@@ -1,0 +1,4 @@
+baseurl = "/int-blog/public/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "int-blog"

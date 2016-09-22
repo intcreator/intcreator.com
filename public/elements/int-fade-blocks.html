@@ -2,10 +2,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/no-ie/no-ie.html">
 <link rel="import" href="../data/main.html">
-<link rel="import" href="int-navigation.html">
 <link rel="import" href="int-header.html">
 <link rel="import" href="int-section.html">
-<link rel="import" href="int-footer.html">
 
 <dom-module id="int-fade-blocks">
   <template>
@@ -27,12 +25,10 @@
 
     <div id="container">
       <no-ie></no-ie>
-      <int-navigation></int-navigation>
       <int-header></int-header>
       <template is="dom-repeat" items="[[blocks]]">
         <int-section id="[[item.slug]]" data="[[item]]"></int-section>
       </template>
-      <int-footer></int-footer>
     </div>
 
   </template>
@@ -55,7 +51,6 @@
         }
       },
       ready: function() {
-        console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.github.io for your viewing pleasure.");
         this.blocks = MainData.properties.home.value.blocks;
         _this = this;
         window.onscroll = function() {
