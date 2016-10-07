@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Polymer Element Test Case</title>
+  <!-- these lines are jsbin witchcraft -->
+  <script src="https://www.gstatic.com/firebasejs/3.0.0/firebase.js"></script>
+  <base href="//polygit.org/firebase-sdk+firebase+:master/polymerfire+firebase+:master/components/">
+  <script src="webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="polymer/polymer.html">
+
+  <!-- Import any relevant elements here: -->
+  <link rel="import" href="paper-toggle-button/paper-toggle-button.html">
+  <link rel="import" href="polymerfire/firebase-app.html">
+  <link rel="import" href="polymerfire/firebase-document.html">
+</head>
+<body>
+  <asdf-asdf></asdf-asdf>
+  <dom-module id="asdf-asdf">
+    <template>
+      <style>
+        paper-toggle-button {
+          display: inline-block;
+        }
+      </style>
+
+      <div>
+        <b>Data received from DB (dynamic app properties)</b>
+      </div>
+      <div>
+        {{jsonStringify(data)}}
+      </div>
+      <div>
+        <b>Data received from DB (static app properties)</b>
+      </div>
+      <div>
+        {{jsonStringify(data2)}}
+      </div>
+
+      <!-- my database has an endpoint for /users/dog and /users/cat -->
+      <firebase-app id="testApp1" name="test1">
+      </firebase-app>
+      <firebase-app id="testApp2" name="test2"
+                    api-key="AIzaSyCftVDS9RndoGR38I6Bq3mgKULBftpYQg0"
+                    auth-domain="testing-jsbin.firebaseapp.com"
+                    database-url="https://testing-jsbin.firebaseio.com">
+      </firebase-app>
+
+      <!-- calculated path -->
+      <firebase-document
+        app-name="test1"
+        path="users/cat"
+        data="{{data}}">
+      </firebase-document>
+      <firebase-document
+        app-name="test2"
+        path="users/cat"
+        data="{{data2}}">
+      </firebase-document>
+    </template>
+    <script>
+      HTMLImports.whenReady(function() {
+        Polymer({
+          is: 'asdf-asdf',
+
+          properties: {
+            // data output from firebase-document
+            data: Object,
+            data2: Object
+          },
+
+          attached: function() {
+            var fb = this.$.testApp1;
+            fb.set('apiKey', "AIzaSyCftVDS9RndoGR38I6Bq3mgKULBftpYQg0");
+            fb.set('authDomain', "testing-jsbin.firebaseapp.com");
+            fb.set('databaseUrl', "https://testing-jsbin.firebaseio.com");
+          },
+
+          // helper function
+          jsonStringify: function(user) {
+            return JSON.stringify(user, null, 2);
+          }
+        });
+      });
+    </script>
+  </dom-module>
+</body>
+</html>

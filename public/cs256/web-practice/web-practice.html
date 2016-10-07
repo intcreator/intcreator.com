@@ -1,0 +1,82 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/no-ie/no-ie.html">
+<link rel="import" href="/bower_components/app-route/app-location.html">
+<link rel="import" href="/bower_components/app-route/app-route.html">
+<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="/bower_components/iron-input/iron-input.html">
+<link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+
+<dom-module id="web-practice">
+  <template>
+    <style>
+      p:hover {
+        color: red;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: moveRight;
+      }
+
+      @keyframes moveRight {
+        from {
+          transform: translate(0);
+        }
+        to {
+          transform: translate(300px);
+        }
+      }
+
+      span:hover {
+        display: inline-block;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        animation-name: moveDown;
+        color: white;
+      }
+
+      @keyframes moveDown {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(0, 300px);
+        }
+      }
+
+    </style>
+
+    <p>
+      <span>T</span>
+      <span>h</span>
+      <span>i</span>
+      <span>s</span>
+      <span> </span>
+      <span>i</span>
+      <span>s</span>
+      <span> </span>
+      <span>a</span>
+      <span> </span>
+      <span>p</span>
+      <span>a</span>
+      <span>r</span>
+      <span>a</span>
+      <span>g</span>
+      <span>r</span>
+      <span>a</span>
+      <span>p</span>
+      <span>h</span>
+      <span>!</span>
+
+    </p>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'web-practice',
+      properties: {
+
+      },
+    });
+
+  </script>
+</dom-module>
