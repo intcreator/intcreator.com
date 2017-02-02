@@ -16,7 +16,7 @@
         z-index: 1;
       }
 
-      #header-content {
+      header > * {
         padding: 10px;
         max-width: 600px;
         margin: auto;
@@ -132,10 +132,10 @@
     <firebase-query
       id="fire-query"
       app-name="twitter"
-      path="chatty"
+      path=[[database]]
       data="{{data}}"
       limit-to-last="[[numTwits]]"
-      order-by-child="timeStamp"
+      order-by-key
       log>
     </firebase-query>
     <firebase-document
@@ -145,13 +145,14 @@
 
     <header>
       <div id="header-content">
-        <h4>Twit Bot</h4>
-        <button class="int-button">Change handle</button>
-        <input is="iron-input" prevent-invalid-input allowed-pattern="[^\s/\\<>]" bind-value="{{handle}}">
+        <h2>Twit Bot</h2>
+        <button hidden$="[[showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Set Username</button>
+        <input hidden$="[[!showHandleInput]]" is="iron-input" prevent-invalid-input allowed-pattern="[^\s/\\<>]" bind-value="{{handle}}">
+        <button hidden$="[[!showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Done</button>
       </div>
     </header>
 
-    <article id="container">
+    <article id="container" hidden$="[[!showTwits]]">
       <div id="new-twit">
         <iron-autogrow-textarea id="new-twit__input" placeholder="Type something..." focused="{{newTwitFocused}}" value="{{newTwit}}">
           <textarea></textarea>
@@ -160,7 +161,7 @@
           <span style$="color:[[newTwitCharsLeftColor(newTwit.length)]];">{{newTwitCharsLeft(newTwit.length)}}</span>
           <button class="int-button" disabled$="[[!canTwit(newTwit)]]" on-tap="sendTwit">Twit</button>
         </div>
-        <button class="int-button" on-tap="massageData">Clean up data</button>
+        <!-- <button class="int-button" on-tap="massageData">Clean up data</button> -->
       </div>
 
       <template is="dom-repeat" items="{{data}}" as="twit" sort="sortByDate">
@@ -170,7 +171,7 @@
             <div><span class="twit__sender">[[twit.sender]]</span> <span class="twit__time-since">[[timeSince(twit.timeStamp)]]</span></div>
             <div><span class="twit__message">[[limitTo(twit.message, 140)]]</span></div>
             <div class="twit__options">
-              <iron-icon icon="favorite" on-tap="favorite" twit="[[twit]]"></iron-icon>[[twit.favorites]]
+              <iron-icon icon="favorite" on-tap="favorite" twit="[[twit]]"></iron-icon>[[twit.favorites.length]]
               <iron-icon icon="delete" on-tap="delete" twit="[[twit]]"></iron-icon>
             </div>
           </div>
@@ -190,11 +191,24 @@
           value: ""
         },
         data: {
-          type: Object
+          type: Object,
+          observer: 'dataChanged'
         },
         numTwits: {
           type: Number,
           value: 10
+        },
+        showHandleInput: {
+          type: Boolean,
+          value: false
+        },
+        showTwits: {
+          type: Boolean,
+          value: false
+        },
+        database: {
+          type: String,
+          value: "twitbot"
         }
       },
       ready: function() {
@@ -220,6 +234,16 @@
       printData: function(data) {
         console.log(data);
       },
+      dataChanged: function(newData, oldData) {
+        console.log("Data changed!");
+        console.log(newData);
+        console.log(oldData);
+      },
+      toggleHandleInput: function(e) {
+        this.set('showHandleInput', !this.showHandleInput);
+        if(!this.showHandleInput && this.handle.length > 0) this.set('showTwits', true);
+        else this.set('showTwits', false);
+      },
       startAt: function(data) {
         return moment().format();
       },
@@ -242,7 +266,7 @@
         this.$['fire-save-doc'].data = {
           sender: this.handle,
           message: this.newTwit,
-          timeStamp: moment().format("x"),
+          timeStamp: moment().format(),
           inReplyTo: ""
         }
         // this.$['fire-save-doc'].data = Object.assign({}, template, {
@@ -252,9 +276,21 @@
         //   ...template,
         //   message: this.newTwit
         // }
-        this.$['fire-save-doc'].save("chatty");
+        this.$['fire-save-doc'].save(this.database);
         this.$['fire-save-doc'].reset();
         this.set('newTwit', '');
+      },
+      displayTwit: function(originalTwit) {
+        let words = originalTwit.split(' ');
+        for(let word of words) {
+          if(word.match(/jpg|jpeg|png|gif|bmp/g)) {
+            // add image to tweet
+          } else if(word.match(/http:\/\/|http:\/\/|\.com|\.org|\.net/g)) {
+            // add URL to word
+          }
+        }
+        let message = words.join(' ');
+        return message;
       },
       massageData: function () {
         var data = this.data;
@@ -262,20 +298,20 @@
         for (var i = 0; i < data.length; i++) {
           // if(!data[i].message || !data[i].sender) {
           //   this.$['fire-save-doc'].data = null;
-          //   this.$['fire-save-doc'].save("chatty", data[i].$key);
+          //   this.$['fire-save-doc'].save(this.database, data[i].$key);
           //   this.$['fire-save-doc'].reset();
           // }
           // if(!data[i].timeStamp || !moment(data[i].timeStamp)) {
           // if(data[i].timeStamp < 9999999999) {
-          //   console.log("Bad data: ");
-          //   console.log(data[i]);
-          //   var key = data[i].$key;
-          //   delete data[i].$key;
-          //   this.$['fire-save-doc'].data = Object.assign({}, data[i], {
-          //     timeStamp: moment(data[i].timeStamp, "x").format("x")
-          //   });
-          //   this.$['fire-save-doc'].save("chatty", key);
-          //   this.$['fire-save-doc'].reset();
+            console.log("Bad data: ");
+            console.log(data[i]);
+            var key = data[i].$key;
+            delete data[i].$key;
+            this.$['fire-save-doc'].data = Object.assign({}, data[i], {
+              timeStamp: moment(data[i].timeStamp).format()
+            });
+            this.$['fire-save-doc'].save(this.database, key);
+            this.$['fire-save-doc'].reset();
           // }
         }
       },
@@ -283,7 +319,7 @@
         return a.timeStamp > b.timeStamp ? -1 : 1;
       },
       timeSince: function(timeStamp) {
-        return !timeStamp ? "" : moment(timeStamp, "x").fromNow();
+        return !timeStamp ? "" : moment(timeStamp).fromNow();
       },
       limitTo: function(message, numChars) {
         return message.length > numChars ? message.substring(0, numChars - 3) + "..." : message;
@@ -296,32 +332,33 @@
         var key = e.target.twit.$key;
         var favorites = e.target.twit.favorites;
         // if current user is in favorites, unfavorite
-        if (favorites && favorites.indexOf(this.sender) > -1) {
-          favorites.splice(indexOf(this.sender));
+        if (favorites && favorites.indexOf(this.handle) > -1) {
+          favorites.splice(favorites.indexOf(this.handle));
         } else {
-          // otherwise add user to favorites
-          favorites.push(this.sender);
+          if(!favorites) {
+            // define list if it does not yet exist
+            favorites = [];
+          }
+          // otherwise user to favorites
+          favorites.push(this.handle);
         }
-        delete twit.$key;
-        // delete twit.favorites;
+        console.log(favorites);
         console.log(twit);
-        console.log(twit.message);
-        // console.log(key);
-        this.$['fire-save-doc'].data = {
-          message: twit.message,
-          sender: twit.sender,
-          timeStamp: twit.timeStamp,
-          inReplyTo: twit.inReplyTo ? twit.inReplyTo : "",
-          favorites: favorites
-        };
+        this.$['fire-save-doc'].setStoredValue(this.database + "/" + key + "/favorites", favorites);
+        // delete twit.$key;
+        // this.$['fire-save-doc'].data = {
+        //   message: twit.message,
+        //   sender: twit.sender,
+        //   timeStamp: twit.timeStamp,
+        //   inReplyTo: twit.inReplyTo ? twit.inReplyTo : "",
+        //   favorites: favorites
+        // };
         // console.log(this.$['fire-save-doc'].data);
-        this.$['fire-save-doc'].save("chatty", key);
-        this.$['fire-save-doc'].reset();
+        // this.$['fire-save-doc'].save(this.database, key);
       },
       delete: function(e) {
         this.$['fire-save-doc'].data = null;
-        this.$['fire-save-doc'].save("chatty", e.target.twit.$key);
-        this.$['fire-save-doc'].reset();
+        this.$['fire-save-doc'].save(this.database, e.target.twit.$key);
       }
     });
 

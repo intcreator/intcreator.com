@@ -18,6 +18,16 @@ a:visited {
   color: #aa80ff;
 }
 
+code {
+  display: inline-block;
+  padding: 0.2em;
+  background-color: #444;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  font-family: Consolas,"Liberation Mono",Courier,monospace;
+  line-height: 1;
+}
+
 .int-button {
   font-size: 1em;
   text-align: center;
@@ -91,7 +101,6 @@ h4 {
 
 p,
 li,
-code,
 input {
   font-size: 1.3em;
   font-weight: 200;

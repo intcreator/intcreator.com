@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 
 <dom-module id="int-navigation">
   <template>
@@ -45,12 +46,82 @@
         color: inherit;
       }
 
-      iron-icon {
+      #menu-icon {
         display: none;
+      }
+
+      #stupid-button {
+        padding: 12px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        opacity: .5;
+      }
+
+      #stupid-button:hover {
+        opacity: 1;
+      }
+
+      #stupid-modal {
+        position: fixed;
+        bottom: 10px;
+        right: 70px;
+        background-color: #222;
+        padding: 10px;
+        border-radius: 5px;
+        border: solid 1px #ddd;
       }
 
       img {
         height: 2em;
+      }
+
+      #menu-screen {
+        background: rgba(0, 0, 0, 1);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .cover {
+        animation-duration: .4s;
+        animation-fill-mode: both;
+        animation-name: coverFade;
+        display: block;
+      }
+
+      @keyframes coverFade {
+        from {
+          display: none;
+          opacity: 0;
+        }
+
+        to {
+          display: block;
+          opacity: .6;
+        }
+      }
+
+      .uncover {
+        animation-duration: .4s;
+        animation-fill-mode: both;
+        animation-name: uncoverFade;
+        display: none;
+      }
+
+      @keyframes uncoverFade {
+        from {
+          display: block;
+          opacity: .6;
+        }
+
+        to {
+          display: none;
+          opacity: 0;
+        }
       }
 
       @media (max-width: 768px) {
@@ -118,7 +189,7 @@
           padding: 10px 30px 10px 10px;
         }
 
-        iron-icon {
+        #menu-icon {
           display: block;
           position: absolute;
           top: 0;
@@ -129,57 +200,20 @@
           background: rgba(0, 0, 0, .8);
         }
 
-        #menu-screen {
-          background: rgba(0, 0, 0, 1);
-          width: 100vw;
-          height: 100vh;
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: -1;
-        }
-
-        .cover {
-          animation-duration: .4s;
-          animation-fill-mode: both;
-          animation-name: coverFade;
-          display: block;
-        }
-
-        @keyframes coverFade {
-          from {
-            display: none;
-            opacity: 0;
-          }
-
-          to {
-            display: block;
-            opacity: .6;
-          }
-        }
-
-        .uncover {
-          animation-duration: .4s;
-          animation-fill-mode: both;
-          animation-name: uncoverFade;
-          display: none;
-        }
-
-        @keyframes uncoverFade {
-          from {
-            display: block;
-            opacity: .6;
-          }
-
-          to {
-            display: none;
-            opacity: 0;
-          }
-        }
-
       }
 
     </style>
+
+    <firebase-app
+      name="int-navigation"
+      auth-domain="intcreator-1551e.firebaseio.com"
+      database-url="https://intcreator-1551e.firebaseio.com/"
+      api-key="AIzaSyBDgHk3_m-vqyUbTGIqgCZ8qAb-CoY5ID4">
+    </firebase-app>
+    <firebase-document
+      id="fire-save-doc"
+      app-name="int-navigation">
+    </firebase-document>
 
     <div id="menu-container">
       <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
@@ -191,7 +225,19 @@
         <li><a href="../data/brandon-blatter-resume.pdf">Résumé</a></li>
       </ul>
     </div>
-    <div id="menu-screen" class="uncover" on-tap="toggleMenu"></div>
+    <div id="menu-screen" class="uncover" on-tap="closeThings"></div>
+    <div id="stupid-button" class="int-button" on-tap="toggleStupid">
+      <iron-icon icon="announcement"></iron-icon>
+    </div>
+    <div id="stupid-modal" hidden$="[[!showStupid]]">
+      <h3>"Gee, that was stupid."</h3>
+      <p>See something stupid on this site that shouldn't have happened?  Tell me about it!</p>
+      <iron-autogrow-textarea id="stupid-input" placeholder="What went horrendously wrong?" value="{{feedback}}">
+        <textarea></textarea>
+      </iron-autogrow-textarea>
+      <button class="int-button" on-tap="submitStupid">Submit</button>
+      <p>Now when something breaks, you can do something about it!  Thanks!</p>
+    </div>
 
   </template>
 
@@ -202,23 +248,62 @@
         menuOpen: {
           type: Boolean,
           value: false
+        },
+        showStupid: {
+          type: Boolean,
+          value: false
         }
       },
+      openMenu: function() {
+        this.$['menu-container'].classList.add("open");
+        this.$['menu-container'].classList.remove("close");
+        this.showOverlay();
+      },
+      closeMenu: function() {
+        this.$['menu-container'].classList.remove("open");
+        this.$['menu-container'].classList.add("close");
+        this.hideOverlay();
+      },
+      showOverlay: function() {
+        this.$['menu-screen'].classList.remove("uncover");
+        this.$['menu-screen'].classList.add("cover");
+      },
+      hideOverlay: function() {
+        this.$['menu-screen'].classList.remove("cover");
+        this.$['menu-screen'].classList.add("uncover");
+      },
       toggleMenu: function() {
+        // toggle the mobile menu
         this.set('menuOpen', !this.menuOpen);
         if(this.menuOpen) {
-          this.$['menu-container'].classList.add("open");
-          this.$['menu-container'].classList.remove("close");
-          this.$['menu-screen'].classList.remove("uncover");
-          this.$['menu-screen'].classList.add("cover");
-        }
-        else {
-          this.$['menu-container'].classList.remove("open");
-          this.$['menu-container'].classList.add("close");
-          this.$['menu-screen'].classList.remove("cover");
-          this.$['menu-screen'].classList.add("uncover");
+          this.openMenu();
+        } else {
+          this.closeMenu();
         }
         this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
+      },
+      toggleStupid: function() {
+        // toggle the stupid feedback modal
+        this.set('showStupid', !this.showStupid);
+        if(this.showStupid) {
+          this.showOverlay();
+        } else {
+          this.hideOverlay();
+        }
+      },
+      submitStupid: function() {
+        this.toggleStupid();
+        // send feedback to Firebase
+        this.feedback = "";
+      },
+      closeThings: function() {
+        // close the menu if it's open
+        if(this.menuOpen) {
+          this.toggleMenu();
+        }
+        // close everything else
+        this.hideOverlay();
+        this.set('showStupid', false);
       }
     });
   </script>
