@@ -168,13 +168,3 @@ input + *,
   animation-duration: .3s;
   animation-name: fadeOutDown;
 }
-
-@media (max-width: 768px) {
-  body {
-    font-size: 75%;
-  }
-
-  p {
-    font-size: 13 0%;
-  }
-}

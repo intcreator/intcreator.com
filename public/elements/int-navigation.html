@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+<link rel="import" href="/bower_components/polymerfire/polymerfire.html">
 
 <dom-module id="int-navigation">
   <template>
@@ -70,7 +71,12 @@
         padding: 10px;
         border-radius: 5px;
         border: solid 1px #ddd;
+				max-width: 70%;
       }
+
+			#stupid-input {
+				width: 100%;
+			}
 
       img {
         height: 2em;
@@ -208,11 +214,13 @@
       name="int-navigation"
       auth-domain="intcreator-1551e.firebaseio.com"
       database-url="https://intcreator-1551e.firebaseio.com/"
-      api-key="AIzaSyBDgHk3_m-vqyUbTGIqgCZ8qAb-CoY5ID4">
+      api-key="AIzaSyBGZf2qoFSW7hGvFAxtoRkijgxPLAUliAQ">
     </firebase-app>
     <firebase-document
       id="fire-save-doc"
-      app-name="int-navigation">
+			app-name="int-navigation"
+			path="[[feedbackId]]"
+			data="{{feedbackMessage}}">
     </firebase-document>
 
     <div id="menu-container">
@@ -252,7 +260,11 @@
         showStupid: {
           type: Boolean,
           value: false
-        }
+        },
+				database: {
+					type: String,
+					value: 'feedback'
+				}
       },
       openMenu: function() {
         this.$['menu-container'].classList.add("open");
@@ -293,7 +305,12 @@
       },
       submitStupid: function() {
         this.toggleStupid();
-        // send feedback to Firebase
+        // TODO: send feedback to Firebase
+				this.$['fire-save-doc'].data = {
+					message: this.feedback
+				}
+				this.$['fire-save-doc'].save(this.database);
+				this.$['fire-save-doc'].reset();
         this.feedback = "";
       },
       closeThings: function() {
