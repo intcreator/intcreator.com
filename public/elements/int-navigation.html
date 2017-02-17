@@ -84,11 +84,9 @@
 
       #menu-screen {
         background: rgba(0, 0, 0, 1);
-        width: 100vw;
-        height: 100vh;
+        width: 150vw;
+        height: 150vh;
         position: fixed;
-        top: 0;
-        left: 0;
         z-index: -1;
       }
 
@@ -131,28 +129,39 @@
       }
 
       @media (max-width: 768px) {
+
         #menu-container {
+					display: block;
+					position: fixed;
+					left: 100vw;
+					height: 150vh;
+					width: 100vh;
           flex-direction: column;
           align-items: flex-end;
-          width: 0;
-          margin-left: auto;
           border-bottom: none;
-          font-size: 2em;
+          font-size: 1.5em;
           background: none;
+					background: rgba(0, 0, 0, .8);
         }
 
-        #menu-container > * {
-          flex-shrink: 0;
-        }
+				#menu-container > * {
+					flex-shrink: 0;
+				}
+
+				#menu-icon {
+					display: block;
+					position: fixed;
+					right: 0;
+					height: 45px;
+					width: 45px;
+					padding: 5px;
+					background: rgba(0, 0, 0, .8);
+					z-index: 1;
+				}
 
         ul {
           display: block;
-          position: absolute;
-          left: 0;
-          top: 0;
           padding: 0;
-          height: 100vh;
-          background: rgba(0, 0, 0, .8);
         }
 
         li a {
@@ -171,7 +180,7 @@
           }
 
           to {
-            transform: translate(-160px, 0);
+            transform: translate(-200px, 0);
           }
         }
 
@@ -183,7 +192,7 @@
 
         @keyframes slideOutRight {
           from {
-            transform: translate(-160px, 0);
+            transform: translate(-200px, 0);
           }
 
           to {
@@ -193,17 +202,6 @@
 
         a {
           padding: 10px 30px 10px 10px;
-        }
-
-        #menu-icon {
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          height: 45px;
-          width: 45px;
-          padding: 5px;
-          background: rgba(0, 0, 0, .8);
         }
 
       }
@@ -223,8 +221,8 @@
 			data="{{feedbackMessage}}">
     </firebase-document>
 
+		<iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
     <div id="menu-container">
-      <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
       <ul id="menu-list">
         <li class="menu-logo"><a href="/"><img src="/images/home/inverted-symbol.png" /></a></li>
         <li><a href="/">Home</a></li>
