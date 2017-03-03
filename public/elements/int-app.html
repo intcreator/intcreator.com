@@ -1,6 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 <link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/no-ie/no-ie.html">
 <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="/bower_components/app-route/app-route.html">
 <link rel="import" href="/bower_components/app-route/app-location.html">
@@ -39,7 +38,6 @@
 
     <app-location route="{{route}}" url-space-regex="^\/{0,1}$|^\/blog"></app-location>
     <app-location route="{{route}}" url-space-regex="^/blog/"></app-location>
-
     <app-route route="{{route}}" pattern="/:page" active="{{active}}" data="{{data}}" tail="{{tail}}"></app-route>
 
     <int-navigation></int-navigation>
