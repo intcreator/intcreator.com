@@ -5,11 +5,14 @@
         "source": "/blog/**",
         "destination": "/index.html"
       }, {
-        "source": "/blog",
+				"source": "/blog",
         "destination": "/index.html"
       }, {
-        "source": "/cs256/someday-calc/**",
-        "destination": "/cs256/someday-calc/index.html"
+				"source": "/portfolio",
+        "destination": "/index.html"
+      }, {
+        "source": "/portfolio/someday-calc/**",
+        "destination": "/portfolio/someday-calc/index.html"
       }
     ]
   }

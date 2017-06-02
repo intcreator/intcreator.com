@@ -1,0 +1,46 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/marked-element/marked-element.html">
+
+<dom-module id="int-markdown">
+  <template>
+    <style>
+      :host {
+      }
+
+      #container {
+        min-height: 50vh;
+				padding: 10vw;
+        padding-top: 50px;
+      }
+
+      marked-element {
+        max-width: 100%;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+    </style>
+
+    <div id="container">
+			<marked-element>
+				<div class="markdown-html"></div>
+				<script type="text/markdown" src="[[src]]"></script>
+			</marked-element>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'int-markdown',
+      properties: {
+
+      }
+    });
+
+  </script>
+</dom-module>
+
+<!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> -->
