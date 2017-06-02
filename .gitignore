@@ -3,7 +3,7 @@
 
 bower_components
 build
-node_modules
+**/node_modules/*
 .private
 
 # OS generated files #
