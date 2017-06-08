@@ -3,11 +3,12 @@
 <link rel="import" href="/bower_components/app-route/app-route.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="/bower_components/marked-element/marked-element.html">
+<link rel="import" href="/styles/int-styles.html">
 <link href="/dependencies/prism.css" rel="stylesheet" />
 
 <dom-module id="int-blog">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
         display: flex;
         justify-content: center;
@@ -59,33 +60,44 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-blog',
-      properties: {
-        requestUrl: {
-          type: String,
-          computed: 'computeRequestUrl(blog, route.path)'
-        },
-        content: {
-          type: String
-        }
-      },
-      computeRequestUrl: function(blog, path) {
+
+		class IntBlog extends Polymer.Element {
+
+			static get is() { return 'int-blog' }
+
+			static get properties() {
+				return {
+					requestUrl: {
+	          type: String,
+	          computed: 'computeRequestUrl(blog, route.path)'
+	        },
+	        content: {
+	          type: String
+	        }
+				}
+			}
+
+			computeRequestUrl(blog, path) {
         if(path === "") path = "/dir";
         // if(!this.yearData.year || this.yearData.year === '') path += "/dir";
         // else if(!this.monthData.month || this.monthData.month === '') path += "/dir";
         // else if(!this.slugData.slug || this.slugData.slug === '') path += "/dir";
         // console.log(path);
         return "/blogs/" + blog + path + ".md";
-      },
-      setMarkdown: function(e, resp) {
+      }
+
+			setMarkdown(e, resp) {
         if(resp.response.includes('<html>')) return;
         this.set('content', resp.response);
-      },
-      reportNotFound: function(e, resp) {
+      }
+
+			reportNotFound(e, resp) {
         this.set('content', "Post not found.")
       }
-    });
+
+		}
+
+		customElements.define(IntBlog.is, IntBlog);
 
   </script>
 </dom-module>

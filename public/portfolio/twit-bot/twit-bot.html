@@ -1,13 +1,14 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/no-ie/no-ie.html">
+<!-- <link rel="import" href="/bower_components/no-ie/no-ie.html"> -->
 <link rel="import" href="/bower_components/polymerfire/polymerfire.html">
 <link rel="import" href="/bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 <link rel="import" href="/bower_components/iron-input/iron-input.html">
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="twit-bot">
   <template>
-    <style>
+    <style include="int-styles">
       header {
         position: fixed;
         top: 0;
@@ -147,7 +148,9 @@
       <div id="header-content">
         <h2>Twit Bot</h2>
         <button hidden$="[[showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Set Username</button>
-        <input hidden$="[[!showHandleInput]]" is="iron-input" prevent-invalid-input allowed-pattern="[^\s/\\<>]" bind-value="{{handle}}">
+				<iron-input hidden$="[[!showHandleInput]]">
+					<input allowed-pattern="[^\s/\\<>]" value="{{handle::input}}">
+				</iron-input>
         <button hidden$="[[!showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Done</button>
       </div>
     </header>
@@ -183,86 +186,108 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'twit-bot',
-      properties: {
-        newTwit: {
-          type: String,
-          value: ""
-        },
-        data: {
-          type: Object,
-          observer: 'dataChanged'
-        },
-        numTwits: {
-          type: Number,
-          value: 10
-        },
-        showHandleInput: {
-          type: Boolean,
-          value: false
-        },
-        showTwits: {
-          type: Boolean,
-          value: false
-        },
-        database: {
-          type: String,
-          value: "twitbot"
-        }
-      },
-      ready: function() {
-        moment.updateLocale('en', {
-          relativeTime : {
-            future: "in %s",
-            past:   "%s",
-            s:  "%ds",
-            mm: "%dm",
-            h:  "%dh",
-            hh: "%dh",
-            dd: "%dd",
-            M:  "one month",
-            MM: "%d months",
-            y:  "one year",
-            yy: "%d years"
-          }
-        });
-      },
-      observers: [
-        'printData(query)'
-      ],
-      printData: function(data) {
-        console.log(data);
-      },
-      dataChanged: function(newData, oldData) {
-        console.log("Data changed!");
-        console.log(newData);
-        console.log(oldData);
-      },
-      toggleHandleInput: function(e) {
+
+		class TwitBot extends Polymer.GestureEventListeners(Polymer.Element) {
+
+			static get is() { return 'twit-bot' }
+
+			static get properties() {
+				return {
+					handle: {
+						type: String,
+						value: ''
+					},
+					newTwit: {
+						type: String,
+						value: ''
+					},
+					data: {
+						type: Object,
+						observer: 'dataChanged'
+					},
+					numTwits: {
+						type: Number,
+						value: 10
+					},
+					showHandleInput: {
+						type: Boolean,
+						value: false
+					},
+					showTwits: {
+						type: Boolean,
+						value: false
+					},
+					database: {
+						type: String,
+						value: "twitbot"
+					}
+				}
+			}
+
+			static get observers() {
+				return [
+					'printData(query)'
+				]
+			}
+
+			connectedCallback() {
+				super.connectedCallback()
+				moment.updateLocale('en', {
+					relativeTime : {
+						future: "in %s",
+						past:   "%s",
+						s:  "%ds",
+						mm: "%dm",
+						h:  "%dh",
+						hh: "%dh",
+						dd: "%dd",
+						M:  "one month",
+						MM: "%d months",
+						y:  "one year",
+						yy: "%d years"
+					}
+				});
+			}
+
+			printData(data) {
+        // console.log(data);
+      }
+
+      dataChanged(newData, oldData) {
+        // console.log("Data changed!");
+        // console.log(newData);
+        // console.log(oldData);
+      }
+
+      toggleHandleInput(e) {
         this.set('showHandleInput', !this.showHandleInput);
-        if(!this.showHandleInput && this.handle.length > 0) this.set('showTwits', true);
-        else this.set('showTwits', false);
-      },
-      startAt: function(data) {
+        this.set('showTwits', (!this.showHandleInput && this.handle.length > 0));
+      }
+
+      startAt(data) {
         return moment().format();
-      },
-      newTwitCharsLeft: function(numChars) {
+      }
+
+      newTwitCharsLeft(numChars) {
         if(!numChars) return 140;
         return 140 - numChars;
-      },
-      newTwitCharsLeftColor: function(numChars) {
+      }
+
+      newTwitCharsLeftColor(numChars) {
         var lightness = numChars > 140 ? 50 : 100 - (50 * (numChars / 140));
         return "hsl(0, 100%, " + lightness + "%)"
-      },
-      hideNewTwitDetails: function(newTwitFocus, newTwit) {
+      }
+
+      hideNewTwitDetails(newTwitFocus, newTwit) {
         if(newTwit) return true;
         else return newTwitFocus;
-      },
-      canTwit: function(newTwit) {
+      }
+
+      canTwit(newTwit) {
         return newTwit.length > 0 && newTwit.length <= 140;
-      },
-      sendTwit: function(e) {
+      }
+
+      sendTwit(e) {
         this.$['fire-save-doc'].data = {
           sender: this.handle,
           message: this.newTwit,
@@ -279,8 +304,9 @@
         this.$['fire-save-doc'].save(this.database);
         this.$['fire-save-doc'].reset();
         this.set('newTwit', '');
-      },
-      displayTwit: function(originalTwit) {
+      }
+
+      displayTwit(originalTwit) {
         let words = originalTwit.split(' ');
         for(let word of words) {
           if(word.match(/jpg|jpeg|png|gif|bmp/g)) {
@@ -291,10 +317,11 @@
         }
         let message = words.join(' ');
         return message;
-      },
-      massageData: function () {
+      }
+
+      massageData () {
         var data = this.data;
-        console.log(data);
+        // console.log(data);
         for (var i = 0; i < data.length; i++) {
           // if(!data[i].message || !data[i].sender) {
           //   this.$['fire-save-doc'].data = null;
@@ -303,8 +330,8 @@
           // }
           // if(!data[i].timeStamp || !moment(data[i].timeStamp)) {
           // if(data[i].timeStamp < 9999999999) {
-            console.log("Bad data: ");
-            console.log(data[i]);
+            // console.log("Bad data: ");
+            // console.log(data[i]);
             var key = data[i].$key;
             delete data[i].$key;
             this.$['fire-save-doc'].data = Object.assign({}, data[i], {
@@ -314,20 +341,25 @@
             this.$['fire-save-doc'].reset();
           // }
         }
-      },
-      sortByDate: function(a, b) {
+      }
+
+      sortByDate(a, b) {
         return a.timeStamp > b.timeStamp ? -1 : 1;
-      },
-      timeSince: function(timeStamp) {
+      }
+
+      timeSince(timeStamp) {
         return !timeStamp ? "" : moment(timeStamp).fromNow();
-      },
-      limitTo: function(message, numChars) {
+      }
+
+      limitTo(message, numChars) {
         return message.length > numChars ? message.substring(0, numChars - 3) + "..." : message;
-      },
-      showMore: function(e) {
+      }
+
+      showMore(e) {
         this.set('numTwits', this.numTwits + 5);
-      },
-      favorite: function(e) {
+      }
+
+      favorite(e) {
         var twit = e.target.twit;
         var key = e.target.twit.$key;
         var favorites = e.target.twit.favorites;
@@ -342,8 +374,8 @@
           // otherwise user to favorites
           favorites.push(this.handle);
         }
-        console.log(favorites);
-        console.log(twit);
+        // console.log(favorites);
+        // console.log(twit);
         this.$['fire-save-doc'].setStoredValue(this.database + "/" + key + "/favorites", favorites);
         // delete twit.$key;
         // this.$['fire-save-doc'].data = {
@@ -355,14 +387,18 @@
         // };
         // console.log(this.$['fire-save-doc'].data);
         // this.$['fire-save-doc'].save(this.database, key);
-      },
-      delete: function(e) {
+      }
+
+      delete(e) {
         this.$['fire-save-doc'].data = null;
         this.$['fire-save-doc'].save(this.database, e.target.twit.$key);
       }
-    });
+
+		}
+
+		customElements.define(TwitBot.is, TwitBot);
 
   </script>
 
-  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/node_modules/moment/moment.js"></script>
 </dom-module>

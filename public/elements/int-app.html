@@ -1,48 +1,51 @@
-
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="/bower_components/app-route/app-route.html">
 <link rel="import" href="/bower_components/app-route/app-location.html">
+<link rel="import" href="/styles/int-styles.html">
 <link rel="import" href="int-navigation.html">
 <link rel="import" href="int-fade-blocks.html">
 <link rel="import" href="int-blog.html">
 <link rel="import" href="int-markdown.html">
-<link rel="import" href="int-header.html">
 <link rel="import" href="int-footer.html">
 <link href="/dependencies/prism.css" rel="stylesheet" />
 
 <dom-module id="int-app">
+
   <template>
-    <style>
-      :host {
 
-      }
+		<style include="int-styles">
 
-      #container {
-        min-height: 50vh;
-        padding-top: 50px;
-      }
+			:host {
 
-      marked-element {
-        max-width: 100%;
-      }
+			}
 
-      img {
-        max-width: 100%;
-      }
+			#container {
+				min-height: 50vh;
+				padding-top: 50px;
+			}
 
-    </style>
+			marked-element {
+				max-width: 100%;
+			}
 
-    <app-location route="{{route}}" url-space-regex="^\/{0,1}$|^\/portfolio"></app-location>
-    <app-location route="{{route}}" url-space-regex="^/portfolio/"></app-location>
+			img {
+				max-width: 100%;
+			}
+
+		</style>
+
+    <app-location route="{{route}}" url-space-regex="^((?!\/[a-zA-Z]*\/[a-zA-Z]+.*)).*"></app-location>
     <app-route route="{{route}}" pattern="/:page" active="{{active}}" data="{{data}}" tail="{{tail}}"></app-route>
 
     <int-navigation></int-navigation>
     <div id="container">
-      <iron-pages selected="[[data.page]]" attr-for-selected="page">
+      <iron-pages selected="[[data.page]]" attr-for-selected="page" fallback-selection="404">
         <int-fade-blocks page=""></int-fade-blocks>
-        <int-blog page="blog" route="{{tail}}" blog="int"></int-blog>
-        <int-markdown page="portfolio" src="../data/pages/portfolio.md" route="{{tail}}"></int-markdown>
+        <!-- <int-blog page="blog" route="{{tail}}" blog="int"></int-blog> -->
+        <int-markdown page="portfolio" source="../data/pages/portfolio.md"></int-markdown>
+        <int-markdown page="legacy" source="../data/pages/legacy.md"></int-markdown>
+				<h3 page="404">Oops</h3>
       </iron-pages>
       <int-footer></int-footer>
     </div>
@@ -50,17 +53,27 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-app',
-      properties: {
-        route: {
-          type: Object
-        }
-      },
-      ready: function() {
-        console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.com for your viewing pleasure.");
-      }
-    });
+
+		class IntApp extends Polymer.Element {
+
+			static get is() { return 'int-app' }
+
+			static get properties() {
+				return {
+					route: {
+						type: Object
+					}
+				}
+			}
+
+			connectedCallback() {
+				super.connectedCallback();
+				console.log("Hello there.  It looks like you're interested in how my site works.  Rest assured, all the code can be found at https://github.com/intcreator/intcreator.com for your viewing pleasure.");
+			}
+
+		}
+
+		customElements.define(IntApp.is, IntApp);
 
   </script>
 </dom-module>

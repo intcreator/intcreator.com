@@ -1,0 +1,182 @@
+<dom-module id="int-styles">
+
+	<template>
+
+		<style>
+
+			html {
+				font-family: "Helvetica Neue", "Helvetica", "Source Sans Pro", sans-serif;
+				margin: 0;
+				background-color: #222;
+				color: #fff;
+			}
+
+			[hidden] {
+				display: none !important;
+			}
+
+			a {
+				color: #5cbef1;
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			a:visited {
+				color: #aa80ff;
+			}
+
+			code {
+				display: inline-block;
+				padding: 0.2em;
+				background-color: #444;
+				border: 1px solid #bbb;
+				border-radius: 3px;
+				font-family: Consolas, "Liberation Mono", Courier, monospace;
+				line-height: 1;
+			}
+
+			.int-button {
+				font-size: 1em;
+				text-align: center;
+				display: inline-block;
+				padding: 10px 20px;
+				text-transform: uppercase;
+				color: #eee;
+				background-color: #000;
+				border-radius: 5px;
+				border: solid #eee 1px;
+				cursor: pointer;
+				text-decoration: none;
+			}
+
+			.int-button:hover {
+				background-color: #555;
+				text-decoration: none;
+			}
+
+			.int-button:active {
+				background-color: #eee;
+				color: #000;
+			}
+
+			.int-button:visited {
+				color: inherit;
+			}
+
+			.int-button[disabled] {
+				color: #777;
+				border-color: #777;
+				cursor: default;
+			}
+
+			/* add some space to IDs to offset header */
+
+			:target:before {
+				display: block;
+				content: " ";
+				padding-top: 50px;
+			}
+
+			:target {
+				margin-top: -20px;
+			}
+
+			h1 {
+				font-size: 4.4em;
+				font-weight: 100;
+			}
+
+			h2 {
+				font-weight: 200;
+				font-size: 2.1em;
+			}
+
+			h3 {
+				font-weight: 300;
+				font-size: 1.7em;
+				text-transform: uppercase;
+			}
+
+			h4 {
+				font-weight: 300;
+				font-size: 1.5em;
+			}
+
+			p,
+			li,
+			input {
+				font-size: 1.3em;
+				font-weight: 200;
+			}
+
+			pre {
+				background-color: rgba(255, 255, 255, 0.15);
+				padding: 1px 3px;
+				font-family: 'Inconsolata';
+				white-space: pre;
+				overflow: auto;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			p {
+				margin: 0;
+			}
+
+			h1 + *,
+			h2 + *,
+			h3 + *,
+			h4 + *,
+			p + *,
+			input + *,
+			.int-button + * {
+				margin-top: 1em;
+			}
+
+			.animated {
+				animation-fill-mode: both;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translate3d(0, 10%, 0);
+				}
+
+				to {
+					opacity: 1;
+					transform: none;
+				}
+			}
+
+			.fadeInUp {
+				animation-duration: 1s;
+				animation-name: fadeInUp;
+			}
+
+			@keyframes fadeOutDown {
+				from {
+					opacity: 1;
+				}
+
+				to {
+					opacity: 0;
+					transform: translate3d(0, 10%, 0);
+				}
+			}
+
+			.fadeOutDown {
+				animation-duration: .3s;
+				animation-name: fadeOutDown;
+			}
+
+		</style>
+
+	</template>
+
+</dom-module>

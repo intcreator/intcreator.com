@@ -5,10 +5,7 @@
         "source": "/blog/**",
         "destination": "/index.html"
       }, {
-				"source": "/blog",
-        "destination": "/index.html"
-      }, {
-				"source": "/portfolio",
+				"source": "/*",
         "destination": "/index.html"
       }, {
         "source": "/portfolio/someday-calc/**",

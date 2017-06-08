@@ -2,10 +2,11 @@
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="/bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 <link rel="import" href="/bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="int-navigation">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
         position: fixed;
         min-width: 100%;
@@ -251,78 +252,169 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-navigation',
-      properties: {
-        menuOpen: {
-          type: Boolean,
-          value: false
-        },
-        showStupid: {
-          type: Boolean,
-          value: false
-        },
-				database: {
-					type: String,
-					value: 'feedback'
+
+		class IntNavigation extends Polymer.Element {
+
+			static get is() { return 'int-navigation' }
+
+			static get properties() {
+				return {
+					menuOpen: {
+						type: Boolean,
+						value: false
+					},
+					showStupid: {
+						type: Boolean,
+						value: false
+					},
+					database: {
+						type: String,
+						value: 'feedback'
+					}
 				}
-      },
-      openMenu: function() {
-        this.$['menu-container'].classList.add("open");
-        this.$['menu-container'].classList.remove("close");
-        this.showOverlay();
-      },
-      closeMenu: function() {
-        this.$['menu-container'].classList.remove("open");
-        this.$['menu-container'].classList.add("close");
-        this.hideOverlay();
-      },
-      showOverlay: function() {
-        this.$['menu-screen'].classList.remove("uncover");
-        this.$['menu-screen'].classList.add("cover");
-      },
-      hideOverlay: function() {
-        this.$['menu-screen'].classList.remove("cover");
-        this.$['menu-screen'].classList.add("uncover");
-      },
-      toggleMenu: function() {
-        // toggle the mobile menu
-        this.set('menuOpen', !this.menuOpen);
-        if(this.menuOpen) {
-          this.openMenu();
-        } else {
-          this.closeMenu();
-        }
-        this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
-      },
-      toggleStupid: function() {
-        // toggle the stupid feedback modal
-        this.set('showStupid', !this.showStupid);
-        if(this.showStupid) {
-          this.showOverlay();
-        } else {
-          this.hideOverlay();
-        }
-      },
-      submitStupid: function() {
-        this.toggleStupid();
-        // TODO: send feedback to Firebase
+			}
+
+			openMenu() {
+				this.$['menu-container'].classList.add("open");
+				this.$['menu-container'].classList.remove("close");
+				this.showOverlay();
+			}
+
+			closeMenu() {
+				this.$['menu-container'].classList.remove("open");
+				this.$['menu-container'].classList.add("close");
+				this.hideOverlay();
+			}
+
+			showOverlay() {
+				this.$['menu-screen'].classList.remove("uncover");
+				this.$['menu-screen'].classList.add("cover");
+			}
+
+			hideOverlay() {
+				this.$['menu-screen'].classList.remove("cover");
+				this.$['menu-screen'].classList.add("uncover");
+			}
+
+			toggleMenu() {
+				// toggle the mobile menu
+				this.set('menuOpen', !this.menuOpen);
+				if(this.menuOpen) {
+					this.openMenu();
+				} else {
+					this.closeMenu();
+				}
+				this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
+			}
+
+			toggleStupid() {
+				// toggle the stupid feedback modal
+				this.set('showStupid', !this.showStupid);
+				if(this.showStupid) {
+					this.showOverlay();
+				} else {
+					this.hideOverlay();
+				}
+			}
+
+			submitStupid() {
+				this.toggleStupid();
+				// TODO: send feedback to Firebase
 				this.$['fire-save-doc'].data = {
 					message: this.feedback
 				}
 				this.$['fire-save-doc'].save(this.database);
 				this.$['fire-save-doc'].reset();
-        this.feedback = "";
-      },
-      closeThings: function() {
-        // close the menu if it's open
-        if(this.menuOpen) {
-          this.toggleMenu();
-        }
-        // close everything else
-        this.hideOverlay();
-        this.set('showStupid', false);
-      }
-    });
+				this.feedback = "";
+			}
+
+			closeThings() {
+				// close the menu if it's open
+				if(this.menuOpen) {
+					this.toggleMenu();
+				}
+				// close everything else
+				this.hideOverlay();
+				this.set('showStupid', false);
+			}
+
+		}
+
+		customElements.define(IntNavigation.is, IntNavigation);
+
+		//
+    // Polymer({
+    //   is: 'int-navigation',
+    //   properties: {
+    //     menuOpen: {
+    //       type: Boolean,
+    //       value: false
+    //     },
+    //     showStupid: {
+    //       type: Boolean,
+    //       value: false
+    //     },
+		// 		database: {
+		// 			type: String,
+		// 			value: 'feedback'
+		// 		}
+    //   },
+    //   openMenu: function() {
+    //     this.$['menu-container'].classList.add("open");
+    //     this.$['menu-container'].classList.remove("close");
+    //     this.showOverlay();
+    //   },
+    //   closeMenu: function() {
+    //     this.$['menu-container'].classList.remove("open");
+    //     this.$['menu-container'].classList.add("close");
+    //     this.hideOverlay();
+    //   },
+    //   showOverlay: function() {
+    //     this.$['menu-screen'].classList.remove("uncover");
+    //     this.$['menu-screen'].classList.add("cover");
+    //   },
+    //   hideOverlay: function() {
+    //     this.$['menu-screen'].classList.remove("cover");
+    //     this.$['menu-screen'].classList.add("uncover");
+    //   },
+    //   toggleMenu: function() {
+    //     // toggle the mobile menu
+    //     this.set('menuOpen', !this.menuOpen);
+    //     if(this.menuOpen) {
+    //       this.openMenu();
+    //     } else {
+    //       this.closeMenu();
+    //     }
+    //     this.$['menu-icon'].icon = this.menuOpen ? "icons:clear" : "icons:menu";
+    //   },
+    //   toggleStupid: function() {
+    //     // toggle the stupid feedback modal
+    //     this.set('showStupid', !this.showStupid);
+    //     if(this.showStupid) {
+    //       this.showOverlay();
+    //     } else {
+    //       this.hideOverlay();
+    //     }
+    //   },
+    //   submitStupid: function() {
+    //     this.toggleStupid();
+    //     // TODO: send feedback to Firebase
+		// 		this.$['fire-save-doc'].data = {
+		// 			message: this.feedback
+		// 		}
+		// 		this.$['fire-save-doc'].save(this.database);
+		// 		this.$['fire-save-doc'].reset();
+    //     this.feedback = "";
+    //   },
+    //   closeThings: function() {
+    //     // close the menu if it's open
+    //     if(this.menuOpen) {
+    //       this.toggleMenu();
+    //     }
+    //     // close everything else
+    //     this.hideOverlay();
+    //     this.set('showStupid', false);
+    //   }
+    // });
   </script>
 </dom-module>
