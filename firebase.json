@@ -5,14 +5,14 @@
         "source": "/blog/**",
         "destination": "/index.html"
       }, {
-				"source": "/blog",
+				"source": "/*",
         "destination": "/index.html"
       }, {
-				"source": "/portfolio",
-        "destination": "/index.html"
-      }, {
-        "source": "/portfolio/someday-calc/**",
+        "source": "/portfolio/someday-calc/*",
         "destination": "/portfolio/someday-calc/index.html"
+      }, {
+        "source": "/portfolio/enigma/*",
+        "destination": "/portfolio/enigma/index.html"
       }
     ]
   }

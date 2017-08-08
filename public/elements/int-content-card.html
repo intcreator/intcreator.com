@@ -1,6 +1,9 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="/styles/int-styles.html">
+
 <dom-module id="int-content-card">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
         width: 100%;
       }
@@ -42,18 +45,25 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-content-card',
-      getStyles: function(data) {
-        var styles = "background-image: url('" + data.imageUrl + "');";
-        if(data.imagePosition === "logo") {
+
+		class IntContentCard extends Polymer.Element {
+
+			static get is() { return 'int-content-card' }
+
+			getStyles(data) {
+				const position = data.imagePosition;
+        let styles = "background-image: url('" + data.imageUrl + "');";
+        if(position === "logo") {
           styles += "background-size: contain;";
           styles += "background-repeat: no-repeat;";
         }
-        else styles += "background-position: " + data.imagePosition + ";";
+        else styles += position ? "background-position: " + position + ";" : "";
         return styles;
-      }
-    });
+			}
+
+		}
+
+		customElements.define(IntContentCard.is, IntContentCard);
 
   </script>
 </dom-module>

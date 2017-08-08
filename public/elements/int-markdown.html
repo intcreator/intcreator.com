@@ -1,9 +1,10 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/marked-element/marked-element.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/marked-element/marked-element.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="int-markdown">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
       }
 
@@ -25,20 +26,29 @@
 
     <div id="container">
 			<marked-element>
-				<div class="markdown-html"></div>
-				<script type="text/markdown" src="[[src]]"></script>
+				<div slot="markdown-html"></div>
+				<script type="text/markdown" src$="[[source]]"></script>
 			</marked-element>
     </div>
 
   </template>
 
   <script>
-    Polymer({
-      is: 'int-markdown',
-      properties: {
+		class IntMarkdown extends Polymer.Element {
 
-      }
-    });
+			static get is() { return 'int-markdown' }
+
+			static get properties() {
+				return {
+					source: {
+						type: String
+					}
+				}
+			}
+
+		}
+
+		customElements.define(IntMarkdown.is, IntMarkdown);
 
   </script>
 </dom-module>

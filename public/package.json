@@ -1,0 +1,33 @@
+{
+  "name": "intcreator.com",
+  "version": "2.0.0",
+  "description": "A site to exhibit and demonstrate Brandon's web development skills",
+  "main": "index.html",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-html": "^3.1.1",
+    "firebase": "^3.3.2",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intcreator/intcreator.com.git"
+  },
+  "keywords": [
+    "intcreator",
+    "porfolio",
+    "site",
+    "firebase",
+    "polymer"
+  ],
+  "author": "Brandon Blatter",
+  "bugs": {
+    "url": "https://github.com/intcreator/intcreator.com/issues"
+  },
+  "homepage": "https://github.com/intcreator/intcreator.com#readme"
+}

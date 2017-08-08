@@ -1,368 +1,404 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/no-ie/no-ie.html">
+<!-- <link rel="import" href="/bower_components/no-ie/no-ie.html"> -->
 <link rel="import" href="/bower_components/polymerfire/polymerfire.html">
 <link rel="import" href="/bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 <link rel="import" href="/bower_components/iron-input/iron-input.html">
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="twit-bot">
-  <template>
-    <style>
-      header {
-        position: fixed;
-        top: 0;
-        width: 100vw;
-        background-color: #333;
-        z-index: 1;
-      }
+	<template>
+		<style include="int-styles">
+			header {
+				position: fixed;
+				top: 0;
+				width: 100vw;
+				background-color: #333;
+				z-index: 1;
+			}
 
-      header > * {
-        padding: 10px;
-        max-width: 600px;
-        margin: auto;
-        display: flex;
-      }
+			header > * {
+				padding: 10px;
+				max-width: 600px;
+				margin: auto;
+				display: flex;
+			}
 
-      #header-content > * + * {
-        margin: 0;
-        margin-left: 20px;
-      }
+			#header-content > * + * {
+				margin: 0;
+				margin-left: 20px;
+			}
 
-      #container {
-        max-width: 600px;
-        margin: 80px auto;
-      }
+			#container {
+				max-width: 600px;
+				margin: 80px auto;
+			}
 
-      #new-twit {
-        padding: 20px;
-        border: solid grey 1px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-      }
+			#new-twit {
+				padding: 20px;
+				border: solid grey 1px;
+				margin-bottom: 20px;
+				border-radius: 5px;
+			}
 
-      #new-twit > * + * {
-        margin-top: 10px;
-      }
+			#new-twit > * + * {
+				margin-top: 10px;
+			}
 
-      #new-twit__input {
-        width: 100%;
-      }
+			#new-twit__input {
+				width: 100%;
+			}
 
-      #new-twit__details {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
+			#new-twit__details {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
 
-      #new-twit__details > * + * {
-        margin-left: 10px;
-      }
+			#new-twit__details > * + * {
+				margin-left: 10px;
+			}
 
-      .new-twit-container--open {
-        height: 50px;
-      }
+			.new-twit-container--open {
+				height: 50px;
+			}
 
-      .twit {
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
-        display: flex;
-      }
+			.twit {
+				padding: 10px;
+				background-color: rgba(255, 255, 255, 0.1);
+				display: flex;
+			}
 
-      .twit > * + * {
-        margin-left: 10px;
-      }
+			.twit > * + * {
+				margin-left: 10px;
+			}
 
-      .twit + .twit {
-        border-top: solid grey 1px;
-      }
+			.twit + .twit {
+				border-top: solid grey 1px;
+			}
 
-      .twit__profile-pic {
-        height: 50px;
-        width: 50px;
-        border-radius: 5px;
-        background-color: grey;
-        flex-shrink: 0;
-      }
+			.twit__profile-pic {
+				height: 50px;
+				width: 50px;
+				border-radius: 5px;
+				background-color: grey;
+				flex-shrink: 0;
+			}
 
-      .twit__sender {
-        font-weight: bold;
-      }
+			.twit__sender {
+				font-weight: bold;
+			}
 
-      .twit__time-since {
-        color: #bbb;
-      }
+			.twit__time-since {
+				color: #bbb;
+			}
 
-      .twit__message {
-        font-weight: 300;
-        word-break: break-word;
-      }
+			.twit__message {
+				font-weight: 300;
+				word-break: break-word;
+			}
 
-      .twit__options {
-        margin-top: 20px;
-      }
+			.twit__options {
+				margin-top: 20px;
+			}
 
-      .twit__options iron-icon {
-        color: #bbb;
-      }
+			.twit__options iron-icon {
+				color: #bbb;
+			}
 
-      .twit__options iron-icon:hover {
-        color: currentColor;
-        cursor: pointer;
-      }
+			.twit__options iron-icon:hover {
+				color: currentColor;
+				cursor: pointer;
+			}
 
-      .show-more {
-        border-top: solid grey 1px;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+			.show-more {
+				border-top: solid grey 1px;
+				padding: 10px;
+				background-color: rgba(255, 255, 255, 0.1);
+			}
 
-      .show-more:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        cursor: pointer;
-      }
+			.show-more:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+			}
 
-    </style>
+		</style>
 
-    <firebase-app
-      name="twitter"
-      auth-domain="luminous-torch-6850.firebaseapp.com"
-      database-url="https://luminous-torch-6850.firebaseio.com/"
-      api-key="AIzaSyBDgHk3_m-vqyUbTGIqgCZ8qAb-CoY5ID4">
-    </firebase-app>
-    <firebase-query
-      id="fire-query"
-      app-name="twitter"
-      path=[[database]]
-      data="{{data}}"
-      limit-to-last="[[numTwits]]"
-      order-by-key
-      log>
-    </firebase-query>
-    <firebase-document
-      id="fire-save-doc"
-      app-name="twitter">
-    </firebase-document>
+		<firebase-app
+			name="int-navigation"
+			auth-domain="intcreator-1551e.firebaseio.com"
+			database-url="https://intcreator-1551e.firebaseio.com/"
+			api-key="AIzaSyBGZf2qoFSW7hGvFAxtoRkijgxPLAUliAQ">
+		</firebase-app>
+		<firebase-query
+			id="fire-query"
+			app-name="twitter"
+			path=[[database]]
+			data="{{data}}"
+			limit-to-last="[[numTwits]]"
+			order-by-key
+			log>
+		</firebase-query>
+		<firebase-document
+			id="fire-save-doc"
+			app-name="twitter">
+		</firebase-document>
 
-    <header>
-      <div id="header-content">
-        <h2>Twit Bot</h2>
-        <button hidden$="[[showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Set Username</button>
-        <input hidden$="[[!showHandleInput]]" is="iron-input" prevent-invalid-input allowed-pattern="[^\s/\\<>]" bind-value="{{handle}}">
-        <button hidden$="[[!showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Done</button>
-      </div>
-    </header>
+		<header>
+			<div id="header-content">
+				<h2>Twit Bot</h2>
+				<button hidden$="[[showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Set Username</button>
+				<iron-input hidden$="[[!showHandleInput]]">
+					<input allowed-pattern="[^\s/\\<>]" value="{{handle::input}}">
+				</iron-input>
+				<button hidden$="[[!showHandleInput]]" class="int-button" on-tap="toggleHandleInput">Done</button>
+			</div>
+		</header>
 
-    <article id="container" hidden$="[[!showTwits]]">
-      <div id="new-twit">
-        <iron-autogrow-textarea id="new-twit__input" placeholder="Type something..." focused="{{newTwitFocused}}" value="{{newTwit}}">
-          <textarea></textarea>
-        </iron-autogrow-textarea>
-        <div id="new-twit__details" hidden$="[[!hideNewTwitDetails(newTwitFocused, newTwit)]]">
-          <span style$="color:[[newTwitCharsLeftColor(newTwit.length)]];">{{newTwitCharsLeft(newTwit.length)}}</span>
-          <button class="int-button" disabled$="[[!canTwit(newTwit)]]" on-tap="sendTwit">Twit</button>
-        </div>
-        <!-- <button class="int-button" on-tap="massageData">Clean up data</button> -->
-      </div>
+		<article id="container" hidden$="[[!showTwits]]">
+			<div id="new-twit">
+				<iron-autogrow-textarea id="new-twit__input" placeholder="Type something..." focused="{{newTwitFocused}}" value="{{newTwit}}">
+					<textarea></textarea>
+				</iron-autogrow-textarea>
+				<div id="new-twit__details" hidden$="[[!hideNewTwitDetails(newTwitFocused, newTwit)]]">
+					<span style$="color:[[newTwitCharsLeftColor(newTwit.length)]];">{{newTwitCharsLeft(newTwit.length)}}</span>
+					<button class="int-button" disabled$="[[!canTwit(newTwit)]]" on-tap="sendTwit">Twit</button>
+				</div>
+				<!-- <button class="int-button" on-tap="massageData">Clean up data</button> -->
+			</div>
 
-      <template is="dom-repeat" items="{{data}}" as="twit" sort="sortByDate">
-        <div class="twit">
-          <div class="twit__profile-pic"></div>
-          <div class="twit__body">
-            <div><span class="twit__sender">[[twit.sender]]</span> <span class="twit__time-since">[[timeSince(twit.timeStamp)]]</span></div>
-            <div><span class="twit__message">[[limitTo(twit.message, 140)]]</span></div>
-            <div class="twit__options">
-              <iron-icon icon="favorite" on-tap="favorite" twit="[[twit]]"></iron-icon>[[twit.favorites.length]]
-              <iron-icon icon="delete" on-tap="delete" twit="[[twit]]"></iron-icon>
-            </div>
-          </div>
-        </div>
-      </template>
-      <div on-tap="showMore" class="show-more">Show more...</div>
-    </article>
+			<template is="dom-repeat" items="{{data}}" as="twit" sort="sortByDate">
+				<div class="twit">
+					<div class="twit__profile-pic"></div>
+					<div class="twit__body">
+						<div><span class="twit__sender">[[twit.sender]]</span> <span class="twit__time-since">[[timeSince(twit.timeStamp)]]</span></div>
+						<div><span class="twit__message">[[limitTo(twit.message, 140)]]</span></div>
+						<div class="twit__options">
+							<iron-icon icon="favorite" on-tap="favorite" twit="[[twit]]"></iron-icon>[[twit.favorites.length]]
+							<iron-icon icon="delete" on-tap="delete" twit="[[twit]]"></iron-icon>
+						</div>
+					</div>
+				</div>
+			</template>
+			<div on-tap="showMore" class="show-more">Show more...</div>
+		</article>
 
-  </template>
+	</template>
 
-  <script>
-    Polymer({
-      is: 'twit-bot',
-      properties: {
-        newTwit: {
-          type: String,
-          value: ""
-        },
-        data: {
-          type: Object,
-          observer: 'dataChanged'
-        },
-        numTwits: {
-          type: Number,
-          value: 10
-        },
-        showHandleInput: {
-          type: Boolean,
-          value: false
-        },
-        showTwits: {
-          type: Boolean,
-          value: false
-        },
-        database: {
-          type: String,
-          value: "twitbot"
-        }
-      },
-      ready: function() {
-        moment.updateLocale('en', {
-          relativeTime : {
-            future: "in %s",
-            past:   "%s",
-            s:  "%ds",
-            mm: "%dm",
-            h:  "%dh",
-            hh: "%dh",
-            dd: "%dd",
-            M:  "one month",
-            MM: "%d months",
-            y:  "one year",
-            yy: "%d years"
-          }
-        });
-      },
-      observers: [
-        'printData(query)'
-      ],
-      printData: function(data) {
-        console.log(data);
-      },
-      dataChanged: function(newData, oldData) {
-        console.log("Data changed!");
-        console.log(newData);
-        console.log(oldData);
-      },
-      toggleHandleInput: function(e) {
-        this.set('showHandleInput', !this.showHandleInput);
-        if(!this.showHandleInput && this.handle.length > 0) this.set('showTwits', true);
-        else this.set('showTwits', false);
-      },
-      startAt: function(data) {
-        return moment().format();
-      },
-      newTwitCharsLeft: function(numChars) {
-        if(!numChars) return 140;
-        return 140 - numChars;
-      },
-      newTwitCharsLeftColor: function(numChars) {
-        var lightness = numChars > 140 ? 50 : 100 - (50 * (numChars / 140));
-        return "hsl(0, 100%, " + lightness + "%)"
-      },
-      hideNewTwitDetails: function(newTwitFocus, newTwit) {
-        if(newTwit) return true;
-        else return newTwitFocus;
-      },
-      canTwit: function(newTwit) {
-        return newTwit.length > 0 && newTwit.length <= 140;
-      },
-      sendTwit: function(e) {
-        this.$['fire-save-doc'].data = {
-          sender: this.handle,
-          message: this.newTwit,
-          timeStamp: moment().format(),
-          inReplyTo: ""
-        }
-        // this.$['fire-save-doc'].data = Object.assign({}, template, {
-        //   message: this.newTwit
-        // });
-        // this.$['fire-save-doc'].data = {
-        //   ...template,
-        //   message: this.newTwit
-        // }
-        this.$['fire-save-doc'].save(this.database);
-        this.$['fire-save-doc'].reset();
-        this.set('newTwit', '');
-      },
-      displayTwit: function(originalTwit) {
-        let words = originalTwit.split(' ');
-        for(let word of words) {
-          if(word.match(/jpg|jpeg|png|gif|bmp/g)) {
-            // add image to tweet
-          } else if(word.match(/http:\/\/|http:\/\/|\.com|\.org|\.net/g)) {
-            // add URL to word
-          }
-        }
-        let message = words.join(' ');
-        return message;
-      },
-      massageData: function () {
-        var data = this.data;
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-          // if(!data[i].message || !data[i].sender) {
-          //   this.$['fire-save-doc'].data = null;
-          //   this.$['fire-save-doc'].save(this.database, data[i].$key);
-          //   this.$['fire-save-doc'].reset();
-          // }
-          // if(!data[i].timeStamp || !moment(data[i].timeStamp)) {
-          // if(data[i].timeStamp < 9999999999) {
-            console.log("Bad data: ");
-            console.log(data[i]);
-            var key = data[i].$key;
-            delete data[i].$key;
-            this.$['fire-save-doc'].data = Object.assign({}, data[i], {
-              timeStamp: moment(data[i].timeStamp).format()
-            });
-            this.$['fire-save-doc'].save(this.database, key);
-            this.$['fire-save-doc'].reset();
-          // }
-        }
-      },
-      sortByDate: function(a, b) {
-        return a.timeStamp > b.timeStamp ? -1 : 1;
-      },
-      timeSince: function(timeStamp) {
-        return !timeStamp ? "" : moment(timeStamp).fromNow();
-      },
-      limitTo: function(message, numChars) {
-        return message.length > numChars ? message.substring(0, numChars - 3) + "..." : message;
-      },
-      showMore: function(e) {
-        this.set('numTwits', this.numTwits + 5);
-      },
-      favorite: function(e) {
-        var twit = e.target.twit;
-        var key = e.target.twit.$key;
-        var favorites = e.target.twit.favorites;
-        // if current user is in favorites, unfavorite
-        if (favorites && favorites.indexOf(this.handle) > -1) {
-          favorites.splice(favorites.indexOf(this.handle));
-        } else {
-          if(!favorites) {
-            // define list if it does not yet exist
-            favorites = [];
-          }
-          // otherwise user to favorites
-          favorites.push(this.handle);
-        }
-        console.log(favorites);
-        console.log(twit);
-        this.$['fire-save-doc'].setStoredValue(this.database + "/" + key + "/favorites", favorites);
-        // delete twit.$key;
-        // this.$['fire-save-doc'].data = {
-        //   message: twit.message,
-        //   sender: twit.sender,
-        //   timeStamp: twit.timeStamp,
-        //   inReplyTo: twit.inReplyTo ? twit.inReplyTo : "",
-        //   favorites: favorites
-        // };
-        // console.log(this.$['fire-save-doc'].data);
-        // this.$['fire-save-doc'].save(this.database, key);
-      },
-      delete: function(e) {
-        this.$['fire-save-doc'].data = null;
-        this.$['fire-save-doc'].save(this.database, e.target.twit.$key);
-      }
-    });
+	<script>
 
-  </script>
+		class TwitBot extends Polymer.GestureEventListeners(Polymer.Element) {
 
-  <script src="/bower_components/moment/moment.js"></script>
+			static get is() { return 'twit-bot'; }
+
+			static get properties() {
+				return {
+					handle: {
+						type: String,
+						value: ''
+					},
+					newTwit: {
+						type: String,
+						value: ''
+					},
+					data: {
+						type: Object,
+						observer: 'dataChanged'
+					},
+					numTwits: {
+						type: Number,
+						value: 10
+					},
+					showHandleInput: {
+						type: Boolean,
+						value: false
+					},
+					showTwits: {
+						type: Boolean,
+						value: false
+					},
+					database: {
+						type: String,
+						value: 'twitbot'
+					}
+				};
+			}
+
+			static get observers() {
+				return [
+					'printData(query)'
+				];
+			}
+
+			connectedCallback() {
+				super.connectedCallback();
+				moment.updateLocale('en', {
+					relativeTime : {
+						future: 'in %s',
+						past:	 '%s',
+						s:	'%ds',
+						mm: '%dm',
+						h:	'%dh',
+						hh: '%dh',
+						dd: '%dd',
+						M:	'one month',
+						MM: '%d months',
+						y:	'one year',
+						yy: '%d years'
+					}
+				});
+			}
+
+			printData(data) {
+				// console.log(data);
+			}
+
+			dataChanged(newData, oldData) {
+				// console.log("Data changed!");
+				// console.log(newData);
+				// console.log(oldData);
+			}
+
+			toggleHandleInput(e) {
+				this.set('showHandleInput', !this.showHandleInput);
+				this.set('showTwits', (!this.showHandleInput && this.handle.length > 0));
+			}
+
+			startAt(data) {
+				return moment().format();
+			}
+
+			newTwitCharsLeft(numChars) {
+				if(!numChars) return 140;
+				return 140 - numChars;
+			}
+
+			newTwitCharsLeftColor(numChars) {
+				var lightness = numChars > 140 ? 50 : 100 - (50 * (numChars / 140));
+				return `hsl(0, 100%, ${lightness}%)`;
+			}
+
+			hideNewTwitDetails(newTwitFocus, newTwit) {
+				if(newTwit) return true;
+				else return newTwitFocus;
+			}
+
+			canTwit(newTwit) {
+				return newTwit.length > 0 && newTwit.length <= 140;
+			}
+
+			sendTwit(e) {
+				this.shadowRoot.querySelector('fire-save-doc').data = {
+					sender: this.handle,
+					message: this.newTwit,
+					timeStamp: moment().format(),
+					inReplyTo: ''
+				};
+				this.shadowRoot.querySelector('fire-save-doc').data = Object.assign({}, template, {
+					 message: this.newTwit
+				});
+				this.shadowRoot.querySelector('fire-save-doc').data = {
+					 ...template,
+					 message: this.newTwit
+				}
+				this.shadowRoot.querySelector('fire-save-doc').save(this.database);
+				this.shadowRoot.querySelector('fire-save-doc').reset();
+				this.set('newTwit', '');
+			}
+
+			displayTwit(originalTwit) {
+				let words = originalTwit.split(' ');
+				for(let word of words) {
+					if(word.match(/jpg|jpeg|png|gif|bmp/g)) {
+						// add image to tweet
+					} else if(word.match(/http:\/\/|http:\/\/|\.com|\.org|\.net/g)) {
+						// add URL to word
+					}
+				}
+				let message = words.join(' ');
+				return message;
+			}
+
+			massageData () {
+				var data = this.data;
+				// console.log(data);
+				for (var i = 0; i < data.length; i++) {
+					if(!data[i].message || !data[i].sender) {
+						 this.shadowRoot.querySelector('fire-save-doc').data = null;
+						 this.shadowRoot.querySelector('fire-save-doc').save(this.database, data[i].$key);
+						 this.shadowRoot.querySelector('fire-save-doc').reset();
+					}
+					if(!data[i].timeStamp || !moment(data[i].timeStamp)) {
+					if(data[i].timeStamp < 9999999999) {
+						console.log("Bad data: ");
+						console.log(data[i]);
+						var key = data[i].$key;
+						delete data[i].$key;
+						this.shadowRoot.querySelector('fire-save-doc').data = Object.assign({}, data[i], {
+							timeStamp: moment(data[i].timeStamp).format()
+						});
+						this.shadowRoot.querySelector('fire-save-doc').save(this.database, key);
+						this.shadowRoot.querySelector('fire-save-doc').reset();
+					}
+				}
+			}
+
+			sortByDate(a, b) {
+				return a.timeStamp > b.timeStamp ? -1 : 1;
+			}
+
+			timeSince(timeStamp) {
+				return !timeStamp ? "" : moment(timeStamp).fromNow();
+			}
+
+			limitTo(message, numChars) {
+				return message.length > numChars ? message.substring(0, numChars - 3) + "..." : message;
+			}
+
+			showMore(e) {
+				this.set('numTwits', this.numTwits + 5);
+			}
+
+			favorite(e) {
+				var twit = e.target.twit;
+				var key = e.target.twit.$key;
+				var favorites = e.target.twit.favorites;
+				// if current user is in favorites, unfavorite
+				if (favorites && favorites.indexOf(this.handle) > -1) {
+					favorites.splice(favorites.indexOf(this.handle));
+				} else {
+					if(!favorites) {
+						// define list if it does not yet exist
+						favorites = [];
+					}
+					// otherwise user to favorites
+					favorites.push(this.handle);
+				}
+				// console.log(favorites);
+				// console.log(twit);
+				this.shadowRoot.querySelector('fire-save-doc').setStoredValue(this.database + "/" + key + "/favorites", favorites);
+				// delete twit.$key;
+				// this.shadowRoot.querySelector('fire-save-doc').data = {
+				//	 message: twit.message,
+				//	 sender: twit.sender,
+				//	 timeStamp: twit.timeStamp,
+				//	 inReplyTo: twit.inReplyTo ? twit.inReplyTo : "",
+				//	 favorites: favorites
+				// };
+				// console.log(this.shadowRoot.querySelector('fire-save-doc').data);
+				// this.shadowRoot.querySelector('fire-save-doc').save(this.database, key);
+			}
+
+			delete(e) {
+				this.shadowRoot.querySelector('fire-save-doc').data = null;
+				this.shadowRoot.querySelector('fire-save-doc').save(this.database, e.target.twit.$key);
+			}
+
+		}
+
+		customElements.define(TwitBot.is, TwitBot);
+
+	</script>
+
+	<script src="/node_modules/moment/moment.js"></script>
 </dom-module>

@@ -1,9 +1,12 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="int-headline.html">
 <link rel="import" href="int-content-card.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="int-section">
   <template>
-    <style>
+
+    <style include="int-styles">
       :host {
         display: flex;
         flex-direction: column;
@@ -25,8 +28,71 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-section',
-    });
+
+		class IntSection extends Polymer.Element {
+
+			static get is() { return 'int-section' }
+
+			static get properties() {
+				return {
+					toShow: {
+						type: Array,
+						value: []
+					}
+				}
+			}
+
+			constructor() {
+				super();
+			}
+
+			connectedCallback() {
+				super.connectedCallback();
+				this.setUpWindowEvents();
+			}
+
+			setUpWindowEvents() {
+				let latestKnownScrollY = 0;
+				let ticking = false;
+
+				const onWindowChange = () => {
+					latestKnownScrollY = window.scrollY;
+					requestTick();
+				};
+
+				const update = () => {
+					ticking = false;
+					this.fadeElements();
+				}
+
+				const requestTick = () => {
+					if(!ticking) {
+						requestAnimationFrame(update);
+					}
+					ticking = true;
+				}
+
+				window.addEventListener('scroll', onWindowChange, false);
+				window.addEventListener('resize', onWindowChange, false);
+			}
+
+			fadeElements() {
+				// only load DOM elements once
+        this.toShow = this.toShow.length ? this.toShow : this.shadowRoot.querySelectorAll('.showOnScroll');
+        for(let el of this.toShow) {
+          if(window.innerHeight - el.getBoundingClientRect().top - 50 > 0) {
+            el.classList.remove('fadeOutDown');
+            el.classList.add('fadeInUp');
+          } if(window.innerHeight - el.getBoundingClientRect().top + 250 < 0) {
+            el.classList.remove('fadeInUp');
+            el.classList.add('fadeOutDown');
+          }
+        }
+			}
+
+		}
+
+		customElements.define(IntSection.is, IntSection);
+
   </script>
 </dom-module>

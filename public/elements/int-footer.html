@@ -1,6 +1,9 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="/styles/int-styles.html">
+
 <dom-module id="int-footer">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
         display: flex;
         flex-direction: column;
@@ -16,12 +19,19 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-footer',
-      ready: function() {
-        // this.set(date,new Date().getFullYear());
-        this.date = new Date().getFullYear();
-      }
-    });
+
+		class IntFooter extends Polymer.Element {
+
+			static get is() { return 'int-footer' }
+
+			connectedCallback() {
+				super.connectedCallback();
+				this.date = new Date().getFullYear();
+			}
+
+		}
+
+		customElements.define(IntFooter.is, IntFooter);
+
   </script>
 </dom-module>
