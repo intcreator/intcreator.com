@@ -1,14 +1,14 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="/bower_components/app-route/app-route.html">
-<link rel="import" href="/bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="/styles/int-styles.html">
 <link rel="import" href="int-navigation.html">
 <link rel="import" href="int-fade-blocks.html">
 <link rel="import" href="int-blog.html">
 <link rel="import" href="int-markdown.html">
 <link rel="import" href="int-footer.html">
-<link href="/dependencies/prism.css" rel="stylesheet" />
+<link rel="import" href="int-slider.html">
 
 <dom-module id="int-app">
 
@@ -35,7 +35,7 @@
 
 		</style>
 
-    <app-location route="{{route}}" url-space-regex="^((?!\/[a-zA-Z]*\/[a-zA-Z]+.*)).*"></app-location>
+    <app-location route="{{route}}" url-space-regex="^(?!\/[a-zA-Z]*\/[a-zA-Z]+.*).*"></app-location>
     <app-route route="{{route}}" pattern="/:page" active="{{active}}" data="{{data}}" tail="{{tail}}"></app-route>
 
     <int-navigation></int-navigation>
@@ -43,8 +43,11 @@
       <iron-pages selected="[[data.page]]" attr-for-selected="page" fallback-selection="404">
         <int-fade-blocks page=""></int-fade-blocks>
         <!-- <int-blog page="blog" route="{{tail}}" blog="int"></int-blog> -->
+        <int-markdown page="about" source="../data/pages/about.md"></int-markdown>
+        <int-markdown page="cv" source="../data/pages/cv.md"></int-markdown>
         <int-markdown page="portfolio" source="../data/pages/portfolio.md"></int-markdown>
         <int-markdown page="legacy" source="../data/pages/legacy.md"></int-markdown>
+				<int-slider page="slider"></int-slider>
 				<h3 page="404">Oops</h3>
       </iron-pages>
       <int-footer></int-footer>

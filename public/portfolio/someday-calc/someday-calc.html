@@ -1,15 +1,16 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/no-ie/no-ie.html">
-<link rel="import" href="/bower_components/app-route/app-location.html">
-<link rel="import" href="/bower_components/app-route/app-route.html">
-<link rel="import" href="/bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="/bower_components/iron-input/iron-input.html">
-<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<!-- <link rel="import" href="../../bower_components/no-ie/no-ie.html"> -->
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="someday-calc">
   <template>
-    <style>
+    <style include="int-styles">
       :host {
         min-height: 100vh;
         background:url('./places/beach-house.jpg');
@@ -30,7 +31,6 @@
         max-width: 800px;
         margin: auto;
         background-color: rgba(0, 0, 0, 0.7);
-        --paper-tabs-selection-bar-color: white;
       }
 
       .tab-section {
@@ -88,7 +88,7 @@
     </style>
 
     <app-location route="{{route}}"></app-location>
-    <app-route route="{{route}}" pattern="/cs256/someday-calc/:tab" active="{{active}}" data="{{data}}" tail="{{tail}}"></app-route>
+    <app-route route="{{route}}" pattern="/portfolio/someday-calc/:tab" active="{{active}}" data="{{data}}"></app-route>
 
     <paper-tabs selected="{{data.tab}}" attr-for-selected="tab" noink>
       <paper-tab tab="">Someday</paper-tab>
@@ -98,18 +98,22 @@
       <paper-tab tab="settings">Settings</paper-tab>
     </paper-tabs>
 
-    <iron-pages selected="{{data.tab}}" attr-for-selected="tab">
+    <iron-pages selected="[[data.tab]]" attr-for-selected="tab">
       <section id="someday" class="tab-section" tab="">
         <div class="cta-box">
           <h1>Live here.</h1>
-          <a class="int-button" href="./add">Add $[[defaultAmountToAdd]] to savings</a>
+          <a class="int-button" href="add">Add $[[defaultAmountToAdd]] to savings</a>
         </div>
       </section>
       <section class="tab-section tab-section--page" tab="add">
         <h1>Add</h1>
         <div hidden="[[justAddedToSavings]]">
           <p><label for="add-to-savings">Amount to add ($):</label></p>
-          <p>$ <input is="iron-input" id="add-to-savings" placeholder="Ex: 5" prevent-invalid-input allowed-pattern="[0-9]|\." bind-value="{{amountToAdd}}"></p>
+          <p>$
+						<iron-input bind-value="{{amountToAdd}}">
+							<input id="add-to-savings" allowed-pattern="[0-9]|\." value="{{amountToAdd::input}}">
+						</iron-input>
+					</p>
           <h2>Add $[[computeAmountToAdd(amountToAdd)]] to savings</h2>
           <button class="int-button" on-tap="addToSavings">Add</button>
         </div>
@@ -136,41 +140,57 @@
         <h1>Estimations</h1>
         <p class="form-row">
           <label for="money-in-savings">Starting savings ($):</label>
-          <input is="iron-input" id="money-in-savings" placeholder="Ex: 10000" prevent-invalid-input allowed-pattern="[0-9]|\." bind-value="{{moneyInSavings}}">
+					<iron-input bind-value="{{moneyInSavings}}">
+						<input id="money-in-savings" placeholder="Ex: 10000" prevent-invalid-input allowed-pattern="[0-9]|\." value="{{moneyInSavings}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <span>Savings added with this app:</span> <span>$[[totalAppSavings]]</span>
         </p>
         <p class="form-row">
           <label for="years-to-retirement">Years before I retire:</label>
-          <input is="iron-input" id="years-to-retirement" placeholder="Ex: 35" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{yearsToRetirement}}">
+					<iron-input bind-value="{{yearsToRetirement}}">
+						<input id="years-to-retirement" placeholder="Ex: 35" prevent-invalid-input allowed-pattern="[0-9]" value="{{yearsToRetirement}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <label for="investment-growth-rate">Savings interest rate (%):</label>
-          <input is="iron-input" id="investment-growth-rate" placeholder="Ex: 5" prevent-invalid-input allowed-pattern="[0-9]|\." bind-value="{{investmentGrowthRate}}">
+					<iron-input bind-value="{{investmentGrowthRate}}">
+						<input id="investment-growth-rate" placeholder="Ex: 5" prevent-invalid-input allowed-pattern="[0-9]|\." value="{{investmentGrowthRate}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <label for="inflation-rate">Average inflation rate (%):</label>
-          <input is="iron-input" id="inflation-rate" placeholder="Ex: 2" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{inflationRate}}">
+					<iron-input bind-value="{{inflationRate}}">
+						<input id="inflation-rate" placeholder="Ex: 2" prevent-invalid-input allowed-pattern="[0-9]" value="{{inflationRate}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <label for="savings-per-month">Monthly savings contribution ($):</label>
-          <input is="iron-input" id="savings-per-month" placeholder="Ex: 1500" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{savingsPerMonth}}">
+					<iron-input bind-value="{{savingsPerMonth}}">
+						<input id="savings-per-month" placeholder="Ex: 1500" prevent-invalid-input allowed-pattern="[0-9]" value="{{savingsPerMonth}}">
+					</iron-input>
         </p>
         <h2>Retirement Fund: $[[retirementFund]]</h2>
         <p>This is about how much money you'll have when you retire.  Note: this assumes deposits are made at the end of the month and interest is compounded monthly.</p>
         <h2>Reality Check</h2>
         <p class="form-row">
           <label for="retirement-monthly-expenditures">Monthly retirement expenses ($):</label>
-          <input is="iron-input" id="retirement-monthly-expenditures" placeholder="Ex: 10000" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{retirementMonthlyExpenditures}}">
+					<iron-input bind-value="{{retirementMonthlyExpenditures}}">
+						<input id="retirement-monthly-expenditures" placeholder="Ex: 10000" prevent-invalid-input allowed-pattern="[0-9]" value="{{retirementMonthlyExpenditures}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <label for="social-security">Monthly Social Security income ($):</label>
-          <input is="iron-input" id="social-security" placeholder="Ex: 400" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{socialSecurity}}">
+					<iron-input bind-value="{{socialSecurity}}">
+						<input id="social-security" placeholder="Ex: 400" prevent-invalid-input allowed-pattern="[0-9]" value="{{socialSecurity}}">
+					</iron-input>
         </p>
         <p class="form-row">
           <label for="expected-use">How many years I will need the money for:</label>
-          <input is="iron-input" id="expected-use" placeholder="Ex: 25" prevent-invalid-input allowed-pattern="[0-9]" bind-value="{{expectedUsageYears}}">
+					<iron-input bind-value="{{expectedUsageYears}}">
+						<input id="expected-use" placeholder="Ex: 25" prevent-invalid-input allowed-pattern="[0-9]" value="{{expectedUsageYears}}">
+					</iron-input>
         </p>
         <h2>You will have about $[[realityCheck]] left over per month </h2>
       </section>
@@ -178,7 +198,11 @@
         <h1>Settings</h1>
         <p>All changes are saved immediately.</p>
         <h2>Default Amount to Add: $[[defaultAmountToAdd]]</h2>
-        <p>Change ($): <input is="iron-input" placeholder="Ex: 12" prevent-invalid-input allowed-pattern="[0-9]|\." bind-value="{{defaultAmountToAdd}}" on-blur="validateDefaultAmountToAdd"></p>
+				<p>Change ($):
+					<iron-input bind-value="{{defaultAmountToAdd}}">
+						<input placeholder="Ex: 12" prevent-invalid-input allowed-pattern="[0-9]|\." value="{{defaultAmountToAdd}}" on-blur="validateDefaultAmountToAdd">
+					</iron-input>
+				</p>
         <p>
           Presets:
           <button class="int-button" on-tap="setDefaultAmountToAdd" amount="1">$1</button>
@@ -192,7 +216,9 @@
           <p class="future-home-location">[[location]] <iron-icon class="delete-icon" icon="clear" index="[[index]]" on-tap="removeLocation"></iron-icon></p>
         </template>
         <p>
-          <input id="location-input" is="iron-input" bind-value="{{myLocation}}" on-keypress="addLocationEnter"> <button class="int-button" on-tap="addLocation">Add</button>
+					<iron-input bind-value="{{myLocation}}">
+						<input id="location-input" value="{{myLocation}}" on-keypress="addLocationEnter"> <button class="int-button" on-tap="addLocation">Add</button>
+					</iron-input>
         </p>
       </section>
     </iron-pages>
@@ -200,55 +226,69 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'someday-calc',
-      properties: {
-        defaultAmountToAdd: {
-          type: Number,
-          value: 5
-        },
-        savingsContributions: {
-          type: Array,
-          value: []
-        },
-        totalAppSavings: {
-          type: Number,
-          computed: 'computeTotalAppSavings(savingsContributions, savingsContributions.length)'
-        },
-        retirementFund: {
-          type: Number,
-          value: 0,
-          computed: 'computeRetirementFund( moneyInSavings, \
-                                            totalAppSavings, \
-                                            yearsToRetirement, \
-                                            investmentGrowthRate, \
-                                            inflationRate, \
-                                            savingsPerMonth)'
-        },
-        realityCheck: {
-          type: Number,
-          value: 0,
-          computed: 'computeRealityCheck( retirementFund, \
-                                          retirementMonthlyExpenditures, \
-                                          socialSecurity, \
-                                          inflationRate, \
-                                          expectedUsageYears)'
-        },
-        locations: {
-          type: Array,
-          value: []
-        }
-      },
-      observers: [
-        'updateAmountToAdd(defaultAmountToAdd, data.tab)',
-        'resetAddTab(data.tab)'
-      ],
-      computeAmountToAdd: function(amountToAdd) {
+
+		class SomedayCalc extends Polymer.GestureEventListeners(Polymer.Element) {
+
+			static get is() { return 'someday-calc' }
+
+			static get properties() {
+				return {
+					defaultAmountToAdd: {
+						type: Number,
+						value: 5
+					},
+					amountToAdd: {
+						type: Number,
+						value: 5
+					},
+					savingsContributions: {
+						type: Array,
+						value: []
+					},
+					totalAppSavings: {
+						type: Number,
+						computed: 'computeTotalAppSavings(savingsContributions, savingsContributions.length)'
+					},
+					retirementFund: {
+						type: Number,
+						value: 0,
+						computed: 'computeRetirementFund( moneyInSavings, \
+																							totalAppSavings, \
+																							yearsToRetirement, \
+																							investmentGrowthRate, \
+																							inflationRate, \
+																							savingsPerMonth)'
+					},
+					realityCheck: {
+						type: Number,
+						value: 0,
+						computed: 'computeRealityCheck( retirementFund, \
+																						retirementMonthlyExpenditures, \
+																						socialSecurity, \
+																						inflationRate, \
+																						expectedUsageYears)'
+					},
+					locations: {
+						type: Array,
+						value: []
+					}
+				}
+			}
+
+			static get observers() {
+				return [
+					'updateAmountToAdd(defaultAmountToAdd, data.tab)',
+					'resetAddTab(data.tab)'
+				]
+			}
+
+      computeAmountToAdd(amountToAdd) {
         if(!parseFloat(amountToAdd)) return 0;
         else return parseFloat(amountToAdd).toFixed(2);
-      },
-      addToSavings: function(e) {
-        amount = this.computeAmountToAdd(this.amountToAdd);
+      }
+
+      addToSavings(e) {
+        const amount = this.computeAmountToAdd(this.amountToAdd);
         if(amount == 0) return;
         else {
           this.unshift('savingsContributions', {
@@ -257,24 +297,29 @@
           })
           this.set('justAddedToSavings', true);
         }
-      },
-      resetAddTab: function(tab) {
+      }
+
+      resetAddTab(tab) {
         this.set('justAddedToSavings', false);
-      },
-      hasHistory: function(historyLength) {
+      }
+
+      hasHistory(historyLength) {
         return historyLength ? false : true;
-      },
-      computeTotalAppSavings: function(savingsContributions, length) {
-        var total = 0;
-        for (var i = 0; i < savingsContributions.length; i++) {
+      }
+
+      computeTotalAppSavings(savingsContributions, length) {
+        const total = 0;
+        for (const i = 0; i < savingsContributions.length; i++) {
           total += parseFloat(savingsContributions[i].amount);
         }
         return total.toFixed(2);
-      },
-      formatDate: function(rawDate) {
+      }
+
+      formatDate(rawDate) {
         return new Date(rawDate).toLocaleString();
-      },
-      computeRetirementFund: function(  moneyInSavings,
+      }
+
+      computeRetirementFund(  moneyInSavings,
                                         totalAppSavings,
                                         yearsToRetirement,
                                         investmentGrowthRate,
@@ -282,54 +327,64 @@
                                         savingsPerMonth) {
         if(!moneyInSavings || !totalAppSavings) return (0).toFixed(2);
         if(!yearsToRetirement || !investmentGrowthRate || !inflationRate) return (parseFloat(moneyInSavings) + parseFloat(totalAppSavings)).toFixed(2);
-        var actualGrowthRate = parseFloat(investmentGrowthRate) - parseFloat(inflationRate);
-        interestRatio = (actualGrowthRate / 100) / 12;
-        interestMultiplier = Math.pow((1 + interestRatio), (12 * yearsToRetirement))
-        principalCompoundInterest = parseFloat(moneyInSavings) * interestMultiplier;
-        var fund = principalCompoundInterest;
+        const actualGrowthRate = parseFloat(investmentGrowthRate) - parseFloat(inflationRate);
+        const interestRatio = (actualGrowthRate / 100) / 12;
+        const interestMultiplier = Math.pow((1 + interestRatio), (12 * yearsToRetirement))
+        const principalCompoundInterest = parseFloat(moneyInSavings) * interestMultiplier;
+        let fund = principalCompoundInterest;
         if(!savingsPerMonth) return fund.toFixed(2);
-        futureValueOfSeries = parseFloat(savingsPerMonth) * ((interestMultiplier - 1) / interestRatio)
+        const futureValueOfSeries = parseFloat(savingsPerMonth) * ((interestMultiplier - 1) / interestRatio)
         fund = principalCompoundInterest + futureValueOfSeries;
         if(!fund) return (0).toFixed(2);
         return fund.toFixed(2);
-      },
-      computeRealityCheck: function(  retirementFund,
+      }
+
+      computeRealityCheck(  retirementFund,
                                       retirementMonthlyExpenditures,
                                       socialSecurity,
                                       inflationRate,
                                       expectedUsageYears) {
         if(!expectedUsageYears) return parseFloat(0).toFixed(2);
-        var monthlyAllowance = retirementFund / (expectedUsageYears * 12);
+        const monthlyAllowance = retirementFund / (expectedUsageYears * 12);
         return (parseFloat(monthlyAllowance) + parseFloat(socialSecurity) - parseFloat(retirementMonthlyExpenditures)).toFixed(2);
-      },
-      validateDefaultAmountToAdd: function(e) {
+      }
+
+      validateDefaultAmountToAdd(e) {
         this.set('defaultAmountToAdd', parseFloat(this.defaultAmountToAdd) ? parseFloat(this.defaultAmountToAdd).toFixed(2) : 0);
 
 
 
 
         // ADD FIELD VALIDATOR (POLYMER)
-      },
-      setDefaultAmountToAdd: function(e) {
+      }
+
+      setDefaultAmountToAdd(e) {
         this.set('defaultAmountToAdd', e.target.getAttribute('amount'));
         this.validateDefaultAmountToAdd();
-      },
-      updateAmountToAdd: function(defaultAmountToAdd, tab) {
+      }
+
+      updateAmountToAdd(defaultAmountToAdd, tab) {
         this.set('amountToAdd', defaultAmountToAdd);
-      },
-      addLocation: function(e) {
+      }
+
+      addLocation(e) {
         if(!this.myLocation) return;
         this.push('locations', this.myLocation);
         this.set('myLocation', '');
         this.querySelector('#location-input').focus();
-      },
-      addLocationEnter: function(e) {
+      }
+
+      addLocationEnter(e) {
         if(e.charCode === 13) this.addLocation();
-      },
-      removeLocation: function(e) {
+      }
+
+      removeLocation(e) {
         this.splice('locations', e.target.index, 1);
       }
-    });
+
+		}
+
+		customElements.define(SomedayCalc.is, SomedayCalc);
 
   </script>
 </dom-module>

@@ -1,5 +1,5 @@
-<link rel="import" href="/bower_components/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/iron-icons/image-icons.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-icons/image-icons.html">
 <link rel="import" href="/styles/int-styles.html">
 
 <dom-module id="int-slider">
@@ -130,79 +130,92 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'int-slider',
-      properties: {
-        images: {
-          type: Array,
-          value: [
-            {
-              url: "../images/home/lego.jpeg"
-            },
-            {
-              url: "../images/home/peak.jpg"
-            },
-            {
-              url: "../images/home/snow.jpg"
-            },
-            {
-              url: "../images/home/irrigation.jpg"
-            },
-            {
-              url: "../images/home/sunset.jpg"
-            },
-          ]
-        },
-        slides: {
-          type: Array,
-        },
-        paused: {
-          type: Boolean,
-          value: false
-        }
-      },
-      ready: function() {
-        _this = this;
-        window.setInterval(function() {
-          if(!_this.paused) _this.changeSlide();
-        }, 7000);
-      },
-      init: function(index) {
-        if(index) return "";
-        else return "show";
-      },
-      changeSlide: function(direction) {
-        this.slides = this.slides ? this.slides : document.querySelectorAll('.slide');
-        var slides = this.slides;
-        // find the active slide
-        for(var i = 0; i < slides.length; i++) {
-          if(slides[i].classList.contains('show')) {
-            // hide it
-            slides[i].classList.remove('show');
-            slides[i].classList.add('hide');
-            if(direction === "previous") {
-              // show the previous slide in sequence
-              var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
-            } else {
-              // show the next slide in sequence
-              var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
-            }
 
-            toShow.classList.remove('hide');
-            toShow.classList.add('show');
-            return;
-          }
-        }
-      },
-      showPreviousSlide: function() {
-        this.changeSlide("previous");
-      },
-      pause: function() {
-        this.set('paused', true);
-      },
-      unpause: function() {
-        this.set('paused', false);
-      }
-    });
+		class IntSlider extends Polymer.Element {
+
+			static get is() { return 'int-slider'; }
+
+			static get properties() {
+				return {
+					images: {
+						type: Array,
+						value: [
+							{
+								url: "../images/home/lego.jpeg"
+							},
+							{
+								url: "../images/home/peak.jpg"
+							},
+							{
+								url: "../images/home/snow.jpg"
+							},
+							{
+								url: "../images/home/irrigation.jpg"
+							},
+							{
+								url: "../images/home/sunset.jpg"
+							},
+						]
+					},
+					slides: {
+						type: Array,
+					},
+					paused: {
+						type: Boolean,
+						value: false
+					}
+				}
+			}
+
+			connectedCallback() {
+				super.connectedCallback();
+				window.setInterval(function() {
+					if(!this.paused) this.changeSlide();
+				}, 7000);
+			}
+
+			init(index) {
+				if(index) return "";
+				else return "show";
+			}
+
+			changeSlide(direction) {
+				this.slides = this.slides ? this.slides : document.querySelectorAll('.slide');
+				var slides = this.slides;
+				// find the active slide
+				for(var i = 0; i < slides.length; i++) {
+					if(slides[i].classList.contains('show')) {
+						// hide it
+						slides[i].classList.remove('show');
+						slides[i].classList.add('hide');
+						if(direction === "previous") {
+							// show the previous slide in sequence
+							var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
+						} else {
+							// show the next slide in sequence
+							var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
+						}
+
+						toShow.classList.remove('hide');
+						toShow.classList.add('show');
+						return;
+					}
+				}
+			}
+
+			showPreviousSlide() {
+				this.changeSlide("previous");
+			}
+
+			pause() {
+				this.set('paused', true);
+			}
+
+			unpause() {
+				this.set('paused', false);
+			}
+
+		}
+
   </script>
 </dom-module>

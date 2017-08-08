@@ -71,12 +71,11 @@
   </template>
 
   <script>
-    Polymer({
-      is: 'web-practice',
-      properties: {
+		class WebPractice extends Polymer.element {
+			static get is() { return 'web-practice' }
+		}
 
-      },
-    });
-
+		customElements.define(WebPractice.is, WebPractice)
   </script>
+
 </dom-module>

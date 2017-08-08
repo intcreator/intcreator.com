@@ -1,0 +1,45 @@
+# Curriculum Vitae
+
+This curriculum vitae details everything I have ever done, including small business ideas I had as a kid.  You can see some of the results of those ideas in my [legacy websites](/legacy).
+
+## Gammex Games
+
+Gammex Games is the first thing I decided to call my personal business.  My first idea was to have a website where people could play Flash games, similar to [onemorelevel.com](http://onemorelevel.com/).  I didn't even use my real name for this site.  I guess that's okay because I was only 15.
+
+Amazingly, the site I made is _still_ available [here](https://sites.google.com/site/gammexgames/).  I made that site in 2008, which was a long time ago.
+
+## Gammesoft
+
+Gammesoft is mostly a variation and expansion of Gammex Games.  I decided to branch out a bit with my content (as you can kind of see on the Gammex Games site) but Gammesoft in general did not last long.
+
+## Metalectricity
+
+[Metalectricity](/legacy/metalectricity) is my first idea for a design and development contracting business.  I realized that was more realistic for me than creating or collecting Flash games and monetizing with ads.  As you can see I was more focused around visual design despite the terrible design of my example logos and websites and my clear ability to code as evidenced by me making a website.  Oh well.
+
+## State Farm
+
+I had a brief stint at two State Farm Agencies, one owned by my grandpa and one owned by my uncle.  This constitutes the closest thing I had to a first job.  I didn't do much more than create PowerPoints, scan documents, and generate some pretty easy reports though.
+
+## Intcreator
+
+This is my latest and most permanent identity (circa 2011).  I use this name as my online handle and as the closest semblance to a business (or possibly even a recording label for my band) whenever convenient.  Currently the most likely business I'll create will probably be centered around my music.
+
+## ReWater
+
+My first actual contracting job (think Metalectricity) was for [ReWater](http://rewater.com/), a greywater irrigation company based in my hometown.  In addition to maintaining the site overall, one day the entire thing went down because Google had a security issue with Magento, the current CMS.  We got rid of Magento in favor of WordPress and things have been mostly stress free since.  I wanted to code the side completely from scratch later, once I got more web development experience, but the owner didn't want me to.  Oh well.
+
+## BYU Software Training
+
+My first long-term job was for [BYU Sofware Training](https://lib.byu.edu/services/software-training/).  I worked there part time from March 2015 to April 2016 teaching people how to use Microsoft Office and Adobe Creative Cloud.  I added to course material, developed courses for new classes, and fixed up the team wiki a lot.  I actually was able to fit in a decent amount of web development, mostly through the classes on Dreamweaver and how to use BYU domains but also in editing the wiki's WordPress code (PHP and CSS).
+
+## FamilySearch
+
+My first internship was at [FamilySearch](https://familysearch.org/).  I didn't know JavaScript when I was interviewed, but I picked it up along with Angular, Polymer, Node, and Git.  Those were my first steps to becoming a web dev guru.  So far FamilySearch is the biggest company I've worked for.
+
+## Prendus
+
+I worked part time at Prendus while taking classes at BYU.  I continued my education in Polymer and learned how to use Redux, TypeScript, and Firebase.  I designed a logo, developed a style guide, and built several reusable components for the site.
+
+## NUVI
+
+I worked at NUVI to experience additional areas of web development.  I did my most extensive back end work there, coding a data migration system that translated boolean logic rules from an older specification to a newer one.  I built the core logic in Ruby and worked with Rails to coordinate the various applications involved.  I also learned how to use React so I could build the front end for the migration and fix bugs.

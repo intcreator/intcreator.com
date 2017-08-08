@@ -1,9 +1,12 @@
 {
   "name": "intcreator.com",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A site to exhibit and demonstrate Brandon's web development skills",
   "main": "index.html",
+  "license": "UNLICENSED",
   "dependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-html": "^3.1.1",
     "firebase": "^3.3.2",
     "moment": "^2.18.1"
   },
