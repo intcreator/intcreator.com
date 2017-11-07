@@ -38,22 +38,27 @@
 
     <script src="/dependencies/prism.js"></script>
 
-    <app-route route="{{route}}" pattern="/:year" active="{{yearActive}}" data="{{yearData}}" tail="{{yearTail}}"></app-route>
+    <app-route route="{{route}}" pattern="/:slug" active="{{slugActive}}" data="{{data}}"></app-route>
+    <!-- <app-route route="{{route}}" pattern="/:year" active="{{yearActive}}" data="{{yearData}}" tail="{{yearTail}}"></app-route>
     <app-route route="{{yearTail}}" pattern="/:month" active="{{monthActive}}" data="{{monthData}}" tail="{{monthTail}}"></app-route>
-    <app-route route="{{monthTail}}" pattern="/:slug" active="{{slugActive}}" data="{{slugData}}" tail="{{slugTail}}"></app-route>
+    <app-route route="{{monthTail}}" pattern="/:slug" active="{{slugActive}}" data="{{slugData}}" tail="{{slugTail}}"></app-route> -->
 
-    <iron-ajax
+    <!-- <iron-ajax
       auto
       url="[[requestUrl]]"
       handle-as="text"
       on-response="setMarkdown"
       on-error="reportNotFound"
       debounce-duration="300">
-    </iron-ajax>
+    </iron-ajax> -->
 
     <div id="container">
-      <div id="breadcrumbs">[[yearData.year]] [[monthData.month]]</div>
-      <marked-element markdown=[[content]]></marked-element>
+      <!-- <marked-element markdown=[[content]]></marked-element> -->
+      <marked-element>
+        <div slot="markdown-html"></div>
+        <script type="text/markdown" src$="/blogs/[[blog]]/[[data.slug]].md"></script>
+        <!-- <script type="text/markdown" src$="/blogs/[[blog]]/[[data.slug]].md"></script> -->
+      </marked-element>
       <prism-highlighter></prism-highlighter>
     </div>
 
@@ -73,7 +78,10 @@
 	        },
 	        content: {
 	          type: String
-	        }
+	        },
+          blog: {
+            type: String
+          }
 				}
 			}
 
