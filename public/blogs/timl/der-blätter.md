@@ -1,5 +1,7 @@
 # der Blätter
 
+_November 6, 2017_
+
 On September 2, 2017, me (Brandon Blatter) and my wife (Shanti de Ruyter) were married in the Los Angeles Temple.  We decided to join our last names together to form **"der Blätter"** (**de R**uyter **+** **Blatter**, pronounced "**dear** **bleh**•ter").  We made this decision over the course of several months for the following reasons:
 
 ### Single Family Name
