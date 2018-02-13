@@ -38,8 +38,16 @@ My first internship was at [FamilySearch](https://familysearch.org/).  I didn't 
 
 ## Prendus
 
-I worked part time at Prendus while taking classes at BYU.  I continued my education in Polymer and learned how to use Redux, TypeScript, and Firebase.  I designed a logo, developed a style guide, and built several reusable components for the site.
+I worked part time at Prendus while taking classes at BYU.  I continued my education in Polymer and learned how to use Redux, TypeScript, and Firebase.  I designed a logo, developed a [style guide](https://github.com/Prendus/style-guide), and built several [reusable components](https://prendus.github.io/style-guide/) for the site.  I was the only one on the team who had a sense of design, so I took the lead on the front end.  Unfortunately, I've noticed that in the time since I've left, no one else has touched (or apparently even heeded) the style guide.  So it goes.
+
+## Interlucid
+
+It was while I was working at Prendus that I formally created the [Interlucid](https://interlucid.com/) project (December 2016).  Interlucid is the most permanent name I've ever had for my [music creations](https://interlucid.bandcamp.com/).  I designed a logo and even printed a couple of [T-shirts](https://interlucid.threadless.com/mens/classic-t-shirt).  I've been working pretty solidly in my spare time to make songs, play at open mic nights, learn how to produce, and even learn how to play the guitar.
 
 ## NUVI
 
-I worked at NUVI to experience additional areas of web development.  I did my most extensive back end work there, coding a data migration system that translated boolean logic rules from an older specification to a newer one.  I built the core logic in Ruby and worked with Rails to coordinate the various applications involved.  I also learned how to use React so I could build the front end for the migration and fix bugs.
+When I worked at [NUVI](https://www.nuvi.com/) I experienced a new facet of web development.  I did my most extensive back end work there, coding a data migration system that translated boolean logic rules from an older specification to a newer one.  I built the core logic in Ruby and worked with Rails to coordinate the various applications involved.  I also learned how to use React so I could build the front end for the migration and fix bugs.
+
+## BYU Computer Science
+
+Continuing my absurd downward wage trend (as I gained more and more experience, each job paid me less and less since FamilySearch) I started working for the BYU CS department as a teaching assistant.  Most of my time was spent trying to be patient with students, correcting horrifying ideas ("Instead of using GitHub.com, you should use a text editor to modify your code" "You mean like Microsoft Word?"), and clarifying facts about the modern web in class.  I had never taken the class when I started but I got hired because of my 1.5 years of experience in the field (which, unsurprisingly, taught me much more than the class ever would have).
