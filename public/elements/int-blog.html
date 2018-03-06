@@ -39,25 +39,11 @@
     <script src="/dependencies/prism.js"></script>
 
     <app-route route="{{route}}" pattern="/:slug" active="{{slugActive}}" data="{{data}}"></app-route>
-    <!-- <app-route route="{{route}}" pattern="/:year" active="{{yearActive}}" data="{{yearData}}" tail="{{yearTail}}"></app-route>
-    <app-route route="{{yearTail}}" pattern="/:month" active="{{monthActive}}" data="{{monthData}}" tail="{{monthTail}}"></app-route>
-    <app-route route="{{monthTail}}" pattern="/:slug" active="{{slugActive}}" data="{{slugData}}" tail="{{slugTail}}"></app-route> -->
-
-    <!-- <iron-ajax
-      auto
-      url="[[requestUrl]]"
-      handle-as="text"
-      on-response="setMarkdown"
-      on-error="reportNotFound"
-      debounce-duration="300">
-    </iron-ajax> -->
 
     <div id="container">
-      <!-- <marked-element markdown=[[content]]></marked-element> -->
       <marked-element>
         <div slot="markdown-html"></div>
         <script type="text/markdown" src$="/blogs/[[blog]]/[[data.slug]].md"></script>
-        <!-- <script type="text/markdown" src$="/blogs/[[blog]]/[[data.slug]].md"></script> -->
       </marked-element>
       <prism-highlighter></prism-highlighter>
     </div>
@@ -87,9 +73,7 @@
 
 			computeRequestUrl(blog, path) {
         if(path === "") path = "/dir";
-        // if(!this.yearData.year || this.yearData.year === '') path += "/dir";
-        // else if(!this.monthData.month || this.monthData.month === '') path += "/dir";
-        // else if(!this.slugData.slug || this.slugData.slug === '') path += "/dir";
+        if(blog === "") blog = "/timl";
         // console.log(path);
         return "/blogs/" + blog + path + ".md";
       }
