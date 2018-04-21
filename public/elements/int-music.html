@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="/styles/int-styles.html">
+
+<dom-module id="int-music">
+  <template>
+    <style include="int-styles">
+
+        :host {
+            
+        }
+
+    </style>
+
+    <h1>Music</h1>
+
+  </template>
+
+  <script>
+
+		class IntMusic extends Polymer.Element {
+
+			static get is() { return 'int-music' }
+
+		}
+
+		customElements.define(IntMusic.is, IntMusic);
+
+  </script>
+</dom-module>

@@ -43,7 +43,7 @@
     <div id="container">
       <marked-element>
         <div slot="markdown-html"></div>
-        <script type="text/markdown" src$="/blogs/[[blog]]/[[data.slug]].md"></script>
+        <script type="text/markdown" src$="[[computeRequestUrl(blog, data.slug)]]"></script>
       </marked-element>
       <prism-highlighter></prism-highlighter>
     </div>
@@ -60,7 +60,7 @@
 				return {
 					requestUrl: {
 	          type: String,
-	          computed: 'computeRequestUrl(blog, route.path)'
+	          computed: 'computeRequestUrl(blog, data.slug)'
 	        },
 	        content: {
 	          type: String
@@ -71,11 +71,8 @@
 				}
 			}
 
-			computeRequestUrl(blog, path) {
-        if(path === "") path = "/dir";
-        if(blog === "") blog = "/timl";
-        // console.log(path);
-        return "/blogs/" + blog + path + ".md";
+			computeRequestUrl(blog, slug) {
+        return `/blogs/${ blog ? blog : 'timl' }/${ !slug || slug === "" ? 'der-blätter' : slug }.md`;
       }
 
 			setMarkdown(e, resp) {

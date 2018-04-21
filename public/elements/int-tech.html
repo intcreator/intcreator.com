@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="/styles/int-styles.html">
+
+<dom-module id="int-tech">
+  <template>
+    <style include="int-styles">
+
+        :host {
+            
+        }
+
+    </style>
+
+    <h1>Tech</h1>
+
+  </template>
+
+  <script>
+
+		class IntTech extends Polymer.Element {
+
+			static get is() { return 'int-tech' }
+
+		}
+
+		customElements.define(IntTech.is, IntTech);
+
+  </script>
+</dom-module>
