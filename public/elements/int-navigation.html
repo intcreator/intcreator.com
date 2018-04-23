@@ -354,7 +354,8 @@
 				this.set('showStupidForm', false);
 				this.hideOverlay();
 				this.$['fire-save-doc'].data = {
-					message: this.feedback
+					message: this.feedback,
+          timestamp: new Date().toDateString()
 				};
 				this.$['fire-save-doc'].saveValue(this.database);
 				this.$['fire-save-doc'].reset();

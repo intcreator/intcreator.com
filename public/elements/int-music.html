@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="/styles/int-styles.html">
+<link rel="import" href="int-contact.html">
 
 <dom-module id="int-music">
   <template>
@@ -9,9 +10,14 @@
             
         }
 
+        int-contact {
+          padding: 1em;
+        }
+
     </style>
 
-    <h1>Music</h1>
+    <int-markdown page="music" source="../data/pages/music.md"></int-markdown>
+    <int-contact></int-contact>
 
   </template>
 

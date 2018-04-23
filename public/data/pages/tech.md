@@ -12,7 +12,7 @@ I've built the following sites from scratch:
 - [Web Synth](http://13.59.194.205:3000/)
 - [Simple BYU](https://simple-byu.firebaseapp.com/)
 
-If you want a highly customized site built from the ground up (like these) or even if you want a simpler WordPress, Wix, or SquareSpace site, I can help you out.
+If you want a highly customized site built from the ground up (like these) or even if you want a simpler WordPress, Wix, or SquareSpace site, I can help you out.  This includes purchasing a domain name (like intcreator.com), hosting content, adding music and photos, etc.  I can also fix bugs or annoyances on sites you already have set up.
 
 ## Consulting
 
@@ -21,3 +21,7 @@ Not sure where to go or what to do to get started?  I can advise you on the cost
 ## Tech Support
 
 Sometimes you just need help setting up some software or maintaining one of your sites.  Chances are my years in the tech industry will be of some use.
+
+## Music
+
+Want some music for your site?  Need some production, recording, or mixing done?  Check out the [music](/music) section for audio related services.

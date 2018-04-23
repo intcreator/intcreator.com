@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="/styles/int-styles.html">
+<link rel="import" href="int-contact.html">
 
 <dom-module id="int-home">
     <template>
@@ -46,33 +47,16 @@
                 margin-left: 1em;
             }
 
-            .link-box {
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .link-box a {
-                display: block;
-                padding: 1em;
-                border: solid white .05em;
-                color: white;
-                text-align: center;
-            }
-
-            .link-box a + a {
-                margin-top: .5em;
-            }
-
         </style>
 
         <div class="container">
             <h1>Intcreator</h1>
             <h2>Services for musicians, artists, and businesses</h2>
-            <article>
+            <article page="">
                 <a class="int-button box" href="/music">
                     <h2>Music</h2>
                     <ul>
+                        <li>Production</li>
                         <li>Recording</li>
                         <li>Mixing</li>
                         <li>Mastering</li>
@@ -89,11 +73,7 @@
                     </ul>
                 </a>
             </article>
-            <h2>Contact</h2>
-            <div class="link-box">
-                <a class="int-button" href="https://www.messenger.com/t/intcreator" target="_blank">Facebook Messenger</a>
-                <a class="int-button" href="https://twitter.com/messages/compose?recipient_id=169717937" target="_blank">Twitter</a>
-            </div>
+            <int-contact></int-contact>
         </div>
 
     </template>

@@ -44,19 +44,17 @@
     <int-navigation></int-navigation>
     <div id="container">
       <iron-pages selected="[[data.page]]" attr-for-selected="page" fallback-selection="404">
-		<!-- <int-fade-blocks page=""></int-fade-blocks> -->
+		<int-fade-blocks page="legacy-portfolio"></int-fade-blocks>
 		<int-home page=""></int-home>
-        <int-markdown page="music" source="../data/pages/music.md"></int-markdown>
-        <int-markdown page="tech" source="../data/pages/tech.md"></int-markdown>
-		<!-- <int-music page="music"></int-music> -->
-		<!-- <int-tech page="tech"></int-tech> -->
+		<int-music page="music"></int-music>
+		<int-tech page="tech"></int-tech>
         <int-blog page="timl" route="{{tail}}" blog="timl"></int-blog>
         <int-markdown page="about" source="../data/pages/about.md"></int-markdown>
         <int-markdown page="cv" source="../data/pages/cv.md"></int-markdown>
         <int-markdown page="portfolio" source="../data/pages/portfolio.md"></int-markdown>
         <int-markdown page="legacy" source="../data/pages/legacy.md"></int-markdown>
 		<int-slider page="slider"></int-slider>
-		<h3 page="404">404</h3>
+		<h3 page="404">404 - page not found!</h3>
       </iron-pages>
       <int-footer></int-footer>
     </div>

@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="/styles/int-styles.html">
+<link rel="import" href="int-contact.html">
 
 <dom-module id="int-tech">
   <template>
@@ -9,9 +10,14 @@
             
         }
 
+        int-contact {
+          padding: 1em;
+        }
+        
     </style>
 
-    <h1>Tech</h1>
+    <int-markdown page="tech" source="../data/pages/tech.md"></int-markdown>
+    <int-contact></int-contact>
 
   </template>
 
