@@ -20,7 +20,16 @@
                 margin-top: 1em;
             }
 
-            h1, h2 {
+            .links {
+                display: flex;
+                justify-content: center;
+            }
+
+            .links > * + * {
+                margin-left: .5em;
+            }
+
+            h1, h2, h3, h4, p {
                 text-align: center;
             }
 
@@ -28,52 +37,30 @@
                 display: flex;
             }
 
-            .box {
-                padding: 1em;
-                flex-grow: 1;
-                color: currentColor;
-                text-align: left;
-            }
-
-            .box:hover {
-                text-decoration: none;
-            }
-
-            .box:visited {
-                color: currentColor;
-            }
-
-            .box + .box {
-                margin-left: 1em;
-            }
-
         </style>
 
         <div class="container">
             <h1>Intcreator</h1>
-            <h2>Services for musicians, artists, and businesses</h2>
-            <article page="">
-                <a class="int-button box" href="/music">
-                    <h2>Music</h2>
-                    <ul>
-                        <li>Production</li>
-                        <li>Recording</li>
-                        <li>Mixing</li>
-                        <li>Mastering</li>
-                        <li>Distribution</li>
-                        <li>Remixes</li>
-                    </ul>
-                </a>
-                <a class="int-button box" href="/tech">
-                    <h2>Tech</h2>
-                    <ul>
-                        <li>Websites</li>
-                        <li>Consulting</li>
-                        <li>Tech support</li>
-                    </ul>
-                </a>
-            </article>
+            <h2>High quality instrumentation for your songs</h2>
+            <p>I will add harmonies, complementary melodies, and accents to your original songs, with the following instruments:</p>
+            <h3>Synths</h3>
+            <h3>Bass</h3>
+            <h3>Organs</h3>
+            <h3>Strings</h3>
+            <h3>Pads</h3>
+            <h3>Drums</h3>
+
+            <h2>Pricing</h2>
+            <h3>$20 / hour</h3>
+
             <int-contact></int-contact>
+            <p>Looking for studio rules or legal/copyright info?  Read the <a href="/fine-print">fine print</a>.</p>
+
+            <h2>Need something else?</h2>
+            <div class="links">
+                <a class="int-button" href="/music">Recording/mixing</a>
+                <a class="int-button" href="/tech">Websites/tech support</a>
+            </div>
         </div>
 
     </template>

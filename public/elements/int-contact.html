@@ -97,7 +97,7 @@
                     this.$['fire-save-doc'].data = {
                         email: this.email,
                         message: this.message,
-                        timestamp: new Date().toDateString()
+                        timestamp: new Date().toLocaleString()
                     };
                     this.$['fire-save-doc'].saveValue(this.database);
                     this.$['fire-save-doc'].reset();

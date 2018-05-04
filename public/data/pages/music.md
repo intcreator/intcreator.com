@@ -1,6 +1,6 @@
 # Music
 
-I offer a variety of services that can take song production from start to finish including producing, recording, mixing, mastering, and distribution.
+While my focus is on adding instrumentation to songs, I also offer a variety of services that can take song production from start to finish including producing, recording, mixing, mastering, and distribution.
 
 You can hear some work from my music project [Interlucid](https://interlucid.com/) on [major services](https://interlucid.com/links/self-aware.html) and [Bandcamp](https://interlucid.bandcamp.com/).  I also remixed [this song](https://soundcloud.com/the-arts-3/so-much) into [this](https://interlucid.bandcamp.com/track/so-much-interlucid-remix).
 
@@ -10,7 +10,7 @@ If you have a great melody and some guitar or piano chords to go along with it b
 
 ## Recording
 
-My small studio has a condenser microphone, an audio interface, an acoustic guitar, an electric guitar, two keyboards, and an Ableton Push.  If you like you can just rent out the studio for equipment alone.
+Record vocals, guitars, and more in my studio.  I'll help you get a clean sound.
 
 ## Mixing and Mastering
 
@@ -26,4 +26,4 @@ Just love my music style and want me to remix your track?  Let me know and I'll 
 
 ## Tech
 
-Need to register a domain, start hosting a website, build something in WordPress, etc.?  Check out the [tech](/tech) page for technology related services.
+Do you want an online presence for your band or music project?  Need to register a domain, start hosting a website, build something in WordPress, etc.?  Check out the [tech](/tech) page for technology related services.
