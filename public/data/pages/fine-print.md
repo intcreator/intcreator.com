@@ -11,6 +11,8 @@ Here are several important (though possibly boring) rules and disclaimers that y
 
 I am committed to producing uplifting music.  I will not record, produce, mix, or master music that is profane, vulgar, violent, satanic, or sexual.  I may be able to recommend a different service you can utilize if your music fits into any of these categories.
 
+I reserve the right to determine whether music fits into these categories.  I also reserve the right to stop working on a project if I don't immediately realize or decide a song is not appropriate.  If this is the case, clients may still be billed for recording or producing time, whether or not a finished product is created.
+
 ## Payment Policy
 
 Account balances must be cleared for previous visits to the studio before additional visits to the studio may be scheduled.  Account balances must also be cleared for previous projects before additional projects may be started.
@@ -31,6 +33,6 @@ This also means that artists who play or sing in the studio or who submit songs 
 
 ## Agreement
 
-By using my services or my studio, you acknowledge that you understand and agree to the information on this page.
+By using my services or my studio, you acknowledge that you understand and agree to the information on this page.  Upon beginning a project you will be asked to read and digitally sign a contract including these terms.
 
 [back to homepage](/)
