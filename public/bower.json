@@ -2,7 +2,7 @@
   "name": "intcreator",
   "description": "A Polymer based site to demonstrate Brandon&#39;s web dev skills",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2",
+    "polymer": "^3.0.2",
     "iron-icons": "PolymerElements/iron-icons#^2",
     "no-ie": "intcreator/no-ie",
     "marked-element": "PolymerElements/marked-element#^2",
@@ -17,5 +17,9 @@
   },
   "devDependencies": {
     "web-component-tester": "^6"
+  },
+  "resolutions": {
+    "webcomponentsjs": "1",
+    "polymer": "2"
   }
 }
