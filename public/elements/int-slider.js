@@ -1,8 +1,10 @@
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/iron-icons/image-icons.html">
-<link rel="import" href="/styles/int-styles.html">
+import { PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
+import '../../../node_modules/@polymer/iron-icons/image-icons.js';
+import '/styles/int-styles.js';
+const $_documentContainer = document.createElement('template');
+$_documentContainer.setAttribute('style', 'display: none;');
 
-<dom-module id="int-slider">
+$_documentContainer.innerHTML = `<dom-module id="int-slider">
   <template>
     <style include="int-styles">
       #container {
@@ -117,7 +119,7 @@
 
     <div id="container" on-mouseover="pause" on-mouseout="unpause">
       <template is="dom-repeat" items="[[images]]">
-        <div class$="slide [[init(index)]]" style$="background-image: url('[[item.url]]')"></div>
+        <div class\$="slide [[init(index)]]" style\$="background-image: url('[[item.url]]')"></div>
       </template>
       <button id="previous-button" class="nav-button" on-tap="showPreviousSlide">
         <iron-icon icon="image:navigate-before"></iron-icon>
@@ -129,93 +131,93 @@
 
   </template>
 
-  <script>
+  
+</dom-module>`;
 
-		class IntSlider extends Polymer.Element {
+document.head.appendChild($_documentContainer.content);
 
-			static get is() { return 'int-slider'; }
+class IntSlider extends PolymerElement {
 
-			static get properties() {
+    static get is() { return 'int-slider'; }
+
+    static get properties() {
 				return {
-					images: {
-						type: Array,
-						value: [
-							{
-								url: "../images/home/lego.jpeg"
-							},
-							{
-								url: "../images/home/peak.jpg"
-							},
-							{
-								url: "../images/home/snow.jpg"
-							},
-							{
-								url: "../images/home/irrigation.jpg"
-							},
-							{
-								url: "../images/home/sunset.jpg"
-							},
-						]
-					},
-					slides: {
-						type: Array,
-					},
-					paused: {
-						type: Boolean,
-						value: false
-					}
+            images: {
+                type: Array,
+                value: [
+                    {
+                        url: "../images/home/lego.jpeg"
+                    },
+                    {
+                        url: "../images/home/peak.jpg"
+                    },
+                    {
+                        url: "../images/home/snow.jpg"
+                    },
+                    {
+                        url: "../images/home/irrigation.jpg"
+                    },
+                    {
+                        url: "../images/home/sunset.jpg"
+                    },
+                ]
+            },
+            slides: {
+                type: Array,
+            },
+            paused: {
+                type: Boolean,
+                value: false
+            }
 				}
-			}
+    }
 
-			connectedCallback() {
+    connectedCallback() {
 				super.connectedCallback();
 				window.setInterval(function() {
-					if(!this.paused) this.changeSlide();
+            if(!this.paused) this.changeSlide();
 				}, 7000);
-			}
+    }
 
-			init(index) {
+    init(index) {
 				if(index) return "";
 				else return "show";
-			}
+    }
 
-			changeSlide(direction) {
+    changeSlide(direction) {
 				this.slides = this.slides ? this.slides : document.querySelectorAll('.slide');
 				var slides = this.slides;
 				// find the active slide
 				for(var i = 0; i < slides.length; i++) {
-					if(slides[i].classList.contains('show')) {
-						// hide it
-						slides[i].classList.remove('show');
-						slides[i].classList.add('hide');
-						if(direction === "previous") {
-							// show the previous slide in sequence
-							var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
-						} else {
-							// show the next slide in sequence
-							var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
-						}
+            if(slides[i].classList.contains('show')) {
+                // hide it
+                slides[i].classList.remove('show');
+                slides[i].classList.add('hide');
+                if(direction === "previous") {
+                    // show the previous slide in sequence
+                    var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
+                } else {
+                    // show the next slide in sequence
+                    var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
+                }
 
-						toShow.classList.remove('hide');
-						toShow.classList.add('show');
-						return;
-					}
+                toShow.classList.remove('hide');
+                toShow.classList.add('show');
+                return;
+            }
 				}
-			}
+    }
 
-			showPreviousSlide() {
+    showPreviousSlide() {
 				this.changeSlide("previous");
-			}
+    }
 
-			pause() {
+    pause() {
 				this.set('paused', true);
-			}
+    }
 
-			unpause() {
+    unpause() {
 				this.set('paused', false);
-			}
+    }
 
-		}
-
-  </script>
-</dom-module>
+}

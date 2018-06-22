@@ -1,23 +1,5 @@
 {
-  "name": "intcreator.com",
-  "version": "2.0.0",
   "description": "A site to exhibit and demonstrate Brandon's web development skills",
-  "main": "index.html",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "eslint": "^4.4.1",
-    "eslint-plugin-html": "^3.1.1",
-    "firebase": "^3.3.2",
-    "moment": "^2.21.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/intcreator/intcreator.com.git"
-  },
   "keywords": [
     "intcreator",
     "porfolio",
@@ -25,9 +7,46 @@
     "firebase",
     "polymer"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intcreator/intcreator.com.git"
+  },
+  "homepage": "https://github.com/intcreator/intcreator.com#readme",
+  "name": "@polymer/intcreator",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-html": "^3.1.1",
+    "firebase": "^3.3.2",
+    "moment": "^2.21.0",
+    "@polymer/polymer": "^3.0.0",
+    "@polymer/iron-icons": "^3.0.0-pre.18",
+    "@polymer/marked-element": "^3.0.0-pre.18",
+    "@polymer/iron-ajax": "^3.0.0-pre.18",
+    "@polymer/iron-pages": "^3.0.0-pre.18",
+    "@polymer/app-route": "^3.0.0-pre.18",
+    "@polymer/paper-tabs": "^3.0.0-pre.18",
+    "@polymer/iron-input": "^3.0.0-pre.18",
+    "@polymer/iron-autogrow-textarea": "^3.0.0-pre.18",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  },
+  "devDependencies": {
+    "wct-browser-legacy": "^0.0.1-pre.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Brandon Blatter",
   "bugs": {
     "url": "https://github.com/intcreator/intcreator.com/issues"
   },
-  "homepage": "https://github.com/intcreator/intcreator.com#readme"
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0",
+    "@webcomponents/webcomponentsjs": "2.0.0-beta.2"
+  }
 }

@@ -1,9 +1,11 @@
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="/styles/int-styles.html">
-<link rel="import" href="int-contact.html">
+import { PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
+import '/styles/int-styles.js';
+import './int-contact.js';
+import { html } from '../../../node_modules/@polymer/polymer/lib/utils/html-tag.js';
 
-<dom-module id="int-home">
-    <template>
+class IntHome extends PolymerElement {
+  static get template() {
+    return html`
         <style include="int-styles">
 
             :host {
@@ -51,7 +53,7 @@
             <h3>Drums</h3>
 
             <h2>Pricing</h2>
-            <h3>$20 / hour</h3>
+            <h3>\$20 / hour</h3>
 
             <int-contact></int-contact>
             <p>Looking for studio rules or legal/copyright info?  Read the <a href="/fine-print">fine print</a>.</p>
@@ -62,18 +64,10 @@
                 <a class="int-button" href="/tech">Websites/tech support</a>
             </div>
         </div>
+`;
+  }
 
-    </template>
+  static get is() { return 'int-home' }
+}
 
-    <script>
-
-        class IntHome extends Polymer.Element {
-
-            static get is() { return 'int-home' }
-
-        }
-
-        customElements.define(IntHome.is, IntHome);
-
-    </script>
-</dom-module>
+customElements.define(IntHome.is, IntHome);
