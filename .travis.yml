@@ -14,4 +14,4 @@ script:
   - echo "Deploying..."
   
 after_success:
-  - firebase deploy - project intcreator-1551e - token $FIREBASE_TOKEN
+  - firebase deploy --token $FIREBASE_TOKEN
