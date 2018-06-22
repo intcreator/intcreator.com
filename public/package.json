@@ -20,17 +20,17 @@
     "eslint": "^4.4.1",
     "eslint-plugin-html": "^3.1.1",
     "firebase": "^3.3.2",
-    "moment": "^2.21.0",
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-icons": "^3.0.0-pre.18",
-    "@polymer/marked-element": "^3.0.0-pre.18",
-    "@polymer/iron-ajax": "^3.0.0-pre.18",
-    "@polymer/iron-pages": "^3.0.0-pre.18",
-    "@polymer/app-route": "^3.0.0-pre.18",
-    "@polymer/paper-tabs": "^3.0.0-pre.18",
-    "@polymer/iron-input": "^3.0.0-pre.18",
-    "@polymer/iron-autogrow-textarea": "^3.0.0-pre.18",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "moment": "^2.22.2",
+    "@polymer/polymer": "^3.0.2",
+    "@polymer/iron-icons": "^3.0.0-pre.19",
+    "@polymer/marked-element": "^3.0.0-pre.19",
+    "@polymer/iron-ajax": "^3.0.0-pre.19",
+    "@polymer/iron-pages": "^3.0.0-pre.19",
+    "@polymer/app-route": "^3.0.0-pre.19",
+    "@polymer/paper-tabs": "^3.0.0-pre.19",
+    "@polymer/iron-input": "^3.0.0-pre.19",
+    "@polymer/iron-autogrow-textarea": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.2"
   },
   "devDependencies": {
     "wct-browser-legacy": "^0.0.1-pre.11"
@@ -38,7 +38,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Brandon Blatter",
+  "author": "Brandon der Blätter",
   "bugs": {
     "url": "https://github.com/intcreator/intcreator.com/issues"
   },

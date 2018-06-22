@@ -1,26 +1,49 @@
-import { PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '../../../node_modules/@polymer/polymer/polymer-element.js';
 import '../../../node_modules/@polymer/marked-element/marked-element.js';
 import '/styles/int-styles.js';
+
 class IntMarkdown extends PolymerElement {
 
-    static get is() { return 'int-markdown' }
+    static get template() {
+        return html`
+            <style include="int-styles">
+                :host {
+                }
+
+                #container {
+                    min-height: 50vh;
+                            padding: 10vw;
+                    padding-top: 50px;
+                    padding-bottom: 5vh;
+                }
+
+                marked-element {
+                    max-width: 100%;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+
+            </style>
+
+            <div id="container">
+                <marked-element>
+                    <div id="marked-html" slot="markdown-html"></div>
+                    <script type="text/markdown" src$="[[source]]"></script>
+                </marked-element>
+            </div>
+        `
+    }
 
     static get properties() {
-				return {
+        return {
             source: {
                 type: String
             }
-				}
+        }
     }
 
 }
 
-customElements.define(IntMarkdown.is, IntMarkdown);
-
-/* <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
-;
+customElements.define('int-markdown', IntMarkdown);

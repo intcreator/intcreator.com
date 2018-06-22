@@ -1,4 +1,4 @@
-MainData = {
+export const MainData = {
   properties: {
     home: {
       type: Object,
@@ -15,18 +15,18 @@ MainData = {
                 url: "https://web-audio-api.firebaseapp.com/",
                 imageUrl: "../images/home/web-audio-api.png"
               },
-                            {
-                                title: "NUVI",
-                                description: "NUVI maintains a suite of social media analytics and interaction software.  I helped to migrate data between older and newer systems.",
-                                url: "https://www.nuvi.com/",
-                                imageUrl: "../images/home/nuvi-logotype.png"
-                            },
-                            {
-                                title: "Prendus.com",
-                                description: "Prendus is a startup on BYU campus that allows users to create and share learning materials across the world.  I created the logo and led front-end visual and user experience design and development.  Check out the style guide I made by clicking on the link.",
-                                url: "https://prendus.github.io/style-guide/",
-                                imageUrl: "../images/home/prendus.png"
-                            },
+              {
+                title: "NUVI",
+                description: "NUVI maintains a suite of social media analytics and interaction software.  I helped to migrate data between older and newer systems.",
+                url: "https://www.nuvi.com/",
+                imageUrl: "../images/home/nuvi-logotype.png"
+              },
+              {
+                title: "Prendus.com",
+                description: "Prendus is a startup on BYU campus that allows users to create and share learning materials across the world.  I created the logo and led front-end visual and user experience design and development.  Check out the style guide I made by clicking on the link.",
+                url: "https://prendus.github.io/style-guide/",
+                imageUrl: "../images/home/prendus.png"
+              },
               {
                 title: "FamilySearch.org",
                 description: "FamilySearch is an online system for indexing, searching, and organizing family history data.  I was a web developer on the team in charge of patron help resources.",
@@ -66,7 +66,7 @@ MainData = {
                 description: "I make music under the name Interlucid.  Check out my sounds.",
                 url: "https://interlucid.com/",
                 imageUrl: "../images/home/interlucid-logotype.png",
-                                imagePosition: "logo"
+                imagePosition: "logo"
               },
               {
                 title: "Résumé",
