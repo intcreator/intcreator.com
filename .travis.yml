@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-  — "node"
+  - "node"
 script:
-  — echo "Deploying..."
+  - echo "Deploying..."
 install:
-  — npm install -g firebase-tools
+  - npm install -g firebase-tools
 after_success:
-  — firebase deploy — project intcreator-1551e — token $FIREBASE_TOKEN
+  - firebase deploy - project intcreator-1551e - token $FIREBASE_TOKEN
