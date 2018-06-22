@@ -1,3 +1,5 @@
+![Build status](https://travis-ci.org/intcreator/intcreator.com.svg?branch=master)
+
 # [intcreator.com](https://intcreator.com/)
 
 This website is created in HTML, CSS, and ES6 using the Polymer Elements library.  It is deployed with Firebase.  
