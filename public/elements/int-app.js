@@ -80,11 +80,3 @@ class IntApp extends PolymerElement {
 }
 
 customElements.define(IntApp.is, IntApp);
-
-/* <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
-;

@@ -180,11 +180,3 @@ $_documentContainer.innerHTML = `<dom-module id="twit-bot">
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
-
-/* <link rel="import" href="/bower_components/no-ie/no-ie.html"> */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
-;
