@@ -7,6 +7,9 @@ install:
   - cd public
   - npm install
 
+script:
+  - polymer build
+
 deploy:
   provider: firebase
   token: $FIREBASE_TOKEN
