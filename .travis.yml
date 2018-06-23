@@ -13,7 +13,8 @@ install:
 script:
   - polymer build
   - cd ..
-  - ls
+  - ls public
+  - ls public/build
   - cat firebase.json
 
 deploy:
