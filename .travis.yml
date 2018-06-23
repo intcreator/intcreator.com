@@ -14,4 +14,4 @@ install:
 script:
   - polymer build
   - cd ..
-  - firebase depoly --token $FIREBASE_TOKEN
+  - firebase deploy --token $FIREBASE_TOKEN
