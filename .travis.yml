@@ -3,15 +3,16 @@ language: node_js
 node_js:
   - node
 
+before_install:
+  - npm i -g polymer-cli
+
 install:
-  - npm install -g firebase-tools
-  - npm install -g bower
   - cd public
-  - bower install
-  - cd ..
+  - npm install
 
 script:
-  - echo "Deploying..."
-  
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - polymer build
+
+deploy:
+  provider: firebase
+  token: $FIREBASE_TOKEN
