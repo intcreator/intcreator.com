@@ -1,0 +1,17 @@
+{
+    "shell": "elements/int-app.js",
+    "sources": [
+        "blogs/**/*",
+        "data/**/*",
+        "dependencies/**/*",
+        "elements/**/*",
+        "images/**/*",
+        "legacy/**/*",
+        "portfolio/**/*",
+        "styles/**/*",
+        "404.html"
+    ],
+    "extraDependencies": [
+        "node_modules/**/*"
+    ]
+}

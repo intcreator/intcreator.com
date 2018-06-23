@@ -36,7 +36,7 @@
     "wct-browser-legacy": "^0.0.1-pre.11"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "author": "Brandon der Blätter",
   "bugs": {
