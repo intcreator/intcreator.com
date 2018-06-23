@@ -12,6 +12,7 @@ install:
 
 script:
   - polymer build
+  - cd ..
 
 deploy:
   provider: firebase
