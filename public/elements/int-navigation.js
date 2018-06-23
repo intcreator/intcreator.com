@@ -241,9 +241,9 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                 </ul>
                 </div>
                 <div id="menu-screen" class="uncover" on-tap="closeThings"></div>
-                <button id="stupid-button" class="int-button" on-tap="toggleStupid">
+                <!-- <button id="stupid-button" class="int-button" on-tap="toggleStupid">
                     <iron-icon icon="announcement"></iron-icon>
-                </button>
+                </button> -->
                 <div id="stupid-modal" hidden$="[[!showStupidDialog]]">
                     <div class="int-vertical-container" hidden$="[[!showStupidForm]]">
                         <h3>"Gee, that was stupid."</h3>
