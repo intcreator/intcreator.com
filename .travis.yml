@@ -13,6 +13,8 @@ install:
 script:
   - polymer build
   - cd ..
+  - ls
+  - cat firebase.json
 
 deploy:
   provider: firebase
