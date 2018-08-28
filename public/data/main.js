@@ -10,9 +10,15 @@ export const MainData = {
             details: "My talents are in front-end web development and user experience design.  I make both visual and UX design a priority.",
             items: [
               {
+                title: "Qualtrics",
+                description: "Qualtrics is a quickly growing worldwide technology company that helps businesses better understand the needs of their customers through surveys and high-tech analytics.  I help maintain the public facing Qualtrics website.",
+                url: "https://qualtrics.com",
+                imageUrl: "../images/home/qualtrics.png"
+              },
+              {
                 title: "Web Audio API",
                 description: "The best source I could find to learn about the web audio API was MDN, and while MDN is a great reference, it's a poor tutorial.  I created a tutorial of my own with fully self-contained code snippets that walks users through how to use the web audio API even if they have little experience in audio production.",
-                url: "https://web-audio-api.firebaseapp.com/",
+                url: "https://interlucid.com/web-audio-api/",
                 imageUrl: "../images/home/web-audio-api.png"
               },
               {
@@ -33,13 +39,13 @@ export const MainData = {
                 url: "https://familysearch.org/ask/",
                 imageUrl: "../images/home/fan-chart.jpg"
               },
-              {
-                title: "Rewater",
-                description: "ReWater Systems sells greywater irrigation systems and controllers.  I created a new site and online store for them using WordPress.",
-                url: "http://rewater.com/",
-                imageUrl: "../images/home/irrigation.jpg",
-                imagePosition: "0% 70%"
-              },
+            //   {
+            //     title: "Rewater",
+            //     description: "ReWater Systems sells greywater irrigation systems and controllers.  I created a new site and online store for them using WordPress.",
+            //     url: "http://rewater.com/",
+            //     imageUrl: "../images/home/irrigation.jpg",
+            //     imagePosition: "0% 70%"
+            //   },
               // {
               //   title: "Reason to Rejoice",
               //   description: "My wife served in the Mongolia Ulaanbaatar Mission.  I maintained her mission blog.",

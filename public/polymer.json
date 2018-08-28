@@ -11,7 +11,12 @@
         "styles/**/*",
         "404.html"
     ],
+    "entrypoint": "index.html",
     "extraDependencies": [
-        "node_modules/**/*"
-    ]
+        "node_modules/@webcomponents/**/*.js",
+        "node_modules/@polymer/**/*.js",
+        "node_modules/marked/**/*.js"
+    ],
+    "moduleResolution": "node",
+    "npm": true
 }

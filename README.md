@@ -32,7 +32,7 @@ npm install
 ```
 4. Go up a couple folders:
 ```
-cd ../../
+cd ../..
 ```
 5. Run the Firebase server locally:
 ```
