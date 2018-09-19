@@ -13,7 +13,7 @@ export const MainData = {
                 title: "Qualtrics",
                 description: "Qualtrics is a quickly growing worldwide technology company that helps businesses better understand the needs of their customers through surveys and high-tech analytics.  I help maintain the public facing Qualtrics website.",
                 url: "https://qualtrics.com",
-                imageUrl: "../images/home/qualtrics.png"
+                imageUrl: "../images/home/qualtrics-xm.png"
               },
               {
                 title: "Web Audio API",
