@@ -7,13 +7,15 @@ export const MainData = {
           {
             slug: "sites",
             headline: "Sites I've worked on",
-            details: "My talents are in front-end web development and user experience design.  I make both visual and UX design a priority.",
+            details: "My focus is front-end web development.  I value both visual and UX design.",
             items: [
               {
                 title: "Qualtrics",
-                description: "Qualtrics is a quickly growing worldwide technology company that helps businesses better understand the needs of their customers through surveys and high-tech analytics.  I help maintain the public facing Qualtrics website.",
+                description: "Qualtrics helps businesses better understand their customers and employees. I created the style and component system used across all Qualtrics marketing sites (100s of pages, 10+ languages).",
                 url: "https://qualtrics.com",
-                imageUrl: "../images/home/qualtrics-xm.png"
+                imageUrl: "../images/home/qualtrics-logo.svg",
+                imagePosition: "logo",
+                backgroundColor: "white"
               },
               {
                 title: "Web Audio API",
@@ -25,13 +27,15 @@ export const MainData = {
                 title: "NUVI",
                 description: "NUVI maintains a suite of social media analytics and interaction software.  I helped to migrate data between older and newer systems.",
                 url: "https://www.nuvi.com/",
-                imageUrl: "../images/home/nuvi-logotype.png"
+                imageUrl: "../images/home/nuvi-logotype.png",
+                imagePosition: "logo"
               },
               {
                 title: "Prendus.com",
                 description: "Prendus is a startup on BYU campus that allows users to create and share learning materials across the world.  I created the logo and led front-end visual and user experience design and development.  Check out the style guide I made by clicking on the link.",
                 url: "https://prendus.github.io/style-guide/",
-                imageUrl: "../images/home/prendus.png"
+                imageUrl: "../images/home/prendus.png",
+                imagePosition: "logo"
               },
               {
                 title: "FamilySearch.org",
@@ -65,7 +69,7 @@ export const MainData = {
           {
             slug: "about",
             headline: "About me",
-            details: "I was born in and I'm currently living in Provo, Utah, but I was raised in Newbury Park, California.",
+            details: "I was born in and I'm currently living in Pleasant Grove, Utah, but I was raised in Newbury Park, California.",
             items: [
               {
                 title: "Interlucid",
@@ -77,8 +81,8 @@ export const MainData = {
               {
                 title: "Résumé",
                 description: "I have experience in web design, software instruction, and management in a foreign language.",
-                url: "../data/brandon-der-blätter-résumé.pdf",
-                imageUrl: "../images/home/résumé.png",
+                url: "../data/brandon-der-blatter-resume.pdf",
+                imageUrl: "../images/home/resume.png",
                 imagePosition: "0% 35%"
               },
               // {
@@ -95,13 +99,13 @@ export const MainData = {
               //   imageUrl: "../images/home/cordoba-temple.jpg",
               //   imagePosition: "55% 43%"
               // },
-              {
-                title: "Mormon.org Profile",
-                description: "Learn more about what I believe and why",
-                url: "https://www.mormon.org/me/7DQ7",
-                imageUrl: "../images/home/mormon.jpg",
-                imagePosition: "55% 43%"
-              },
+            //   {
+            //     title: "Mormon.org Profile",
+            //     description: "Learn more about what I believe and why",
+            //     url: "https://www.mormon.org/me/7DQ7",
+            //     imageUrl: "../images/home/mormon.jpg",
+            //     imagePosition: "55% 43%"
+            //   },
               // {
               //   title: "Parallax Site",
               //   description: "If you like parallax, check out this site I made using Adobe Muse.  On this site you can also see some other products of my work at BYU Software Training.",

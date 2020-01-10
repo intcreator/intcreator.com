@@ -237,7 +237,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     <!-- <li><a href="https://twitter.com/intcreator">Twitter</a></li> -->
                     <!-- <li><a href="/portfolio">Portfolio</a></li> -->
                     <!-- <li><a href="/blog">Blog</a></li> -->
-                    <li><a href="../data/brandon-der-blätter-résumé.pdf">Résumé</a></li>
+                    <li><a href="../data/brandon-der-blatter-resume.pdf">Résumé</a></li>
                 </ul>
                 </div>
                 <div id="menu-screen" class="uncover" on-tap="closeThings"></div>

@@ -51,3 +51,7 @@ When I worked at [NUVI](https://www.nuvi.com/) I experienced a new facet of web 
 ## BYU Computer Science
 
 Continuing my absurd downward wage trend (as I gained more and more experience, each job paid me less and less since FamilySearch) I started working for the BYU CS department as a teaching assistant.  Most of my time was spent trying to be patient with students, correcting horrifying ideas ("Instead of using GitHub.com, you should use a text editor to modify your code" "You mean like Microsoft Word?"), and clarifying facts about the modern web in class.  I had never taken the class when I started but I got hired because of my 1.5 years of experience in the field (which, unsurprisingly, taught me much more than the class ever would have).
+
+## Qualtrics
+
+After graduating and applying to several places, I joined Qualtrics as a web developer on the marketing team. You could say I'm a WordPress developer, or you could say that me and my small team manage 100s of pages of content over marketing sites in 10+ languages, including animations, forms, downloads, webinars, and more.  I created a style system based on Bootstrap 4 for the team, as well as an auto generating style guide and a system of reusable components for quickly building pages.  I also consolidated the Marketo form system (which previously used around 500 individual forms) to be usable with one global styled form template.

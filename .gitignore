@@ -5,6 +5,7 @@
 build
 **/node_modules/*
 .private
+.firebase
 
 # OS generated files #
 ######################

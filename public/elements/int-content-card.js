@@ -32,6 +32,7 @@ class IntContentCard extends PolymerElement {
                     width: 100%;
                     background-position: center;
                     background-size: cover;
+                    background-color: #121212;
                 }
 
             </style>
@@ -49,9 +50,12 @@ class IntContentCard extends PolymerElement {
     getStyles(data) {
         const position = data.imagePosition;
         let styles = "background-image: url('" + data.imageUrl + "');";
+        if(data.backgroundColor) {
+            styles += `background-color: ${data.backgroundColor};`;
+        }
         if(position === "logo") {
-        styles += "background-size: contain;";
-        styles += "background-repeat: no-repeat;";
+            styles += "background-size: 80%;";
+            styles += "background-repeat: no-repeat;";
         }
         else styles += position ? "background-position: " + position + ";" : "";
         return styles;

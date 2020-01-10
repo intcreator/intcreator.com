@@ -30,9 +30,9 @@ cd intcreator.com/public
 ```
 npm install
 ```
-4. Go up a couple folders:
+4. Go up a folder:
 ```
-cd ../..
+cd ..
 ```
 5. Run the Firebase server locally:
 ```
