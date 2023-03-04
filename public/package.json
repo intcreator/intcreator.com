@@ -29,8 +29,8 @@
     "@webcomponents/webcomponentsjs": "^2.1.0",
     "eslint": "^5.4.0",
     "eslint-plugin-html": "^4.0.5",
-    "@firebase/firestore": "^2.4.1",
-    "moment": "^2.29.2",
+    "@firebase/firestore": "^2.3.9",
+    "moment": "^2.29.4",
     "polymer-analyzer": "^3.1.2"
   },
   "scripts": {
