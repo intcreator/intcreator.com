@@ -30,11 +30,15 @@ cd intcreator.com/public
 ```
 npm install
 ```
-4. Go up a folder:
+4. Build the output:
+```
+polymer build
+```
+5. Go up a folder:
 ```
 cd ..
 ```
-5. Run the Firebase server locally:
+6. Run the Firebase server locally:
 ```
 firebase serve
 ```

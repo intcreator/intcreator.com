@@ -9,7 +9,8 @@
         "legacy/**/*",
         "portfolio/**/*",
         "styles/**/*",
-        "404.html"
+        "404.html",
+        "favicon.ico"
     ],
     "entrypoint": "index.html",
     "extraDependencies": [

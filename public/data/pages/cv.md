@@ -6,7 +6,7 @@ This curriculum vitae details everything I have ever done, including small busin
 
 Gammex Games is the first thing I decided to call my personal business.  My first idea was to have a website where people could play Flash games, similar to [onemorelevel.com](http://onemorelevel.com/).  I didn't even use my real name for this site.  I guess that's okay because I was only 15.
 
-Amazingly, the site I made is _still_ available [here](https://sites.google.com/site/gammexgames/).  I made that site in 2008, which was a long time ago.
+Amazingly, the site I made worked until around 2023. Google has stopped hosting classic sites, but you can see what it looked like [here](https://web.archive.org/web/20201103152431/https://sites.google.com/site/gammexgames/).  I made that site in 2008, which was a long time ago.
 
 ## Gammesoft
 
@@ -42,7 +42,7 @@ I worked part time at Prendus while taking classes at BYU.  I continued my educa
 
 ## Interlucid
 
-It was while I was working at Prendus that I formally created the [Interlucid](https://interlucid.com/) project (December 2016).  Interlucid is the most permanent name I've ever had for my [music creations](https://interlucid.bandcamp.com/).  I designed a logo and even printed a couple of [T-shirts](https://interlucid.threadless.com/mens/classic-t-shirt).  I've been working pretty solidly in my spare time to make songs, play at open mic nights, learn how to produce, and even learn how to play the guitar.
+It was while I was working at Prendus that I formally created the [Interlucid](https://interlucid.com/) project (December 2016).  Interlucid is the most permanent name I've ever had for my [music creations](https://interlucid.bandcamp.com/).  I designed a logo and even printed a couple of [T-shirts](https://interlucid.threadless.com/mens/classic-t-shirt).  I worked pretty solidly in my spare time to make songs, play at open mic nights, learn how to produce, and even learn how to play the guitar. I had a chance to focus 100% of my time on Interlucid after leaving Qualtrics, but after about six months I decided not to continue pursuing it as more than a hobby.
 
 ## NUVI
 
@@ -54,4 +54,8 @@ Continuing my absurd downward wage trend (as I gained more and more experience, 
 
 ## Qualtrics
 
-After graduating and applying to several places, I joined Qualtrics as a web developer on the marketing team. You could say I'm a WordPress developer, or you could say that me and my small team manage 100s of pages of content over marketing sites in 10+ languages, including animations, forms, downloads, webinars, and more.  I created a style system based on Bootstrap 4 for the team, as well as an auto generating style guide and a system of reusable components for quickly building pages.  I also consolidated the Marketo form system (which previously used around 500 individual forms) to be usable with one global styled form template.
+After graduating and applying to several places, I joined [Qualtrics](https://www.qualtrics.com/) as a web developer on the marketing team. You could say I'm a WordPress developer, or you could say that me and my small team manage 100s of pages of content over marketing sites in 10+ languages, including animations, forms, downloads, webinars, and more.  I created a style system based on Bootstrap 4 for the team, as well as an auto generating style guide and a system of reusable components for quickly building pages.  I also consolidated the Marketo form system (which previously used around 500 individual forms) to be usable with one global styled form template.
+
+## Connections Museum
+
+I know I'm biased, but the [Connections Museum](https://www.telcomhistory.org/connections-museum-seattle/) is probably the coolest museum in the country, if not the world. It was _working_ telephone switching systems from all different ages of telephony, one which is over a hundred years old! And because they use old technology like relays, wipers, and rods, you can hear them clicking as they complete calls. I volunteer at the Connections Museum primarily as a historian and curator, but also as a maintainer of some of the equipment. To support this effort I created and maintain the [Telecommunications Inventory Wiki](https://wiki.connections.museum/w/Main_Page), which documents items in the museum and provides information about their general use throughout history.
