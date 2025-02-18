@@ -1,8 +1,8 @@
-import { PolymerElement } from '../../../node_modules/@polymer/polymer/polymer-element.js';
-import '../../../node_modules/@polymer/iron-icons/image-icons.js';
-import '/styles/int-styles.js';
-const $_documentContainer = document.createElement('template');
-$_documentContainer.setAttribute('style', 'display: none;');
+import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import "@polymer/iron-icons/image-icons.js";
+import "../styles/int-styles.js";
+const $_documentContainer = document.createElement("template");
+$_documentContainer.setAttribute("style", "display: none;");
 
 $_documentContainer.innerHTML = `<dom-module id="int-slider">
   <template>
@@ -137,87 +137,91 @@ $_documentContainer.innerHTML = `<dom-module id="int-slider">
 document.head.appendChild($_documentContainer.content);
 
 class IntSlider extends PolymerElement {
-
-    static get is() { return 'int-slider'; }
+    static get is() {
+        return "int-slider";
+    }
 
     static get properties() {
-				return {
+        return {
             images: {
                 type: Array,
                 value: [
                     {
-                        url: "../images/home/lego.jpeg"
+                        url: "../images/home/lego.jpeg",
                     },
                     {
-                        url: "../images/home/peak.jpg"
+                        url: "../images/home/peak.jpg",
                     },
                     {
-                        url: "../images/home/snow.jpg"
+                        url: "../images/home/snow.jpg",
                     },
                     {
-                        url: "../images/home/irrigation.jpg"
+                        url: "../images/home/irrigation.jpg",
                     },
                     {
-                        url: "../images/home/sunset.jpg"
+                        url: "../images/home/sunset.jpg",
                     },
-                ]
+                ],
             },
             slides: {
                 type: Array,
             },
             paused: {
                 type: Boolean,
-                value: false
-            }
-				}
+                value: false,
+            },
+        };
     }
 
     connectedCallback() {
-				super.connectedCallback();
-				window.setInterval(function() {
-            if(!this.paused) this.changeSlide();
-				}, 7000);
+        super.connectedCallback();
+        window.setInterval(function () {
+            if (!this.paused) this.changeSlide();
+        }, 7000);
     }
 
     init(index) {
-				if(index) return "";
-				else return "show";
+        if (index) return "";
+        else return "show";
     }
 
     changeSlide(direction) {
-				this.slides = this.slides ? this.slides : document.querySelectorAll('.slide');
-				var slides = this.slides;
-				// find the active slide
-				for(var i = 0; i < slides.length; i++) {
-            if(slides[i].classList.contains('show')) {
+        this.slides = this.slides
+            ? this.slides
+            : document.querySelectorAll(".slide");
+        var slides = this.slides;
+        // find the active slide
+        for (var i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains("show")) {
                 // hide it
-                slides[i].classList.remove('show');
-                slides[i].classList.add('hide');
-                if(direction === "previous") {
+                slides[i].classList.remove("show");
+                slides[i].classList.add("hide");
+                if (direction === "previous") {
                     // show the previous slide in sequence
-                    var toShow = i !== 0 ? slides[i - 1] : slides[slides.length - 1];
+                    var toShow =
+                        i !== 0 ? slides[i - 1] : slides[slides.length - 1];
                 } else {
                     // show the next slide in sequence
-                    var toShow = i !== slides.length - 1 ? slides[i + 1] : slides[0];
+                    var toShow =
+                        i !== slides.length - 1 ? slides[i + 1] : slides[0];
                 }
 
-                toShow.classList.remove('hide');
-                toShow.classList.add('show');
+                toShow.classList.remove("hide");
+                toShow.classList.add("show");
                 return;
             }
-				}
+        }
     }
 
     showPreviousSlide() {
-				this.changeSlide("previous");
+        this.changeSlide("previous");
     }
 
     pause() {
-				this.set('paused', true);
+        this.set("paused", true);
     }
 
     unpause() {
-				this.set('paused', false);
+        this.set("paused", false);
     }
-
 }

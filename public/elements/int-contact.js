@@ -1,6 +1,6 @@
 import { PolymerElement } from '../../../@polymer/polymer/polymer-element.js';
 import '../../../polymerfire/polymerfire.js';
-import '/styles/int-styles.js';
+import '../styles/int-styles.js';
 import { html } from '../../../@polymer/polymer/lib/utils/html-tag.js';
 
 class IntContact extends PolymerElement {

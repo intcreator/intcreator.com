@@ -1,23 +1,27 @@
 {
-  "hosting": {
-    "public": "public/build/default",
-    "rewrites": [ {
-        "source": "/timl/**",
-        "destination": "/index.html"
-      }, {
-				"source": "/*",
-        "destination": "/index.html"
-      }, {
-        "source": "/portfolio/someday-calc/*",
-        "destination": "/portfolio/someday-calc/index.html"
-      }, {
-        "source": "/portfolio/enigma/*",
-        "destination": "/portfolio/enigma/index.html"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      ".git/**"
-    ]
-  }
+    "hosting": {
+        "public": "public/build/rollup",
+        "rewrites": [
+            {
+                "source": "/timl/**",
+                "destination": "/index.html"
+            },
+            {
+                "source": "/*",
+                "destination": "/index.html"
+            },
+            {
+                "source": "/portfolio/someday-calc/*",
+                "destination": "/portfolio/someday-calc/index.html"
+            },
+            {
+                "source": "/portfolio/enigma/*",
+                "destination": "/portfolio/enigma/index.html"
+            }
+        ],
+        "ignore": [
+            "firebase.json",
+            ".git/**"
+        ]
+    }
 }

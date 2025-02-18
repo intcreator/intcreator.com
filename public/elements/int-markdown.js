@@ -1,9 +1,8 @@
-import { PolymerElement, html } from '../../../node_modules/@polymer/polymer/polymer-element.js';
-import '../../../node_modules/@polymer/marked-element/marked-element.js';
-import '/styles/int-styles.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "@polymer/marked-element/marked-element.js";
+import "../styles/int-styles.js";
 
 class IntMarkdown extends PolymerElement {
-
     static get template() {
         return html`
             <style include="int-styles">
@@ -12,7 +11,7 @@ class IntMarkdown extends PolymerElement {
 
                 #container {
                     min-height: 50vh;
-                            padding: 10vw;
+                    padding: 10vw;
                     padding-top: 50px;
                     padding-bottom: 5vh;
                 }
@@ -24,7 +23,6 @@ class IntMarkdown extends PolymerElement {
                 img {
                     max-width: 100%;
                 }
-
             </style>
 
             <div id="container">
@@ -33,17 +31,16 @@ class IntMarkdown extends PolymerElement {
                     <script type="text/markdown" src$="[[source]]"></script>
                 </marked-element>
             </div>
-        `
+        `;
     }
 
     static get properties() {
         return {
             source: {
-                type: String
-            }
-        }
+                type: String,
+            },
+        };
     }
-
 }
 
-customElements.define('int-markdown', IntMarkdown);
+customElements.define("int-markdown", IntMarkdown);

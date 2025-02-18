@@ -3,7 +3,7 @@ import '/node_modules/polymerfire/polymerfire.js';
 import '/node_modules/@polymer/iron-autogrow-textarea/iron-autogrow-textarea.js';
 import '/node_modules/@polymer/iron-input/iron-input.js';
 import '/node_modules/@polymer/iron-icons/iron-icons.js';
-import '/styles/int-styles.js';
+import '../styles/int-styles.js';
 import '../../../../moment/moment.js';
 const $_documentContainer = document.createElement('template');
 $_documentContainer.setAttribute('style', 'display: none;');

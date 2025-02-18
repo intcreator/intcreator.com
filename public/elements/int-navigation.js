@@ -1,12 +1,11 @@
-import { PolymerElement, html } from '../../../node_modules/@polymer/polymer/polymer-element.js';
-import '../../../node_modules/@polymer/iron-icons/iron-icons.js';
-import '../../../node_modules/@polymer/iron-autogrow-textarea/iron-autogrow-textarea.js';
-// import '../../../node_modules/polymerfire/polymerfire.js';
-import '/styles/int-styles.js';
-import { GestureEventListeners } from '../../../node_modules/@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "@polymer/iron-icons/iron-icons.js";
+import "@polymer/iron-autogrow-textarea/iron-autogrow-textarea.js";
+// import 'polymerfire/polymerfire.js';
+import "../styles/int-styles.js";
+import { GestureEventListeners } from "@polymer/polymer/lib/mixins/gesture-event-listeners.js";
 
 class IntNavigation extends GestureEventListeners(PolymerElement) {
-
     static get template() {
         return html`
             <style include="int-styles">
@@ -21,8 +20,8 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: rgba(0, 0, 0, .8);
-                    border-bottom: 1px solid #BBB;
+                    background: rgba(0, 0, 0, 0.8);
+                    border-bottom: 1px solid #bbb;
                 }
 
                 ul {
@@ -60,7 +59,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     position: fixed;
                     bottom: 10px;
                     right: 10px;
-                    opacity: .5;
+                    opacity: 0.5;
                 }
 
                 #stupid-button:hover {
@@ -96,7 +95,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                 }
 
                 .cover {
-                    animation-duration: .4s;
+                    animation-duration: 0.4s;
                     animation-fill-mode: both;
                     animation-name: coverFade;
                     display: block;
@@ -110,12 +109,12 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
 
                     to {
                         display: block;
-                        opacity: .6;
+                        opacity: 0.6;
                     }
                 }
 
                 .uncover {
-                    animation-duration: .4s;
+                    animation-duration: 0.4s;
                     animation-fill-mode: both;
                     animation-name: uncoverFade;
                     display: none;
@@ -123,18 +122,17 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
 
                 @keyframes uncoverFade {
                     from {
-                    display: block;
-                    opacity: .6;
+                        display: block;
+                        opacity: 0.6;
                     }
 
                     to {
-                    display: none;
-                    opacity: 0;
+                        display: none;
+                        opacity: 0;
                     }
                 }
 
                 @media (max-width: 768px) {
-
                     #menu-container {
                         display: block;
                         position: fixed;
@@ -146,7 +144,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                         border-bottom: none;
                         font-size: 1.5em;
                         background: none;
-                        background: rgba(0, 0, 0, .8);
+                        background: rgba(0, 0, 0, 0.8);
                     }
 
                     #menu-container > * {
@@ -160,7 +158,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                         height: 45px;
                         width: 45px;
                         padding: 5px;
-                        background: rgba(0, 0, 0, .8);
+                        background: rgba(0, 0, 0, 0.8);
                         z-index: 1;
                     }
 
@@ -174,7 +172,7 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     }
 
                     .open {
-                        animation-duration: .4s;
+                        animation-duration: 0.4s;
                         animation-fill-mode: both;
                         animation-name: slideInRight;
                     }
@@ -190,9 +188,9 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     }
 
                     .close {
-                    animation-duration: .4s;
-                    animation-fill-mode: both;
-                    animation-name: slideOutRight;
+                        animation-duration: 0.4s;
+                        animation-fill-mode: both;
+                        animation-name: slideOutRight;
                     }
 
                     @keyframes slideOutRight {
@@ -206,30 +204,38 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     }
 
                     a {
-                    padding: 10px 30px 10px 10px;
+                        padding: 10px 30px 10px 10px;
                     }
-
                 }
+            </style>
 
-                </style>
+            <firebase-app
+                name="int-navigation"
+                auth-domain="[[databaseUrl]]"
+                database-url="https://[[databaseUrl]]/"
+                api-key="[[apiKey]]"
+            >
+            </firebase-app>
+            <firebase-document
+                id="fire-save-doc"
+                app-name="int-navigation"
+                path="[[feedbackId]]"
+                data="{{feedbackMessage}}"
+            >
+            </firebase-document>
 
-                <firebase-app
-                    name="int-navigation"
-                    auth-domain="[[databaseUrl]]"
-                    database-url="https://[[databaseUrl]]/"
-                    api-key="[[apiKey]]">
-                </firebase-app>
-                <firebase-document
-                    id="fire-save-doc"
-                    app-name="int-navigation"
-                    path="[[feedbackId]]"
-                    data="{{feedbackMessage}}">
-                </firebase-document>
-
-                <iron-icon id="menu-icon" icon="icons:menu" on-tap="toggleMenu"></iron-icon>
-                <div id="menu-container">
+            <iron-icon
+                id="menu-icon"
+                icon="icons:menu"
+                on-tap="toggleMenu"
+            ></iron-icon>
+            <div id="menu-container">
                 <ul id="menu-list">
-                    <li class="menu-logo"><a href="/"><img src="/images/home/inverted-symbol.png" /></a></li>
+                    <li class="menu-logo">
+                        <a href="/"
+                            ><img src="/images/home/inverted-symbol.png"
+                        /></a>
+                    </li>
                     <li><a href="/about">About</a></li>
                     <!-- <li><a href="/music">Music</a></li> -->
                     <!-- <li><a href="/tech">Tech</a></li> -->
@@ -237,144 +243,174 @@ class IntNavigation extends GestureEventListeners(PolymerElement) {
                     <!-- <li><a href="https://twitter.com/intcreator">Twitter</a></li> -->
                     <!-- <li><a href="/portfolio">Portfolio</a></li> -->
                     <!-- <li><a href="/blog">Blog</a></li> -->
-                    <li><a href="../data/brandon-der-blatter-resume.pdf">Résumé</a></li>
+                    <li>
+                        <a href="../data/brandon-der-blatter-resume.pdf"
+                            >Résumé</a
+                        >
+                    </li>
                 </ul>
-                </div>
-                <div id="menu-screen" class="uncover" on-tap="closeThings"></div>
-                <!-- <button id="stupid-button" class="int-button" on-tap="toggleStupid">
+            </div>
+            <div id="menu-screen" class="uncover" on-tap="closeThings"></div>
+            <!-- <button id="stupid-button" class="int-button" on-tap="toggleStupid">
                     <iron-icon icon="announcement"></iron-icon>
                 </button> -->
-                <div id="stupid-modal" hidden$="[[!showStupidDialog]]">
-                    <div class="int-vertical-container" hidden$="[[!showStupidForm]]">
-                        <h3>"Gee, that was stupid."</h3>
-                        <p>See something stupid on this site that shouldn't have happened?  Tell me about it!</p>
-                        <textarea id="stupid-input" placeholder="What went horrendously wrong?" value="{{feedback::input}}" on-keydown="handleKeydown"></textarea>
-                        <button class="int-button" on-tap="submitStupid" disabled$=[[!feedback]]>Submit</button>
-                        <p>Now when something breaks, you can do something about it!  Thanks!</p>
-                    </div>
-                    <div class="int-vertical-container" hidden$="[[showStupidForm]]">
-                        <h3>Thanks!</h3>
-                        <p>Thanks for your feedback! I'll try to make the site less stupid.</p>
-                    </div>
+            <div id="stupid-modal" hidden$="[[!showStupidDialog]]">
+                <div
+                    class="int-vertical-container"
+                    hidden$="[[!showStupidForm]]"
+                >
+                    <h3>"Gee, that was stupid."</h3>
+                    <p>
+                        See something stupid on this site that shouldn't have
+                        happened? Tell me about it!
+                    </p>
+                    <textarea
+                        id="stupid-input"
+                        placeholder="What went horrendously wrong?"
+                        value="{{feedback::input}}"
+                        on-keydown="handleKeydown"
+                    ></textarea>
+                    <button
+                        class="int-button"
+                        on-tap="submitStupid"
+                        disabled$="[[!feedback]]"
+                    >
+                        Submit
+                    </button>
+                    <p>
+                        Now when something breaks, you can do something about
+                        it! Thanks!
+                    </p>
                 </div>
-        `
+                <div
+                    class="int-vertical-container"
+                    hidden$="[[showStupidForm]]"
+                >
+                    <h3>Thanks!</h3>
+                    <p>
+                        Thanks for your feedback! I'll try to make the site less
+                        stupid.
+                    </p>
+                </div>
+            </div>
+        `;
     }
-    
-    static get is() { return 'int-navigation'; }
+
+    static get is() {
+        return "int-navigation";
+    }
 
     static get properties() {
         return {
             menuOpen: {
                 type: Boolean,
-                value: false
+                value: false,
             },
             showStupidDialog: {
                 type: Boolean,
-                value: false
+                value: false,
             },
             showStupidForm: {
                 type: Boolean,
-                value: true
+                value: true,
             },
             database: {
                 type: String,
-                value: 'feedback'
+                value: "feedback",
             },
             feedback: {
                 type: String,
-                value: ''
+                value: "",
             },
             block: {
                 type: Boolean,
-                value: false
-            }
+                value: false,
+            },
         };
     }
 
     constructor() {
-				super();
-				// this.apiKey = Credentials.apiKey;
-				// this.databaseUrl = Credentials.databaseUrl;
+        super();
+        // this.apiKey = Credentials.apiKey;
+        // this.databaseUrl = Credentials.databaseUrl;
     }
 
     openMenu() {
-				this.$['menu-container'].classList.add('open');
-				this.$['menu-container'].classList.remove('close');
-				this.showOverlay();
+        this.$["menu-container"].classList.add("open");
+        this.$["menu-container"].classList.remove("close");
+        this.showOverlay();
     }
 
     closeMenu() {
-				this.$['menu-container'].classList.remove('open');
-				this.$['menu-container'].classList.add('close');
-				this.hideOverlay();
+        this.$["menu-container"].classList.remove("open");
+        this.$["menu-container"].classList.add("close");
+        this.hideOverlay();
     }
 
     showOverlay() {
-				this.$['menu-screen'].classList.remove('uncover');
-				this.$['menu-screen'].classList.add('cover');
+        this.$["menu-screen"].classList.remove("uncover");
+        this.$["menu-screen"].classList.add("cover");
     }
 
     hideOverlay() {
-				this.$['menu-screen'].classList.remove('cover');
-				this.$['menu-screen'].classList.add('uncover');
+        this.$["menu-screen"].classList.remove("cover");
+        this.$["menu-screen"].classList.add("uncover");
     }
 
     toggleMenu() {
-				// toggle the mobile menu
-				this.set('menuOpen', !this.menuOpen);
-				if(this.menuOpen) {
+        // toggle the mobile menu
+        this.set("menuOpen", !this.menuOpen);
+        if (this.menuOpen) {
             this.openMenu();
-				} else {
+        } else {
             this.closeMenu();
-				}
-				this.$['menu-icon'].icon = this.menuOpen ? 'icons:clear' : 'icons:menu';
+        }
+        this.$["menu-icon"].icon = this.menuOpen ? "icons:clear" : "icons:menu";
     }
 
     toggleStupid() {
-				// toggle the stupid feedback modal
-				this.set('showStupidDialog', !this.showStupidDialog);
-				if(this.showStupidDialog) {
+        // toggle the stupid feedback modal
+        this.set("showStupidDialog", !this.showStupidDialog);
+        if (this.showStupidDialog) {
             this.showOverlay();
-            this.$['stupid-input'].focus();
-				} else {
+            this.$["stupid-input"].focus();
+        } else {
             this.hideOverlay();
-				}
+        }
     }
 
     handleKeydown(e) {
-				// submit on enter but not shift enter
-				if(e.keyCode === 13 && !e.shiftKey) this.submitStupid();
-				// hide on escape
-				if(e.keyCode === 27) this.closeThings();
+        // submit on enter but not shift enter
+        if (e.keyCode === 13 && !e.shiftKey) this.submitStupid();
+        // hide on escape
+        if (e.keyCode === 27) this.closeThings();
     }
 
     submitStupid() {
-				this.set('showStupidForm', false);
-				this.hideOverlay();
-				this.$['fire-save-doc'].data = {
+        this.set("showStupidForm", false);
+        this.hideOverlay();
+        this.$["fire-save-doc"].data = {
             message: this.feedback,
-  timestamp: new Date().toDateString()
-				};
-				this.$['fire-save-doc'].saveValue(this.database);
-				this.$['fire-save-doc'].reset();
-				this.set('feedback', '');
-				setTimeout(() => {
-            this.set('showStupidDialog', false);
-            this.set('showStupidForm', true);
-				}, 3000);
-
+            timestamp: new Date().toDateString(),
+        };
+        this.$["fire-save-doc"].saveValue(this.database);
+        this.$["fire-save-doc"].reset();
+        this.set("feedback", "");
+        setTimeout(() => {
+            this.set("showStupidDialog", false);
+            this.set("showStupidForm", true);
+        }, 3000);
     }
 
     closeThings() {
-				// close the menu if it's open
-				if(this.menuOpen) {
+        // close the menu if it's open
+        if (this.menuOpen) {
             this.toggleMenu();
-				}
-				// close everything else
-				this.hideOverlay();
-				this.set('showStupidDialog', false);
+        }
+        // close everything else
+        this.hideOverlay();
+        this.set("showStupidDialog", false);
     }
-
 }
 
 customElements.define(IntNavigation.is, IntNavigation);

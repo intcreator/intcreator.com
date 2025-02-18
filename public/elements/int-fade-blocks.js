@@ -1,8 +1,5 @@
-import {
-    PolymerElement,
-    html,
-} from "../../../node_modules/@polymer/polymer/polymer-element.js";
-import "/styles/int-styles.js";
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "../styles/int-styles.js";
 import "./int-section.js";
 import { MainData } from "../data/main.js";
 

@@ -1,8 +1,7 @@
-import { PolymerElement, html } from '../../../node_modules/@polymer/polymer/polymer-element.js';
-import '/styles/int-styles.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import "../styles/int-styles.js";
 
 class IntFooter extends PolymerElement {
-
     static get template() {
         return html`
             <style include="int-styles">
@@ -20,7 +19,6 @@ class IntFooter extends PolymerElement {
         super.connectedCallback();
         this.date = new Date().getFullYear();
     }
-
 }
 
-customElements.define('int-footer', IntFooter);
+customElements.define("int-footer", IntFooter);
