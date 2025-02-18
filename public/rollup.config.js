@@ -21,25 +21,11 @@ const terserOptions = {
 export default [
     {
         input: [
-            // "blogs/**/*",
-            // "data/**/*",
-            // "dependencies/**/*",
-            // "elements/**/*",
-            // "images/**/*",
-            // "legacy/**/*",
-            // "portfolio/**/*",
-            // "styles/**/*",
-            // "index.html",
-            // "404.html",
-            // "favicon.ico",
             'elements/int-app.js',
         ],
         output: {
             dir: 'build/rollup/elements',
             format: 'esm',
-            // preserve directory structure for entrypoints
-            // entryFileNames: ({ facadeModuleId }) =>
-            //     facadeModuleId.replace(`${__dirname}/lib/`, ""),
             // skip the hash suffix
             chunkFileNames: '[name].js',
         },
@@ -53,5 +39,8 @@ export default [
             }),
         ],
         preserveEntrySignatures: false,
+        watch: {
+            include: ['elements/**', 'styles/**'],
+        }
     },
 ];

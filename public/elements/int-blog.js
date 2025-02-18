@@ -2,7 +2,6 @@ import { PolymerElement } from '../../../@polymer/polymer/polymer-element.js';
 
 import '../../../@polymer/app-route/app-route.js';
 import '../../../@polymer/iron-ajax/iron-ajax.js';
-import '../../../@polymer/marked-element/marked-element.js';
 import '../styles/int-styles.js';
 
 class IntBlog extends PolymerElement {

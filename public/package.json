@@ -18,17 +18,19 @@
     "license": "UNLICENSED",
     "dependencies": {
         "@firebase/firestore": "^4.7.6",
+        "@lit-labs/observers": "^2.0.5",
+        "@lit/task": "^1.0.2",
         "@polymer/app-route": "^3.0.2",
         "@polymer/iron-ajax": "^3.0.1",
         "@polymer/iron-autogrow-textarea": "^3.0.1",
         "@polymer/iron-icons": "^3.0.1",
         "@polymer/iron-input": "^3.0.1",
         "@polymer/iron-pages": "^3.0.1",
-        "@polymer/marked-element": "^3.0.1",
         "@polymer/paper-tabs": "^3.1.0",
         "@polymer/polymer": "^3.0.5",
         "@webcomponents/webcomponentsjs": "^2.8.0",
         "lit": "^3.2.1",
+        "marked": "^15.0.7",
         "moment": "^2.29.4",
         "polymer-analyzer": "^3.1.2",
         "tslib": "^2.8.1"
@@ -37,7 +39,8 @@
         "test": "echo \"No tests specified\" && exit 0",
         "build": "run-p build:**",
         "build:rollup": "rollup -c",
-        "build:copy": "concurrently \"rsync -a index.html build/rollup/index.html\" \"rsync -a data build/rollup/data\" \"rsync -a images build/rollup/images\" \"rsync -a styles build/rollup/styles\" \"rsync -a legacy build/rollup\" \"rsync -a node_modules/@webcomponents build/rollup/node_modules/@webcomponents\" \"rsync -a favicon.ico build/rollup/favicon.ico\""
+        "build:copy": "concurrently \"rsync -a index.html build/rollup/index.html\" \"rsync -a data build/rollup/data\" \"rsync -a images build/rollup/images\" \"rsync -a styles build/rollup/styles\" \"rsync -a legacy build/rollup\" \"rsync -a node_modules/@webcomponents build/rollup/node_modules/@webcomponents\" \"rsync -a favicon.ico build/rollup/favicon.ico\"",
+        "watch": "rollup -c -w"
     },
     "author": "Brandon der Blätter",
     "bugs": {

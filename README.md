@@ -2,17 +2,11 @@
 
 # [intcreator.com](https://intcreator.com/)
 
-This website is created in HTML, CSS, and ES6 using the Polymer Elements library.  It is deployed with Firebase.  
+This website was created in HTML, CSS, and TypeScript using the Polymer Elements library, but now it uses Lit and Rollup. As of 2/2025 it is still in the process of migration. It is deployed with Firebase.  
 
 ## Run this website locally
 
-Note: this guide assumes you have Node and NPM installed.  If you need to, download the Polymer CLI:
-
-```
-npm i -g polymer-cli
-```
-
-and Firebase tools:
+Note: this guide assumes you have Node and NPM installed.  If you need to, download Firebase tools:
 
 ```
 npm i -g firebase-tools
@@ -22,23 +16,23 @@ npm i -g firebase-tools
 ```
 git clone https://github.com/intcreator/intcreator.com
 ```
-2. Go inside the public folder:
+1. Go inside the public folder:
 ```
 cd intcreator.com/public
 ```
-3. Install dependencies:
+1. Install dependencies:
 ```
 npm install
 ```
-4. Build the output:
+1. Build the output:
 ```
-polymer build
+npm run build
 ```
-5. Go up a folder:
+1. Go up a folder:
 ```
 cd ..
 ```
-6. Run the Firebase server locally:
+1. Run the Firebase server locally:
 ```
 firebase serve
 ```
@@ -48,5 +42,3 @@ Note: You must use the Firebase server for redirects to work correctly (importan
 ## Contributing
 
 Please open an issue or pull request if you discover any problems with this site, including poor UX design, broken functionality, or security flaws.  Thanks!
-
-[![Twitter Follow](https://img.shields.io/twitter/follow/intcreator.svg?style=social&label=Twitter&style=flat)](https://twitter.com/intcreator)

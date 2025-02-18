@@ -25,10 +25,6 @@ class IntApp extends PolymerElement {
                     padding-top: 50px;
                 }
 
-                marked-element {
-                    max-width: 100%;
-                }
-
                 img {
                     max-width: 100%;
                 }
@@ -59,7 +55,7 @@ class IntApp extends PolymerElement {
                     <int-tech page="tech"></int-tech>
                     <int-markdown
                         page="fine-print"
-                        source="../data/pages/fine-print.md"
+                        path="../data/pages/fine-print.md"
                     ></int-markdown>
                     <int-blog
                         page="timl"
@@ -68,19 +64,19 @@ class IntApp extends PolymerElement {
                     ></int-blog>
                     <int-markdown
                         page="about"
-                        source="../data/pages/about.md"
+                        path="../data/pages/about.md"
                     ></int-markdown>
                     <int-markdown
                         page="cv"
-                        source="../data/pages/cv.md"
+                        path="../data/pages/cv.md"
                     ></int-markdown>
                     <int-markdown
                         page="portfolio"
-                        source="../data/pages/portfolio.md"
+                        path="../data/pages/portfolio.md"
                     ></int-markdown>
                     <int-markdown
                         page="legacy"
-                        source="../data/pages/legacy.md"
+                        path="../data/pages/legacy.md"
                     ></int-markdown>
                     <int-slider page="slider"></int-slider>
                     <h3 page="404">404 - page not found!</h3>

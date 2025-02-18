@@ -15,6 +15,7 @@ export class IntHeadline extends LitElement {
             max-width: 800px;
         }
     `]
+
     @property({type: Object})
     data: {
         headline: string;
@@ -22,11 +23,9 @@ export class IntHeadline extends LitElement {
     };
     
     render() {
-
         return html`
             <h2>${this.data.headline}</h2>
             <p>${this.data.details}</p>
         `;
-
     }
 }
