@@ -11,6 +11,7 @@
         "type": "git",
         "url": "git+https://github.com/intcreator/intcreator.com.git"
     },
+    "type": "module",
     "homepage": "https://github.com/intcreator/intcreator.com#readme",
     "name": "@polymer/intcreator",
     "version": "0.1.1",

@@ -48,8 +48,8 @@ class IntContact extends PolymerElement {
             </firebase-document>
 
             <h2>Contact</h2>
-            <a class="int-button contact-link" href="https://www.messenger.com/t/intcreator" target="_blank">Facebook Messenger</a>
-            <a class="int-button contact-link" href="https://twitter.com/messages/compose?recipient_id=169717937" target="_blank">Twitter</a>
+            <!-- <a class="int-button contact-link" href="https://www.messenger.com/t/intcreator" target="_blank">Facebook Messenger</a> -->
+            <a class="int-button contact-link" href="https://bsky.app/profile/intcreator.com" target="_blank">Bluesky</a>
             <a class="int-button contact-link" href="https://discord.gg/nvrRYXn" target="_blank">Discord Server</a>
             <h3>Email me</h3>
             <input placeholder="Your email address..." value="{{email::input}}">

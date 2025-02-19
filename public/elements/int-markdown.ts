@@ -21,7 +21,7 @@ export class IntMarkdown extends LitElement {
         img {
             max-width: 100%;
         }
-    `]
+    `];
 
     @property({type: String})
     path: string;
@@ -36,7 +36,6 @@ export class IntMarkdown extends LitElement {
       });
 
     render() {
-
         return this._markdownTask.render({
             pending: () => html``,
             complete: (source) => html`

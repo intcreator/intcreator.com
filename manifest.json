@@ -1,7 +1,7 @@
 {
   "name": "intcreator",
   "short_name": "intcreator",
-  "description": "A Polymer based site to demonstrate Brandon&#39;s web dev skills",
+  "description": "A Lit based site to demonstrate Brandon's web dev skills",
   "start_url": "/",
   "display": "standalone"
 }

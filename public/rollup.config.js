@@ -25,6 +25,7 @@ export default [
         ],
         output: {
             dir: 'build/rollup/elements',
+            sourcemap: true,
             format: 'esm',
             // skip the hash suffix
             chunkFileNames: '[name].js',
@@ -38,9 +39,6 @@ export default [
                 showMinifiedSize: false,
             }),
         ],
-        preserveEntrySignatures: false,
-        watch: {
-            include: ['elements/**', 'styles/**'],
-        }
+        preserveEntrySignatures: false
     },
 ];
