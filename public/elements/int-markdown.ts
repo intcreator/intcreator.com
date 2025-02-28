@@ -33,7 +33,7 @@ export class IntMarkdown extends LitElement {
             return response.text();
         },
         args: () => [this.path]
-      });
+    });
 
     render() {
         return this._markdownTask.render({
