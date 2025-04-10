@@ -10,11 +10,11 @@
     },
     "type": "module",
     "homepage": "https://github.com/intcreator/intcreator.com#readme",
-    "name": "@polymer/intcreator",
+    "name": "intcreator.com",
     "version": "0.1.1",
     "scripts": {
         "test": "echo \"No tests specified\" && exit 0",
-        "build": "run-p build:**",
+        "build": "mkdir -p build && mkdir -p build/rollup && run-p build:**",
         "build:rollup": "rollup -c",
         "build:copy": "concurrently \"rsync -a index.html build/rollup\" \"rsync -a data build/rollup\" \"rsync -a images build/rollup\" \"rsync -a styles build/rollup\" \"rsync -a legacy build/rollup\" \"rsync -a node_modules/@webcomponents build/rollup/node_modules\" \"rsync -a favicon.ico build/rollup\"",
         "watch": "rollup -c -w"

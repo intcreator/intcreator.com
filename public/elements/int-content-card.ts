@@ -6,7 +6,7 @@ import { marked } from "marked";
 
 import { globalStyles } from "../styles/int-styles";
 
-type CardData = {
+export type CardData = {
     title: string,
     description: string,
     url: string,

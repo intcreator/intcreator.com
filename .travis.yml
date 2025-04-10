@@ -4,7 +4,6 @@ node_js:
   - node
 
 before_install:
-  - npm i -g polymer-cli
   - npm i -g firebase-tools
 
 install:
@@ -12,6 +11,6 @@ install:
   - npm install
 
 script:
-  - polymer build
+  - npm run build
   - cd ..
   - firebase deploy --token $FIREBASE_TOKEN

@@ -1,7 +1,12 @@
 import { LitElement, css, html } from "lit";
-import {customElement, property} from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import { globalStyles } from "../styles/int-styles";
+
+export type HeadlineData = {
+    headline: string;
+    details: string;
+}
 
 @customElement('int-headline')
 export class IntHeadline extends LitElement {
@@ -16,12 +21,9 @@ export class IntHeadline extends LitElement {
         }
     `]
 
-    @property({type: Object})
-    data: {
-        headline: string;
-        details: string;
-    };
-    
+    @property({ type: Object })
+    data: HeadlineData;
+
     render() {
         return html`
             <h2>${this.data.headline}</h2>

@@ -19,7 +19,7 @@ export const MainData = {
                             },
                             {
                                 title: "Node Cron",
-                                description: "I maintain the package you get when you run `npm i cron`. It has over 2 million downloads per week.",
+                                description: "I maintain the package you get when you run `npm i cron`. It has almost 3 million downloads per week.",
                                 url: "https://www.npmjs.com/package/cron",
                                 imageUrl: "../images/home/cron.svg",
                                 imageStyles: "background-size: auto 80%;",
