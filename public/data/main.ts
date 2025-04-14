@@ -1,7 +1,6 @@
 export const MainData = {
     properties: {
         home: {
-            type: Object,
             value: {
                 blocks: [
                     {
@@ -197,7 +196,6 @@ export const MainData = {
             },
         },
         legacy: {
-            type: Object,
             value: {
                 slug: "legacy",
                 headline: "Legacy (old) sites",

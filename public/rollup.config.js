@@ -39,6 +39,11 @@ export default [
                 showMinifiedSize: false,
             }),
         ],
-        preserveEntrySignatures: false
+        preserveEntrySignatures: false,
+        watch: {
+            chokidar: {
+                usePolling: true,
+            }
+        }
     },
 ];

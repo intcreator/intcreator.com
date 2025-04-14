@@ -9,6 +9,14 @@ import "./int-content-card.js";
 import type { CardData } from "./int-content-card.js";
 import "../styles/int-styles.js";
 
+export type ExperienceData = {
+    slug: string;
+    headline: string;
+    details: string;
+    items: CardData[];
+    note?: string;
+};
+
 @customElement('int-section')
 export class IntSection extends LitElement {
 
@@ -26,12 +34,7 @@ export class IntSection extends LitElement {
     `]
 
     @property({ type: Object })
-    data: {
-        headline: string;
-        details: string;
-        items: CardData[];
-        note: string;
-    };
+    data: ExperienceData;
 
     @state()
     windowTimeout: NodeJS.Timeout;
@@ -41,10 +44,6 @@ export class IntSection extends LitElement {
 
     render() {
         return html`
-            <style include="int-styles">
-
-            </style>
-
             <int-headline .data=${this.data}></int-headline>
             ${map(this.data.items, (item) =>
             html`<int-content-card class="animated showOnScroll transparent" .data=${item}></int-content-card>`)

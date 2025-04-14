@@ -1,6 +1,6 @@
 import { LitElement, css, html } from "lit";
-import {customElement, property} from 'lit/decorators.js';
-import {unsafeHTML} from 'lit/directives/unsafe-html.js';
+import { customElement, property } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import { marked } from "marked";
 
@@ -11,7 +11,7 @@ export type CardData = {
     description: string,
     url: string,
     imageUrl: string,
-    imageStyles: string,
+    imageStyles?: string,
 }
 
 @customElement('int-content-card')
@@ -49,7 +49,7 @@ export class IntContentCard extends LitElement {
         }
     `];
 
-    @property({type: Object})
+    @property({ type: Object })
     data: CardData;
 
     render() {
