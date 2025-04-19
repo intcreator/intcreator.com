@@ -3,71 +3,19 @@
 <html>
     <head>
         <title>Page Not Found</title>
-        <link rel="stylesheet" type="text/css" href="/styles/main.css">
-        <script type="module" src="/node_modules/@polymer/polymer/lib/elements/custom-style.js"></script>
-        <script type="module" src="../styles/int-styles.js"></script>
-        <script type="module" src="/elements/int-navigation.js"></script>
-        <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-            <!-- FIXME(polymer-modulizer):
-            These imperative modules that innerHTML your HTML are
-            a hacky way to be sure that any mixins in included style
-            modules are ready before any elements that reference them are
-            instantiated, otherwise the CSS @apply mixin polyfill won't be
-            able to expand the underlying CSS custom properties.
-            See: https://github.com/Polymer/polymer-modulizer/issues/154
-            -->
-        <script type="module">
-            const $_documentContainer = document.createElement('template');
-
-            $_documentContainer.innerHTML = `
-                <custom-style>
-                    <style include="int-styles">
-
-                    #container {
-                        margin: 0 auto;
-                        padding: 80px 40px;
-                        font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
-                        font-size: 1.1em;
-                    }
-
-                    .big-button {
-                        padding: 100px;
-                        font-size: 4em;
-                    }
-
-                    </style>
-                </custom-style>
-            `;
-
-            document.body.appendChild($_documentContainer.content);
-        </script>
-        <script type="module">
-            import '/node_modules/@polymer/polymer/lib/elements/custom-style.js';
-            import '../styles/int-styles.js';
-            import '/elements/int-navigation.js';
-        </script>
+        <style>
+            .big-button {
+                padding: 100px;
+                font-size: 4em;
+            }            
+        </style>
     </head>
     <body>
-        <script type="module">
-            const $_documentContainer = document.createElement('template');
-            $_documentContainer.innerHTML = `<int-navigation></int-navigation>`;
-            document.body.appendChild($_documentContainer.content);
-        </script>
-        <script type="module">
-            const $_documentContainer = document.createElement('template');
-
-            $_documentContainer.innerHTML = `
-                <div id="container">
-                    <h1>404</h1>
-                    <h2>Congratulations, you broke the internet.</h2>
-                    <p>Okay, that's not necessarily true.  If you like you can give up and <a href="/">go home</a>.  In any case, we provide this button to help you fix the problem:</p>
-                    <button class="int-button big-button" onclick="window.history.back()">Fix the thing</button>
-                    <p>I &lt;3 <code>404.html</code></p>
-                    <p>P.S. Can you ever tell if you've reached the actual page with the 404 content?  I mean...it looks like a 404 page...</p>
-                </div>
-            `;
-
-            document.body.appendChild($_documentContainer.content);
-        </script>
+        <h1>404</h1>
+        <h2>Congratulations, you broke the internet.</h2>
+        <p>Okay, that's not necessarily true.  If you like you can give up and <a href="/">go home</a>.  In any case, we provide this button to help you fix the problem:</p>
+        <button class="big-button" onclick="window.history.back()">Fix the thing</button>
+        <p>I &lt;3 <code>404.html</code></p>
+        <p>P.S. Can you ever tell if you've reached the actual page with the 404 content?  I mean...it looks like a 404 page...</p>
     </body>
 </html>

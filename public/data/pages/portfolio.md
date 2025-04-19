@@ -12,7 +12,7 @@ Here are examples of different things I've made somewhat recently (as in 2016 or
 
 I took a user experience design class at BYU and made the following app prototypes:
 
-[](- [Twit Bot](/portfolio/twit-bot: a Twitter clone)
+- [Twit Bot](/portfolio/twit-bot): a Twitter clone
 - [Someday Calculator](/portfolio/someday-calc): a retirement calculator that helps you understand the importance of saving starting now
 
 ## Personal Projects

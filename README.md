@@ -2,7 +2,7 @@
 
 # [intcreator.com](https://intcreator.com/)
 
-This website was originally created in HTML, CSS, and JavaScript using the Polymer Elements library, but now it uses Lit with TypeScript and Rollup. As of 4/2025 it is still in the process of migration. It is deployed with Firebase.
+This website was originally created in HTML, CSS, and JavaScript using the Polymer Elements library, but now it uses Lit with TypeScript and Rollup. As of 4/2025 all published components have been migrated. It is deployed with Firebase.
 
 ## Run this website locally
 

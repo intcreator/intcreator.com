@@ -21,11 +21,11 @@ const terserOptions = {
 export default [
     {
         input: [
-            'elements/int-app.js',
+            'routes.ts',
         ],
         output: {
-            dir: 'build/rollup/elements',
-            sourcemap: true,
+            dir: 'build/rollup',
+            // sourcemap: true,
             format: 'esm',
             // skip the hash suffix
             chunkFileNames: '[name].js',

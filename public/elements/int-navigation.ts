@@ -1,6 +1,6 @@
 import { LitElement, css, html } from "lit";
-import {customElement, state} from 'lit/decorators.js';
-import {ref, createRef, Ref} from 'lit/directives/ref.js';
+import { customElement, state } from 'lit/decorators.js';
+import { ref, createRef, Ref } from 'lit/directives/ref.js';
 
 import "@polymer/iron-icons/iron-icons.js";
 
@@ -227,24 +227,19 @@ export class IntNavigation extends LitElement {
                         /></a>
                     </li>
                     <li><a href="/about">About</a></li>
-                    <!-- <li><a href="/music">Music</a></li> -->
-                    <!-- <li><a href="/tech">Tech</a></li> -->
                     <!-- <li><a href="https://interlucid.com/">Interlucid</a></li> -->
                     <!-- <li><a href="https://bsky.app/profile/intcreator.com">Bluesky</a></li> -->
                     <!-- <li><a href="/portfolio">Portfolio</a></li> -->
-                    <!-- <li><a href="/blog">Blog</a></li> -->
                     <li>
-                        <a href="../data/brandon-der-blatter-resume.pdf"
-                            >Résumé</a
-                        >
+                        <a href="../data/brandon-der-blatter-resume.pdf" router-ignore>Résumé</a>
                     </li>
                 </ul>
             </div>
-            <div id="menu-screen" class="${ this._overlayUp ? "cover" : "uncover" }" @click=${this.closeThings}></div>
+            <div id="menu-screen" class="${this._overlayUp ? "cover" : "uncover"}" @click=${this.closeThings}></div>
             <!-- <button id="stupid-button" class="int-button" on-tap="toggleStupid">
                     <iron-icon icon="announcement"></iron-icon>
                 </button> -->
-            <div id="stupid-modal" ?hidden=${ !this._showStupidDialog }>
+            <div id="stupid-modal" ?hidden=${!this._showStupidDialog}>
                 <div
                     class="int-vertical-container"
                     ?hidden=${this._showStupidForm}

@@ -14,7 +14,7 @@ Gammesoft is mostly a variation and expansion of Gammex Games.  I decided to bra
 
 ## Metalectricity
 
-[Metalectricity](/legacy/metalectricity) is my first idea for a design and development contracting business.  I realized that was more realistic for me than creating or collecting Flash games and monetizing with ads.  As you can see I was more focused around visual design despite the terrible design of my example logos and websites and my clear ability to code as evidenced by me making a website.  Oh well.
+<a href="/legacy/metalectricity" router-ignore>Metalectricity</a> is my first idea for a design and development contracting business.  I realized that was more realistic for me than creating or collecting Flash games and monetizing with ads.  As you can see I was more focused around visual design despite the terrible design of my example logos and websites and my clear ability to code as evidenced by me making a website.  Oh well.
 
 ## State Farm
 
